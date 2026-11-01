@@ -128,6 +128,9 @@ const projects: Project[] = [
   {
     title: 'Olist · E-commerce BI',
     category: 'Data & BI', year: '2026',
+    screenshot: '/images/olist-dashboard.svg',
+    summaryFr: 'Tableau de bord décisionnel pour analyser les ventes, les commandes, les catégories de produits et la performance logistique de la marketplace Olist.',
+    descriptionFr: 'Projet de Business Intelligence autour du jeu de données Olist : préparation et analyse des données commerciales et logistiques afin de construire une vue synthétique de la performance e-commerce et de l’expérience client.',
     summary: 'A business intelligence project to analyse commercial, logistics and customer satisfaction performance.',
     description: 'Designed an analytical workflow around the Olist e-commerce dataset, using data preparation and relational analysis to support business performance exploration and dashboarding.',
     stack: ['Python', 'PostgreSQL', 'Power BI', 'Data Analysis'],
