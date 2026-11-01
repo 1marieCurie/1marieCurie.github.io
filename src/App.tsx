@@ -304,7 +304,7 @@ function App() {
               {categoriesTranslated.map(c => <button key={c} className={currentFilter === c ? 'active' : ''} onClick={() => setActiveCategory(categoryMap[c])}>{c}</button>)}
             </div>
             <div className="project-grid">
-              {filtered.map((p, i) => <button className={`project-card accent-${p.accent}`} key={p.title} onClick={() => setSelected(p)}>
+              {filtered.map((p) => <button className={`project-card accent-${p.accent}`} key={p.title} onClick={() => setSelected(p)}>
                 <div className="project-card-top"><span className="project-icon">{projectIcon(p.icon)}</span><span className="project-year">{p.year}</span></div>{p.screenshot && <img className="project-preview" src={p.screenshot} alt={`${p.title} project preview`} loading="lazy" />}
                 <div className="project-card-body"><div className="project-category">{p.category}</div><h3>{p.title}</h3><p>{lang === 'FR' ? (p.summaryFr ?? p.summary) : p.summary}</p></div>
                 <div className="project-card-bottom"><span>{p.status ? t.ongoing : 'VIEW PROJECT'}</span><span className="arrow-circle"><ArrowUpRight size={17}/></span></div>
