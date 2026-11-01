@@ -46,8 +46,8 @@ Then the URL will be `https://1marieCurie.github.io/portfolio/`.
 
 ## Personalise before publishing
 
-- Check all project descriptions and add repository/demo links when you have them.
-- Add a professional portrait if you want one (the current design uses a monogram instead).
+- Project cards include repository links and selected screenshots where verified. Review each description before publishing.
+- Keep `public/profile-khadija.jpg` as the portfolio portrait asset.
 - Update `public/CV_Khadija_Mellak.pdf` whenever your CV changes.
 - The street address from the CV is intentionally not published; the site only displays Fès, Morocco.
 - Verify that you are comfortable publishing the email address and phone number before adding any additional contact details. The current website uses the email address and GitHub link only.

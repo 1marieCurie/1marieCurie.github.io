@@ -17,6 +17,10 @@ type Project = {
   accent: string
   icon: 'shield' | 'code' | 'database' | 'brain' | 'vision' | 'game' | 'leaf' | 'chart'
   status?: string
+  repo?: string
+  screenshot?: string
+  summaryFr?: string
+  descriptionFr?: string
 }
 
 const copy = {
@@ -105,6 +109,7 @@ const copy = {
 const projects: Project[] = [
   {
     title: 'Threat Intelligence Platform',
+    repo: 'https://github.com/1marieCurie/threat-intelligence-platform', screenshot: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/01_2_dashboard_after.png', summaryFr: 'Plateforme d’alerte précoce qui aide les PME marocaines à comprendre et prioriser leurs risques cyber grâce à la Threat Intelligence et à l’IA.', descriptionFr: 'Réalisée durant mon stage PFA : une solution qui associe l’analyse de liens suspects à la gestion des vulnérabilités à partir de l’inventaire logiciel. L’objectif est de transformer des informations de sécurité dispersées en priorités de risque et en alertes exploitables pour les responsables sécurité.',
     category: 'AI & Cybersecurity', year: '2026',
     summary: 'An early-warning platform that helps Moroccan SMEs understand cyber risks through threat intelligence and AI.',
     description: 'Developed during my PFA internship: a solution combining suspicious-URL analysis with vulnerability management based on software inventory. The goal is to turn scattered security information into actionable risk priorities and alerts for security managers.',
@@ -113,6 +118,7 @@ const projects: Project[] = [
   },
   {
     title: 'iliaCode',
+    repo: 'https://github.com/1marieCurie/iliacode', summaryFr: 'Un copilote souverain de développement assisté par IA, conçu pour aider à générer du code et des tests automatisés.', descriptionFr: 'Projet en cours qui explore la manière dont un assistant intelligent peut accompagner le cycle de développement logiciel, faciliter le travail des développeurs et renforcer la fiabilité du code grâce à la génération de tests.',
     category: 'Generative AI', year: 'In progress',
     summary: 'A sovereign AI development copilot designed to assist with code generation and automated test creation.',
     description: 'An ongoing project exploring how an intelligent assistant can support software development workflows, improve developer productivity and strengthen software reliability through generated tests.',
@@ -145,6 +151,7 @@ const projects: Project[] = [
   },
   {
     title: 'FreeDoom Game Agent',
+    repo: 'https://github.com/1marieCurie/FreeDoom_Reinforcement_Learning_Game', screenshot: 'https://raw.githubusercontent.com/1marieCurie/FreeDoom_Reinforcement_Learning_Game/main/image.png', summaryFr: 'Des agents qui apprennent à jouer dans un environnement de combat grâce à l’apprentissage par renforcement.', descriptionFr: 'Implémentation et expérimentation de PPO et Dueling DRQN pour apprendre des comportements de combat dans un environnement de type deathmatch. Les deux approches ont été évaluées dans des conditions distinctes.',
     category: 'Reinforcement Learning', year: '2025',
     summary: 'A game-playing agent that learns by interacting with a custom environment.',
     description: 'Implemented and explored reinforcement-learning approaches for an agent learning to play through environment interaction.',
@@ -153,6 +160,7 @@ const projects: Project[] = [
   },
   {
     title: 'UrbainClean',
+    repo: 'https://github.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez', screenshot: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/interface_main.png', summaryFr: 'Solution de vision par ordinateur pour détecter les zones de déchets dans l’espace urbain de Fès.', descriptionFr: 'Développement d’un système de détection basé sur YOLOv11s, avec une interface Streamlit permettant l’inférence sur des images et des vidéos, le réglage du seuil de confiance et la visualisation des boîtes de détection.',
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning concept for real-time detection of unsanitary areas in the city of Fès.',
     description: 'Designed a computer-vision solution aimed at detecting urban cleanliness issues in real time, with the objective of supporting a cleaner city.',
@@ -161,6 +169,7 @@ const projects: Project[] = [
   },
   {
     title: 'Building Energy Prediction',
+    repo: 'https://github.com/1marieCurie/Energy_consumption_and_peaks_detection', screenshot: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/streamlit_dashboard.png', summaryFr: 'Projet de machine learning pour prévoir la consommation énergétique de bâtiments et repérer les périodes de pointe.', descriptionFr: 'Étude de modèles de régression et de séries temporelles sur des données de consommation de bâtiments. Le projet comprend une interface Streamlit pour explorer les prédictions horaires et les heures de pointe.',
     category: 'Machine Learning', year: '2025',
     summary: 'A machine learning project for predicting and optimising building energy consumption.',
     description: 'Explored regression and sequence-learning approaches to model energy consumption, with an interactive Streamlit interface.',
@@ -169,6 +178,7 @@ const projects: Project[] = [
   },
   {
     title: 'Training Management Web App',
+    repo: 'https://github.com/1marieCurie/Plateforme_E-Learning_des_formation_Ecole_Polythechnique_des_Genies', summaryFr: 'Application web de gestion des programmes de formation et des cours en ligne.', descriptionFr: 'Réalisée durant mon stage d’initiation à l’EPG, cette application porte sur la conception et le développement d’un outil web de gestion des formations et des cours.',
     category: 'Web Development', year: '2025',
     summary: 'A web application for managing training programmes and online courses.',
     description: 'Built during my introductory internship at EPG, focusing on the design and development of a web application for training and course management.',
@@ -295,8 +305,8 @@ function App() {
             </div>
             <div className="project-grid">
               {filtered.map((p, i) => <button className={`project-card accent-${p.accent}`} key={p.title} onClick={() => setSelected(p)}>
-                <div className="project-card-top"><span className="project-icon">{projectIcon(p.icon)}</span><span className="project-year">{p.year}</span></div>
-                <div className="project-card-body"><div className="project-category">{p.category}</div><h3>{p.title}</h3><p>{p.summary}</p></div>
+                <div className="project-card-top"><span className="project-icon">{projectIcon(p.icon)}</span><span className="project-year">{p.year}</span></div>{p.screenshot && <img className="project-preview" src={p.screenshot} alt={`${p.title} project preview`} loading="lazy" />}
+                <div className="project-card-body"><div className="project-category">{p.category}</div><h3>{p.title}</h3><p>{lang === 'FR' ? (p.summaryFr ?? p.summary) : p.summary}</p></div>
                 <div className="project-card-bottom"><span>{p.status ? t.ongoing : 'VIEW PROJECT'}</span><span className="arrow-circle"><ArrowUpRight size={17}/></span></div>
                 <span className="project-number">0{projects.indexOf(p)+1}</span>
               </button>)}
@@ -335,9 +345,9 @@ function App() {
         <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <button className="modal-close" onClick={() => setSelected(null)} aria-label={t.close}><X size={20}/></button>
           <div className="modal-kicker">{selected.category} · {selected.year}</div><div className={`modal-symbol accent-${selected.accent}`}>{projectIcon(selected.icon)}</div>
-          <h2 id="modal-title">{selected.title}</h2><div className="modal-label">{t.details}</div><p className="modal-description">{selected.description}</p>
+          <h2 id="modal-title">{selected.title}</h2><div className="modal-label">{t.details}</div><p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
           <div className="modal-label">{t.stack}</div><div className="modal-tags">{selected.stack.map(s => <span key={s}>{s}</span>)}</div>
-          <div className="modal-note">{lang === 'EN' ? 'Project description based on the information available in my CV.' : 'Description du projet basée sur les informations présentes dans mon CV.'}</div>
+          {selected.repo && <a className="project-repo-link" href={selected.repo} target="_blank" rel="noreferrer"><Github size={16}/>{lang === 'EN' ? 'View source on GitHub' : 'Voir le code sur GitHub'}<ArrowUpRight size={15}/></a>}<div className="modal-note">{lang === 'EN' ? 'Open the repository to explore the implementation and project files.' : 'Consultez le dépôt pour explorer l’implémentation et les fichiers du projet.'}</div>
           <button className="modal-done" onClick={() => setSelected(null)}>{t.close}<X size={15}/></button>
         </section>
       </div>}
