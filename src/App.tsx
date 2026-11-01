@@ -246,11 +246,11 @@ function App() {
             </div>
             <div className="hero-meta"><span><MapPin size={14}/>{t.location}</span><span className="meta-divider"/><a href="https://github.com/1marieCurie" target="_blank" rel="noreferrer"><Github size={14}/>GitHub <ArrowUpRight size={12}/></a></div>
           </div>
-          <div className="hero-visual" aria-label="Khadija Mellak monogram illustration">
+          <div className="hero-visual" aria-label="Portrait of Khadija Mellak">
             <div className="orbit orbit-a"/><div className="orbit orbit-b"/>
             <div className="hero-card">
               <div className="card-topline"><span>ENGINEERING / AI</span><span className="card-live"><i/>AVAILABLE</span></div>
-              <div className="monogram">K<span>.</span>M</div>
+              <img className="profile-photo" src={`${import.meta.env.BASE_URL}profile-khadija.jpg`} alt="Portrait de Khadija Mellak" />
               <div className="hero-card-name">Khadija Mellak</div>
               <div className="hero-card-role">AI ENGINEERING · SOFTWARE QUALITY</div>
               <div className="card-divider"/>
