@@ -180,3 +180,8 @@
   .project-card-bottom{align-items:flex-end}
   .project-tags{max-width:65%}
 }
+
+.project-preview--wildlife{
+  object-fit:cover;
+  object-position:center 53%;
+}
