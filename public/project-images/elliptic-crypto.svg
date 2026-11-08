@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="Elliptic curve cryptography research visualization">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111b30"/><stop offset="1" stop-color="#17172e"/></linearGradient>
+ <linearGradient id="curve" x2="1" y2="0"><stop stop-color="#81d4db"/><stop offset=".55" stop-color="#9c9aff"/><stop offset="1" stop-color="#d2a4ff"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#8a80ff" stop-opacity=".25"/><stop offset="1" stop-color="#8a80ff" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#a4a6dc" stroke-opacity=".09"/></pattern>
+</defs>
+<rect width="1200" height="440" fill="url(#bg)"/><rect width="1200" height="440" fill="url(#grid)"/><circle cx="530" cy="218" r="290" fill="url(#halo)"/>
+<text x="60" y="70" fill="#b9c8e5" font-size="16" letter-spacing="3" font-family="Arial,sans-serif">APPLIED CRYPTOGRAPHY</text>
+<text x="60" y="112" fill="#edf0fc" font-size="29" font-weight="700" font-family="Arial,sans-serif">Elliptic curve mathematics</text>
+<text x="60" y="145" fill="#8f9fbd" font-size="15" font-family="Arial,sans-serif">Algebraic structures · Point operations · Security analysis</text>
+<g transform="translate(65 175)">
+ <path d="M0 0V210H650" fill="none" stroke="#8394b7" stroke-opacity=".65" stroke-width="2"/>
+ <path d="M0 35H650M0 77H650M0 119H650M0 161H650M80 0V210M160 0V210M240 0V210M320 0V210M400 0V210M480 0V210M560 0V210" stroke="#8894bd" stroke-opacity=".15" stroke-dasharray="3 6"/>
+ <path d="M70 176 C105 72 181 20 262 46 C341 72 387 168 468 184 C533 197 584 155 622 86" fill="none" stroke="url(#curve)" stroke-width="5" stroke-linecap="round"/>
+ <path d="M150 163L335 88L468 184" fill="none" stroke="#b1a6ff" stroke-opacity=".7" stroke-width="2" stroke-dasharray="7 7"/>
+ <circle cx="150" cy="163" r="8" fill="#e5d1ff" stroke="#9d8eff" stroke-width="3"/><circle cx="335" cy="88" r="8" fill="#9fe1e0" stroke="#5bc1c8" stroke-width="3"/><circle cx="468" cy="184" r="8" fill="#e5d1ff" stroke="#9d8eff" stroke-width="3"/>
+ <text x="126" y="150" fill="#e6ddff" font-size="18" font-weight="700" font-family="Arial,sans-serif">P</text><text x="344" y="78" fill="#b8f0eb" font-size="18" font-weight="700" font-family="Arial,sans-serif">Q</text><text x="481" y="208" fill="#e6ddff" font-size="18" font-weight="700" font-family="Arial,sans-serif">R</text>
+</g>
+<rect x="790" y="65" width="350" height="310" rx="18" fill="#19243d" stroke="#64618f" stroke-opacity=".6"/>
+<circle cx="965" cy="197" r="104" fill="#8176e8" fill-opacity=".08"/>
+<path d="M965 108l77 28v63c0 58-33 98-77 123-44-25-77-65-77-123v-63z" fill="#222d4b" stroke="url(#curve)" stroke-width="3"/>
+<rect x="926" y="183" width="78" height="63" rx="10" fill="#101b32" stroke="#adabff" stroke-width="3"/>
+<path d="M944 183v-20a21 21 0 0 1 42 0v20" fill="none" stroke="#adabff" stroke-width="8" stroke-linecap="round"/>
+<circle cx="965" cy="211" r="7" fill="#a5e0e2"/><path d="M965 217v13" stroke="#a5e0e2" stroke-width="4" stroke-linecap="round"/>
+<text x="965" y="322" fill="#e5e9f8" font-size="17" font-weight="700" text-anchor="middle" font-family="Arial,sans-serif">PUBLIC-KEY CRYPTOGRAPHY</text>
+<text x="965" y="347" fill="#8e9fbd" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Curve-based security foundations</text>
+</svg>
