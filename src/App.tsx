@@ -118,7 +118,7 @@ const projects: Project[] = [
   },
   {
     title: 'iliaCode',
-    repo: 'https://github.com/1marieCurie/iliacode', summaryFr: 'Un copilote souverain de développement assisté par IA, conçu pour aider à générer du code et des tests automatisés.', descriptionFr: 'Projet en cours qui explore la manière dont un assistant intelligent peut accompagner le cycle de développement logiciel, faciliter le travail des développeurs et renforcer la fiabilité du code grâce à la génération de tests.',
+    repo: 'https://github.com/1marieCurie/iliacode', screenshot: import.meta.env.BASE_URL + 'project-images/iliacode.svg', summaryFr: 'Un copilote souverain de développement assisté par IA, conçu pour aider à générer du code et des tests automatisés.', descriptionFr: 'Projet en cours qui explore la manière dont un assistant intelligent peut accompagner le cycle de développement logiciel, faciliter le travail des développeurs et renforcer la fiabilité du code grâce à la génération de tests.',
     category: 'Generative AI', year: 'In progress',
     summary: 'A sovereign AI development copilot designed to assist with code generation and automated test creation.',
     description: 'An ongoing project exploring how an intelligent assistant can support software development workflows, improve developer productivity and strengthen software reliability through generated tests.',
@@ -126,7 +126,7 @@ const projects: Project[] = [
     accent: 'violet', icon: 'code', status: 'ongoing',
   },
   {
-    title: 'Olist · E-commerce BI',
+    title: 'Olist · E-commerce BI', screenshot: import.meta.env.BASE_URL + 'project-images/olist-bi.svg',
     category: 'Data & BI', year: '2026',
     summary: 'A business intelligence project to analyse commercial, logistics and customer satisfaction performance.',
     description: 'Designed an analytical workflow around the Olist e-commerce dataset, using data preparation and relational analysis to support business performance exploration and dashboarding.',
@@ -134,7 +134,7 @@ const projects: Project[] = [
     accent: 'cyan', icon: 'chart',
   },
   {
-    title: 'Cryptographic Elliptic Curves',
+    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-crypto.svg',
     category: 'Research · ML', year: '2025',
     summary: 'Personal research exploring elliptic-curve cryptography and machine learning approaches to vulnerability analysis.',
     description: 'Studied the algebraic foundations of elliptic curves and experimented with machine learning methods to analyse their properties and potential vulnerabilities.',
@@ -142,7 +142,7 @@ const projects: Project[] = [
     accent: 'amber', icon: 'brain',
   },
   {
-    title: 'BeastNet',
+    title: 'BeastNet', screenshot: import.meta.env.BASE_URL + 'project-images/beastnet.svg',
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning solution that identifies an animal class from an input image.',
     description: 'Explored object detection and visual recognition approaches for animal identification, comparing several modern detection architectures.',
@@ -178,7 +178,7 @@ const projects: Project[] = [
   },
   {
     title: 'Training Management Web App',
-    repo: 'https://github.com/1marieCurie/Plateforme_E-Learning_des_formation_Ecole_Polythechnique_des_Genies', summaryFr: 'Application web de gestion des programmes de formation et des cours en ligne.', descriptionFr: 'Réalisée durant mon stage d’initiation à l’EPG, cette application porte sur la conception et le développement d’un outil web de gestion des formations et des cours.',
+    repo: 'https://github.com/1marieCurie/Plateforme_E-Learning_des_formation_Ecole_Polythechnique_des_Genies', screenshot: import.meta.env.BASE_URL + 'project-images/training-management.svg', summaryFr: 'Application web de gestion des programmes de formation et des cours en ligne.', descriptionFr: 'Réalisée durant mon stage d’initiation à l’EPG, cette application porte sur la conception et le développement d’un outil web de gestion des formations et des cours.',
     category: 'Web Development', year: '2025',
     summary: 'A web application for managing training programmes and online courses.',
     description: 'Built during my introductory internship at EPG, focusing on the design and development of a web application for training and course management.',
