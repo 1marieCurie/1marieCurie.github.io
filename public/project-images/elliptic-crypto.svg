@@ -1,28 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="Elliptic curve cryptography research visualization">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="Elliptic curve equation and point addition diagram">
 <defs>
- <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111b30"/><stop offset="1" stop-color="#17172e"/></linearGradient>
- <linearGradient id="curve" x2="1" y2="0"><stop stop-color="#81d4db"/><stop offset=".55" stop-color="#9c9aff"/><stop offset="1" stop-color="#d2a4ff"/></linearGradient>
- <radialGradient id="halo"><stop stop-color="#8a80ff" stop-opacity=".25"/><stop offset="1" stop-color="#8a80ff" stop-opacity="0"/></radialGradient>
- <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#a4a6dc" stroke-opacity=".09"/></pattern>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#091a34"/><stop offset="1" stop-color="#111a35"/></linearGradient>
+ <linearGradient id="curve" x2="1" y2="0"><stop stop-color="#68d8ee"/><stop offset=".55" stop-color="#8c9eff"/><stop offset="1" stop-color="#bd91ff"/></linearGradient>
+ <linearGradient id="line" x2="1"><stop stop-color="#f2c879"/><stop offset="1" stop-color="#fa9aab"/></linearGradient>
+ <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#91a9ce" stroke-opacity=".10"/></pattern>
+ <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 </defs>
-<rect width="1200" height="440" fill="url(#bg)"/><rect width="1200" height="440" fill="url(#grid)"/><circle cx="530" cy="218" r="290" fill="url(#halo)"/>
-<text x="60" y="70" fill="#b9c8e5" font-size="16" letter-spacing="3" font-family="Arial,sans-serif">APPLIED CRYPTOGRAPHY</text>
-<text x="60" y="112" fill="#edf0fc" font-size="29" font-weight="700" font-family="Arial,sans-serif">Elliptic curve mathematics</text>
-<text x="60" y="145" fill="#8f9fbd" font-size="15" font-family="Arial,sans-serif">Algebraic structures · Point operations · Security analysis</text>
-<g transform="translate(65 175)">
- <path d="M0 0V210H650" fill="none" stroke="#8394b7" stroke-opacity=".65" stroke-width="2"/>
- <path d="M0 35H650M0 77H650M0 119H650M0 161H650M80 0V210M160 0V210M240 0V210M320 0V210M400 0V210M480 0V210M560 0V210" stroke="#8894bd" stroke-opacity=".15" stroke-dasharray="3 6"/>
- <path d="M70 176 C105 72 181 20 262 46 C341 72 387 168 468 184 C533 197 584 155 622 86" fill="none" stroke="url(#curve)" stroke-width="5" stroke-linecap="round"/>
- <path d="M150 163L335 88L468 184" fill="none" stroke="#b1a6ff" stroke-opacity=".7" stroke-width="2" stroke-dasharray="7 7"/>
- <circle cx="150" cy="163" r="8" fill="#e5d1ff" stroke="#9d8eff" stroke-width="3"/><circle cx="335" cy="88" r="8" fill="#9fe1e0" stroke="#5bc1c8" stroke-width="3"/><circle cx="468" cy="184" r="8" fill="#e5d1ff" stroke="#9d8eff" stroke-width="3"/>
- <text x="126" y="150" fill="#e6ddff" font-size="18" font-weight="700" font-family="Arial,sans-serif">P</text><text x="344" y="78" fill="#b8f0eb" font-size="18" font-weight="700" font-family="Arial,sans-serif">Q</text><text x="481" y="208" fill="#e6ddff" font-size="18" font-weight="700" font-family="Arial,sans-serif">R</text>
+<rect width="1200" height="440" fill="url(#bg)"/><rect width="1200" height="440" fill="url(#grid)"/>
+<text x="54" y="55" fill="#83a7da" font-size="14" letter-spacing="3" font-family="Arial,sans-serif">ALGEBRAIC GEOMETRY · CRYPTOGRAPHY</text>
+<text x="54" y="92" fill="#eef3ff" font-size="27" font-weight="700" font-family="Arial,sans-serif">Elliptic curve over a finite field</text>
+<text x="55" y="126" fill="#a9b9d4" font-size="23" font-family="Georgia,serif" font-style="italic">y² = x³ − 3x + 1</text>
+<text x="54" y="153" fill="#748cac" font-size="12" font-family="Arial,sans-serif">Illustration of the curve and the geometric group law</text>
+<g transform="translate(0 0)">
+ <path d="M92 220H794M430 58V386" stroke="#8197b8" stroke-width="1.5" stroke-opacity=".65"/>
+ <path d="M160 215v10M240 215v10M320 215v10M400 215v10M480 215v10M560 215v10M640 215v10M720 215v10M425 100h10M425 140h10M425 180h10M425 260h10M425 300h10M425 340h10" stroke="#8197b8" stroke-opacity=".35"/>
+ <path d="M790 220l-10-5v10zM430 58l-5 10h10z" fill="#a4b8d5"/>
+ <text x="805" y="225" fill="#8ea4c4" font-size="13" font-family="Arial,sans-serif">x</text><text x="442" y="54" fill="#8ea4c4" font-size="13" font-family="Arial,sans-serif">y</text>
+ <path d="M151 220 C177 145 218 112 271 122 C321 131 359 173 390 220 C359 267 321 309 271 318 C218 328 177 295 151 220Z" fill="#5679d4" fill-opacity=".08" stroke="url(#curve)" stroke-width="4" filter="url(#glow)"/>
+ <path d="M552 220 C569 178 585 149 606 108 C636 52 674 23 720 2" fill="none" stroke="url(#curve)" stroke-width="4" stroke-linecap="round"/>
+ <path d="M552 220 C569 262 585 291 606 332 C636 388 674 417 720 438" fill="none" stroke="url(#curve)" stroke-width="4" stroke-linecap="round"/>
+ <path d="M151 199L606 107" fill="none" stroke="url(#line)" stroke-width="2.5" stroke-dasharray="9 7"/>
+ <path d="M151 199V241" stroke="#d4a4ff" stroke-width="1.8" stroke-dasharray="4 5"/>
+ <circle cx="151" cy="199" r="6.5" fill="#f4cd81" stroke="#fff0c8" stroke-width="2"/>
+ <circle cx="376" cy="155" r="7" fill="#78d9e8" stroke="#e2fbff" stroke-width="2"/>
+ <circle cx="606" cy="107" r="7" fill="#aab0ff" stroke="#eef0ff" stroke-width="2"/>
+ <circle cx="151" cy="241" r="7" fill="#bd91ff" stroke="#f4e7ff" stroke-width="2"/>
+ <text x="127" y="184" fill="#f3d18e" font-size="16" font-weight="700" font-family="Arial,sans-serif">R</text>
+ <text x="358" y="143" fill="#9ceaf2" font-size="16" font-weight="700" font-family="Arial,sans-serif">P</text>
+ <text x="618" y="100" fill="#c1c2ff" font-size="16" font-weight="700" font-family="Arial,sans-serif">Q</text>
+ <text x="101" y="264" fill="#d8b5ff" font-size="16" font-weight="700" font-family="Arial,sans-serif">P + Q = −R</text>
+ <text x="510" y="80" fill="#e9c17c" font-size="12" font-family="Arial,sans-serif">Secant line</text>
 </g>
-<rect x="790" y="65" width="350" height="310" rx="18" fill="#19243d" stroke="#64618f" stroke-opacity=".6"/>
-<circle cx="965" cy="197" r="104" fill="#8176e8" fill-opacity=".08"/>
-<path d="M965 108l77 28v63c0 58-33 98-77 123-44-25-77-65-77-123v-63z" fill="#222d4b" stroke="url(#curve)" stroke-width="3"/>
-<rect x="926" y="183" width="78" height="63" rx="10" fill="#101b32" stroke="#adabff" stroke-width="3"/>
-<path d="M944 183v-20a21 21 0 0 1 42 0v20" fill="none" stroke="#adabff" stroke-width="8" stroke-linecap="round"/>
-<circle cx="965" cy="211" r="7" fill="#a5e0e2"/><path d="M965 217v13" stroke="#a5e0e2" stroke-width="4" stroke-linecap="round"/>
-<text x="965" y="322" fill="#e5e9f8" font-size="17" font-weight="700" text-anchor="middle" font-family="Arial,sans-serif">PUBLIC-KEY CRYPTOGRAPHY</text>
-<text x="965" y="347" fill="#8e9fbd" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Curve-based security foundations</text>
+<rect x="862" y="62" width="285" height="316" rx="15" fill="#142540" stroke="#3e5d86"/>
+<text x="890" y="101" fill="#82a9df" font-size="12" letter-spacing="2" font-family="Arial,sans-serif">GROUP OPERATION</text>
+<text x="890" y="150" fill="#f1f5ff" font-size="25" font-family="Georgia,serif" font-style="italic">P + Q = −R</text>
+<path d="M890 177H1118" stroke="#456184"/>
+<text x="890" y="214" fill="#9fb2ce" font-size="13" font-family="Arial,sans-serif">Points on the curve form</text>
+<text x="890" y="235" fill="#9fb2ce" font-size="13" font-family="Arial,sans-serif">an abelian group under</text>
+<text x="890" y="256" fill="#9fb2ce" font-size="13" font-family="Arial,sans-serif">the elliptic-curve law.</text>
+<g transform="translate(890 285)">
+ <circle cx="11" cy="11" r="5" fill="#78d9e8"/><text x="27" y="16" fill="#cbd8ee" font-size="12" font-family="Arial,sans-serif">Point addition</text>
+ <path d="M0 40H220" stroke="#456184"/>
+ <circle cx="11" cy="62" r="5" fill="#bd91ff"/><text x="27" y="67" fill="#cbd8ee" font-size="12" font-family="Arial,sans-serif">Reflection across x-axis</text>
+</g>
 </svg>
