@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="Illustrative histogram of hourly energy predictions in kilowatt-hours">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1c35"/><stop offset="1" stop-color="#111a36"/></linearGradient>
+ <linearGradient id="bar" x2="0" y2="1"><stop stop-color="#66d8e5"/><stop offset="1" stop-color="#477bd8"/></linearGradient>
+ <linearGradient id="accent" x2="1"><stop stop-color="#5ed8eb"/><stop offset="1" stop-color="#9d8aff"/></linearGradient>
+ <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#9bb3d9" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1200" height="440" fill="url(#bg)"/><rect width="1200" height="440" fill="url(#grid)"/>
+<text x="55" y="53" fill="#82a7df" font-size="14" letter-spacing="3" font-family="Arial,sans-serif">BUILDING ENERGY · REGRESSION</text>
+<text x="55" y="94" fill="#eff4ff" font-size="28" font-weight="700" font-family="Arial,sans-serif">Predicted hourly consumption</text>
+<text x="55" y="124" fill="#9aacc7" font-size="14" font-family="Arial,sans-serif">Illustrative distribution of model outputs · sample visual</text>
+<rect x="888" y="62" width="250" height="47" rx="9" fill="#172c4a" stroke="#3e5d83"/>
+<circle cx="913" cy="85" r="6" fill="#70d6e4"/><text x="931" y="90" fill="#c6d9f1" font-size="13" font-family="Arial,sans-serif">Ridge + RFE · kWh</text>
+<g>
+ <path d="M112 350H1080M112 295H1080M112 240H1080M112 185H1080M112 130H1080" stroke="#7890b1" stroke-opacity=".22" stroke-dasharray="5 7"/>
+ <path d="M112 130V350H1080" stroke="#91a7c5" stroke-opacity=".75" stroke-width="1.5"/>
+ <g fill="#8da2c0" font-size="12" text-anchor="end" font-family="Arial,sans-serif">
+  <text x="98" y="354">0</text><text x="98" y="299">10</text><text x="98" y="244">20</text><text x="98" y="189">30</text><text x="98" y="134">40</text>
+ </g>
+ <g fill="url(#bar)" stroke="#8de4ed" stroke-opacity=".45" stroke-width="1">
+  <rect x="140" y="338" width="44" height="12" rx="4"/><rect x="199" y="322" width="44" height="28" rx="4"/>
+  <rect x="258" y="300" width="44" height="50" rx="4"/><rect x="317" y="267" width="44" height="83" rx="4"/>
+  <rect x="376" y="229" width="44" height="121" rx="4"/><rect x="435" y="190" width="44" height="160" rx="4"/>
+  <rect x="494" y="157" width="44" height="193" rx="4"/><rect x="553" y="141" width="44" height="209" rx="4"/>
+  <rect x="612" y="163" width="44" height="187" rx="4"/><rect x="671" y="196" width="44" height="154" rx="4"/>
+  <rect x="730" y="234" width="44" height="116" rx="4"/><rect x="789" y="270" width="44" height="80" rx="4"/>
+  <rect x="848" y="302" width="44" height="48" rx="4"/><rect x="907" y="325" width="44" height="25" rx="4"/>
+  <rect x="966" y="337" width="44" height="13" rx="4"/>
+ </g>
+ <g fill="#a7bad5" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">
+  <text x="162" y="373">0.5</text><text x="280" y="373">1.0</text><text x="398" y="373">1.5</text><text x="516" y="373">2.0</text><text x="634" y="373">2.5</text><text x="752" y="373">3.0</text><text x="870" y="373">3.5</text><text x="988" y="373">4.0</text>
+ </g>
+ <text x="595" y="411" fill="#d5e3f7" font-size="15" text-anchor="middle" font-family="Arial,sans-serif">Predicted energy (kWh)</text>
+ <text x="41" y="240" fill="#d5e3f7" font-size="14" text-anchor="middle" transform="rotate(-90 41 240)" font-family="Arial,sans-serif">Frequency</text>
+</g>
+<path d="M1110 154V350" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+<text x="1131" y="177" fill="#8ca7d3" font-size="11" font-family="Arial,sans-serif" transform="rotate(90 1131 177)">FORECAST SAMPLE</text>
+</svg>
