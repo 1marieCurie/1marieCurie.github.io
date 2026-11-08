@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="AI coding copilot interface with generated code and passing tests">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101d31"/><stop offset="1" stop-color="#10152a"/></linearGradient>
+ <linearGradient id="glow" x2="1" y2="1"><stop stop-color="#7d8eff"/><stop offset="1" stop-color="#53d5d2"/></linearGradient>
+ <radialGradient id="orb"><stop stop-color="#778dff" stop-opacity=".34"/><stop offset="1" stop-color="#778dff" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#8ba6c8" stroke-opacity=".07"/></pattern>
+ <filter id="soft"><feGaussianBlur stdDeviation="24"/></filter>
+</defs>
+<rect width="1200" height="440" fill="url(#bg)"/><rect width="1200" height="440" fill="url(#grid)"/>
+<circle cx="1030" cy="95" r="220" fill="url(#orb)"/>
+<rect x="55" y="48" width="730" height="344" rx="14" fill="#0b1422" stroke="#405675" stroke-opacity=".65"/>
+<path d="M55 94H785" stroke="#334861" stroke-opacity=".8"/>
+<circle cx="83" cy="71" r="6" fill="#f07f89"/><circle cx="105" cy="71" r="6" fill="#e9c27c"/><circle cx="127" cy="71" r="6" fill="#7dd6a8"/>
+<text x="156" y="76" fill="#7f95b5" font-size="16" font-family="monospace">iliacode / assistant.py</text>
+<text x="82" y="132" fill="#566b87" font-size="17" font-family="monospace">01</text><text x="126" y="132" fill="#c9a7ff" font-size="18" font-family="monospace">class</text><text x="184" y="132" fill="#8fc7ff" font-size="18" font-family="monospace">CodeAssistant</text><text x="339" y="132" fill="#8b9db7" font-size="18" font-family="monospace">:</text>
+<text x="82" y="176" fill="#566b87" font-size="17" font-family="monospace">02</text><text x="150" y="176" fill="#8b9db7" font-size="18" font-family="monospace">def</text><text x="198" y="176" fill="#8ed7d1" font-size="18" font-family="monospace">generate_solution</text><text x="382" y="176" fill="#c9a7ff" font-size="18" font-family="monospace">(</text><text x="394" y="176" fill="#e8c27b" font-size="18" font-family="monospace">spec</text><text x="440" y="176" fill="#c9a7ff" font-size="18" font-family="monospace">):</text>
+<text x="82" y="220" fill="#566b87" font-size="17" font-family="monospace">03</text><text x="174" y="220" fill="#7e91ac" font-size="18" font-family="monospace">context =</text><text x="278" y="220" fill="#a6d5ae" font-size="18" font-family="monospace">retrieve_project_context()</text>
+<text x="82" y="264" fill="#566b87" font-size="17" font-family="monospace">04</text><text x="174" y="264" fill="#7e91ac" font-size="18" font-family="monospace">code =</text><text x="250" y="264" fill="#a6d5ae" font-size="18" font-family="monospace">llm.generate(spec, context)</text>
+<text x="82" y="308" fill="#566b87" font-size="17" font-family="monospace">05</text><text x="174" y="308" fill="#7e91ac" font-size="18" font-family="monospace">return</text><text x="250" y="308" fill="#8fc7ff" font-size="18" font-family="monospace">run_tests(code)</text>
+<rect x="840" y="75" width="300" height="292" rx="14" fill="#14243a" stroke="#52698b" stroke-opacity=".65"/>
+<circle cx="990" cy="151" r="72" fill="#667bff" fill-opacity=".11"/><circle cx="990" cy="151" r="48" fill="none" stroke="url(#glow)" stroke-width="2"/>
+<path d="M990 120l10 18 21 3-15 15 4 21-20-10-20 10 4-21-15-15 21-3z" fill="none" stroke="#9fb7ff" stroke-width="2"/>
+<path d="M944 151h-23m115 0h-23M990 105V82m0 138v-23" stroke="#79d5dc" stroke-opacity=".55" stroke-width="2"/>
+<text x="872" y="247" fill="#dce7f7" font-size="20" font-weight="700" font-family="Arial,sans-serif">Generated tests</text>
+<rect x="872" y="270" width="236" height="34" rx="7" fill="#0d1a2b"/><circle cx="891" cy="287" r="8" fill="#69c99b"/><path d="m887 287 3 3 6-7" fill="none" stroke="#092016" stroke-width="2"/><text x="909" y="293" fill="#a9bfd9" font-size="14" font-family="Arial,sans-serif">Unit tests passed</text>
+<rect x="872" y="315" width="236" height="34" rx="7" fill="#0d1a2b"/><circle cx="891" cy="332" r="8" fill="#69c99b"/><path d="m887 332 3 3 6-7" fill="none" stroke="#092016" stroke-width="2"/><text x="909" y="338" fill="#a9bfd9" font-size="14" font-family="Arial,sans-serif">Code quality checked</text>
+</svg>
