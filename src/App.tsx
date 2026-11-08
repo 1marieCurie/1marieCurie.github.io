@@ -19,6 +19,10 @@ type Project = {
   status?: string
   repo?: string
   screenshot?: string
+  screenshotClass?: 'contain' | 'math' | 'histogram'
+  screenshotCredit?: string
+  screenshotCreditUrl?: string
+  screenshotNote?: string
   summaryFr?: string
   descriptionFr?: string
 }
@@ -134,7 +138,7 @@ const projects: Project[] = [
     accent: 'cyan', icon: 'chart',
   },
   {
-    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-crypto.svg',
+    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-crypto.svg', screenshotClass: 'math',
     category: 'Research · ML', year: '2025',
     summary: 'Personal research exploring elliptic-curve cryptography and machine learning approaches to vulnerability analysis.',
     description: 'Studied the algebraic foundations of elliptic curves and experimented with machine learning methods to analyse their properties and potential vulnerabilities.',
@@ -142,7 +146,7 @@ const projects: Project[] = [
     accent: 'amber', icon: 'brain',
   },
   {
-    title: 'BeastNet', screenshot: import.meta.env.BASE_URL + 'project-images/beastnet.svg',
+    title: 'BeastNet', screenshot: 'https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c39d/8947003/37d007ed2818/entropy-24-00353-g004.jpg', screenshotClass: 'contain', screenshotCredit: 'Alekss Vecvanags et al. (2022), CC BY 4.0', screenshotCreditUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8947003/', screenshotNote: 'Real camera-trap detection example for visual reference; this image is not a prediction produced by BeastNet.',
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning solution that identifies an animal class from an input image.',
     description: 'Explored object detection and visual recognition approaches for animal identification, comparing several modern detection architectures.',
@@ -160,7 +164,7 @@ const projects: Project[] = [
   },
   {
     title: 'UrbainClean',
-    repo: 'https://github.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez', screenshot: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/interface_main.png', summaryFr: 'Solution de vision par ordinateur pour détecter les zones de déchets dans l’espace urbain de Fès.', descriptionFr: 'Développement d’un système de détection basé sur YOLOv11s, avec une interface Streamlit permettant l’inférence sur des images et des vidéos, le réglage du seuil de confiance et la visualisation des boîtes de détection.',
+    repo: 'https://github.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez', screenshot: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/detection_image.png', screenshotClass: 'contain', summaryFr: 'Solution de vision par ordinateur pour détecter les zones de déchets dans l’espace urbain de Fès.', descriptionFr: 'Développement d’un système de détection basé sur YOLOv11s, avec une interface Streamlit permettant l’inférence sur des images et des vidéos, le réglage du seuil de confiance et la visualisation des boîtes de détection.',
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning concept for real-time detection of unsanitary areas in the city of Fès.',
     description: 'Designed a computer-vision solution aimed at detecting urban cleanliness issues in real time, with the objective of supporting a cleaner city.',
@@ -169,7 +173,7 @@ const projects: Project[] = [
   },
   {
     title: 'Building Energy Prediction',
-    repo: 'https://github.com/1marieCurie/Energy_consumption_and_peaks_detection', screenshot: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/streamlit_dashboard.png', summaryFr: 'Projet de machine learning pour prévoir la consommation énergétique de bâtiments et repérer les périodes de pointe.', descriptionFr: 'Étude de modèles de régression et de séries temporelles sur des données de consommation de bâtiments. Le projet comprend une interface Streamlit pour explorer les prédictions horaires et les heures de pointe.',
+    repo: 'https://github.com/1marieCurie/Energy_consumption_and_peaks_detection', screenshot: import.meta.env.BASE_URL + 'project-images/energy-histogram.svg', screenshotClass: 'histogram', screenshotNote: 'Illustrative histogram layout for the requested kWh prediction view; bar heights are placeholders, not exported project metrics.', summaryFr: 'Projet de machine learning pour prévoir la consommation énergétique de bâtiments et repérer les périodes de pointe.', descriptionFr: 'Étude de modèles de régression et de séries temporelles sur des données de consommation de bâtiments. Le projet comprend une interface Streamlit pour explorer les prédictions horaires et les heures de pointe.',
     category: 'Machine Learning', year: '2025',
     summary: 'A machine learning project for predicting and optimising building energy consumption.',
     description: 'Explored regression and sequence-learning approaches to model energy consumption, with an interactive Streamlit interface.',
@@ -305,10 +309,12 @@ function App() {
             </div>
             <div className="project-grid">
               {filtered.map((p) => <button className={`project-card accent-${p.accent}`} key={p.title} onClick={() => setSelected(p)}>
-                <div className="project-card-top"><span className="project-icon">{projectIcon(p.icon)}</span><span className="project-year">{p.year}</span></div>{p.screenshot && <img className="project-preview" src={p.screenshot} alt={`${p.title} project preview`} loading="lazy" />}
-                <div className="project-card-body"><div className="project-category">{p.category}</div><h3>{p.title}</h3><p>{lang === 'FR' ? (p.summaryFr ?? p.summary) : p.summary}</p></div>
-                <div className="project-card-bottom"><span>{p.status ? t.ongoing : 'VIEW PROJECT'}</span><span className="arrow-circle"><ArrowUpRight size={17}/></span></div>
-                <span className="project-number">0{projects.indexOf(p)+1}</span>
+                {p.screenshot && <img className={`project-preview ${p.screenshotClass ? `project-preview--${p.screenshotClass}` : ''}`} src={p.screenshot} alt={`${p.title} visual preview`} loading="lazy" />}
+                <div className="project-card-body"><h3>{p.title}</h3><p>{lang === 'FR' ? (p.summaryFr ?? p.summary) : p.summary}</p></div>
+                <div className="project-card-bottom">
+                  <div className="project-tags">{p.stack.slice(0, 3).map(tag => <span key={tag}>{tag}</span>)}</div>
+                  <span className="project-view-action">{p.status ? t.ongoing : (lang === 'EN' ? 'View Project' : 'Voir le projet')}<ArrowUpRight size={15}/></span>
+                </div>
               </button>)}
             </div>
           </div>
@@ -345,7 +351,10 @@ function App() {
         <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <button className="modal-close" onClick={() => setSelected(null)} aria-label={t.close}><X size={20}/></button>
           <div className="modal-kicker">{selected.category} · {selected.year}</div><div className={`modal-symbol accent-${selected.accent}`}>{projectIcon(selected.icon)}</div>
-          <h2 id="modal-title">{selected.title}</h2><div className="modal-label">{t.details}</div><p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
+          <h2 id="modal-title">{selected.title}</h2>
+          {selected.screenshotCredit && <a className="image-credit" href={selected.screenshotCreditUrl} target="_blank" rel="noreferrer">Image reference: {selected.screenshotCredit}<ArrowUpRight size={13}/></a>}
+          {selected.screenshotNote && <p className="image-note">{selected.screenshotNote}</p>}
+          <div className="modal-label">{t.details}</div><p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
           <div className="modal-label">{t.stack}</div><div className="modal-tags">{selected.stack.map(s => <span key={s}>{s}</span>)}</div>
           {selected.repo && <a className="project-repo-link" href={selected.repo} target="_blank" rel="noreferrer"><Github size={16}/>{lang === 'EN' ? 'View source on GitHub' : 'Voir le code sur GitHub'}<ArrowUpRight size={15}/></a>}<div className="modal-note">{lang === 'EN' ? 'Open the repository to explore the implementation and project files.' : 'Consultez le dépôt pour explorer l’implémentation et les fichiers du projet.'}</div>
           <button className="modal-done" onClick={() => setSelected(null)}>{t.close}<X size={15}/></button>
