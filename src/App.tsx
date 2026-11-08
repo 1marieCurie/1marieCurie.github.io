@@ -19,7 +19,7 @@ type Project = {
   status?: string
   repo?: string
   screenshot?: string
-  screenshotClass?: 'contain' | 'math' | 'histogram'
+  screenshotClass?: 'contain' | 'wildlife' | 'math' | 'histogram'
   screenshotCredit?: string
   screenshotCreditUrl?: string
   screenshotNote?: string
@@ -146,7 +146,7 @@ const projects: Project[] = [
     accent: 'amber', icon: 'brain',
   },
   {
-    title: 'BeastNet', screenshot: 'https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c39d/8947003/37d007ed2818/entropy-24-00353-g004.jpg', screenshotClass: 'contain', screenshotCredit: 'Alekss Vecvanags et al. (2022), CC BY 4.0', screenshotCreditUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8947003/', screenshotNote: 'Real camera-trap detection example for visual reference; this image is not a prediction produced by BeastNet.',
+    title: 'BeastNet', screenshot: 'https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c39d/8947003/37d007ed2818/entropy-24-00353-g004.jpg', screenshotClass: 'wildlife', screenshotCredit: 'Alekss Vecvanags et al. (2022), CC BY 4.0', screenshotCreditUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8947003/', screenshotNote: 'Real camera-trap detection example for visual reference; this image is not a prediction produced by BeastNet.',
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning solution that identifies an animal class from an input image.',
     description: 'Explored object detection and visual recognition approaches for animal identification, comparing several modern detection architectures.',
