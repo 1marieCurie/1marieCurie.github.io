@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="Animal computer vision classification with recognition frames">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10251f"/><stop offset=".55" stop-color="#132a2c"/><stop offset="1" stop-color="#111d30"/></linearGradient>
+ <linearGradient id="frame" x2="1" y2="1"><stop stop-color="#9be0bf"/><stop offset="1" stop-color="#73cbd5"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#63bca0" stop-opacity=".22"/><stop offset="1" stop-color="#63bca0" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="440" fill="url(#bg)"/><circle cx="370" cy="220" r="290" fill="url(#light)"/>
+<g opacity=".45" stroke="#89c8ab" fill="none"><path d="M0 310Q150 210 300 310T600 295T900 305T1200 275" stroke-width="2"/><path d="M0 350Q160 255 330 350T660 335T1000 350T1200 325" stroke-width="2"/><path d="M80 0v440M180 0v440M280 0v440" stroke-opacity=".13" stroke-dasharray="3 10"/></g>
+<rect x="90" y="55" width="660" height="330" rx="16" fill="#0d1a1e" fill-opacity=".4" stroke="#7cc8b0" stroke-opacity=".4"/>
+<path d="M115 98V78H155M685 78h40v40M115 342v20h40M685 362h40v-20" fill="none" stroke="url(#frame)" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(170 88)">
+ <path d="M128 63C102 28 55 11 42 36c-8 17 1 45 22 59-12 33-10 77 18 105 27 27 75 35 111 13 35-22 47-66 33-103 19-17 29-41 18-57-16-24-59-10-81 13-12-10-23-13-35-13z" fill="#d59b68"/>
+ <path d="M63 82C39 43 34 13 53 10c31-5 49 35 59 58M193 80c27-38 30-67 11-70-29-5-46 33-57 57" fill="#be855e" stroke="#e9b783" stroke-width="4"/>
+ <path d="M75 112c12-12 29-12 42 0M158 112c13-12 31-12 44 0" stroke="#48382e" stroke-width="8" stroke-linecap="round"/>
+ <ellipse cx="99" cy="118" rx="5" ry="8" fill="#16252a"/><ellipse cx="177" cy="118" rx="5" ry="8" fill="#16252a"/>
+ <ellipse cx="139" cy="163" rx="24" ry="18" fill="#e8c4a0"/><path d="M130 161q9-9 18 0" fill="none" stroke="#644a3a" stroke-width="5" stroke-linecap="round"/>
+ <path d="M140 179q-15 17-29 3M140 179q14 17 29 3" fill="none" stroke="#5b4537" stroke-width="4" stroke-linecap="round"/>
+ <path d="M65 73Q138 0 213 73M62 80Q138 13 216 80" fill="none" stroke="#f0c497" stroke-opacity=".45" stroke-width="4"/>
+</g>
+<rect x="225" y="72" width="390" height="286" rx="12" fill="none" stroke="#80e0bc" stroke-width="3" stroke-dasharray="10 8"/>
+<rect x="225" y="42" width="206" height="32" rx="6" fill="#73d4b0"/><text x="243" y="64" fill="#10251f" font-size="15" font-weight="700" font-family="Arial,sans-serif">ANIMAL · 98.4%</text>
+<rect x="800" y="76" width="310" height="292" rx="16" fill="#172b2d" stroke="#496b6a"/>
+<text x="832" y="116" fill="#dcefe6" font-size="19" font-weight="700" font-family="Arial,sans-serif">BEASTNET</text><text x="832" y="141" fill="#8faeaa" font-size="12" letter-spacing="2" font-family="Arial,sans-serif">VISION CLASSIFIER</text>
+<path d="M832 166H1078" stroke="#486467"/>
+<g transform="translate(840 195)">
+ <rect width="75" height="73" rx="9" fill="#203b3b"/><path d="M18 50Q6 25 26 11Q43 3 57 22Q65 39 47 52Q31 61 18 50" fill="#d59b68"/><path d="M19 20L10 5l24 7M48 13L65 4l-9 22" fill="#be855e"/><circle cx="30" cy="31" r="3" fill="#182a2c"/><circle cx="48" cy="31" r="3" fill="#182a2c"/>
+ <rect x="88" width="75" height="73" rx="9" fill="#203b3b"/><path d="M104 56V29Q106 6 126 10Q149 13 148 34V56z" fill="#9eaaa6"/><path d="M108 20L101 2l24 12M137 14L151 0l-5 25" fill="#aebbb5"/><circle cx="119" cy="32" r="3" fill="#172b2d"/><circle cx="139" cy="32" r="3" fill="#172b2d"/>
+ <rect x="176" width="75" height="73" rx="9" fill="#203b3b"/><path d="M191 45Q178 25 201 15Q226 4 240 30Q222 34 211 58z" fill="#d6b776"/><path d="M215 23l26-14-9 26z" fill="#e4ca91"/><circle cx="212" cy="27" r="3" fill="#172b2d"/>
+</g>
+<text x="878" y="300" fill="#b5c9c1" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Mammal</text><text x="966" y="300" fill="#b5c9c1" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Canine</text><text x="1054" y="300" fill="#b5c9c1" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Bird</text>
+<rect x="832" y="324" width="246" height="22" rx="11" fill="#294849"/><rect x="832" y="324" width="218" height="22" rx="11" fill="#74caa5"/><text x="955" y="339" fill="#10251f" font-size="11" font-weight="700" text-anchor="middle" font-family="Arial,sans-serif">MODEL CONFIDENCE</text>
+</svg>
