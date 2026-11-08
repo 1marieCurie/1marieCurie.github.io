@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="E-commerce business intelligence dashboard with sales and logistics analytics">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101e31"/><stop offset="1" stop-color="#0d1728"/></linearGradient>
+ <linearGradient id="bar" x2="0" y2="1"><stop stop-color="#76cbd7"/><stop offset="1" stop-color="#477fae"/></linearGradient>
+ <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#8ba6c8" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="440" fill="url(#bg)"/><rect width="1200" height="440" fill="url(#grid)"/>
+<rect x="45" y="42" width="1110" height="356" rx="15" fill="#101b2d" stroke="#3d536f" stroke-opacity=".65"/>
+<rect x="45" y="42" width="205" height="356" rx="15" fill="#12243a"/><path d="M250 42v356" stroke="#334b69"/>
+<circle cx="91" cy="86" r="18" fill="#74cbd3" fill-opacity=".17" stroke="#74cbd3" stroke-opacity=".6"/><path d="M82 87h18M91 78v18" stroke="#9be0df" stroke-width="2"/>
+<text x="122" y="91" fill="#e2ebf7" font-size="20" font-weight="700" font-family="Arial,sans-serif">OLIST</text>
+<text x="75" y="145" fill="#7e93ae" font-size="12" letter-spacing="2" font-family="Arial,sans-serif">WORKSPACE</text>
+<rect x="67" y="164" width="162" height="38" rx="7" fill="#29405f"/><circle cx="88" cy="183" r="6" fill="#83d6d5"/><text x="105" y="188" fill="#d9e7f8" font-size="14" font-family="Arial,sans-serif">Overview</text>
+<circle cx="88" cy="232" r="6" fill="#6e829e"/><text x="105" y="237" fill="#8ea3bd" font-size="14" font-family="Arial,sans-serif">Sales</text>
+<circle cx="88" cy="278" r="6" fill="#6e829e"/><text x="105" y="283" fill="#8ea3bd" font-size="14" font-family="Arial,sans-serif">Logistics</text>
+<circle cx="88" cy="324" r="6" fill="#6e829e"/><text x="105" y="329" fill="#8ea3bd" font-size="14" font-family="Arial,sans-serif">Customers</text>
+<text x="286" y="87" fill="#e3ecf8" font-size="23" font-weight="700" font-family="Arial,sans-serif">Business performance</text>
+<text x="286" y="111" fill="#8095af" font-size="13" font-family="Arial,sans-serif">E-commerce · Sales · Delivery · Customer experience</text>
+<g>
+ <rect x="284" y="135" width="188" height="75" rx="9" fill="#172940" stroke="#354b66"/><text x="304" y="162" fill="#8398b3" font-size="12" font-family="Arial,sans-serif">TOTAL ORDERS</text><text x="304" y="193" fill="#e7eef9" font-size="27" font-weight="700" font-family="Arial,sans-serif">98.4K</text><path d="m420 185 11-10 10 3 12-16" fill="none" stroke="#7bd3c9" stroke-width="3"/>
+ <rect x="488" y="135" width="188" height="75" rx="9" fill="#172940" stroke="#354b66"/><text x="508" y="162" fill="#8398b3" font-size="12" font-family="Arial,sans-serif">AVG. ORDER VALUE</text><text x="508" y="193" fill="#e7eef9" font-size="27" font-weight="700" font-family="Arial,sans-serif">R$ 160</text><path d="m620 185 10-8 10 2 12-14" fill="none" stroke="#7bd3c9" stroke-width="3"/>
+ <rect x="692" y="135" width="188" height="75" rx="9" fill="#172940" stroke="#354b66"/><text x="712" y="162" fill="#8398b3" font-size="12" font-family="Arial,sans-serif">ON-TIME DELIVERY</text><text x="712" y="193" fill="#e7eef9" font-size="27" font-weight="700" font-family="Arial,sans-serif">92.7%</text><circle cx="841" cy="174" r="17" fill="none" stroke="#29445e" stroke-width="6"/><path d="M841 157a17 17 0 1 1-13 28" fill="none" stroke="#7bd3c9" stroke-width="6"/>
+</g>
+<rect x="284" y="229" width="596" height="142" rx="10" fill="#14243a" stroke="#334a67"/>
+<text x="306" y="255" fill="#dbe7f6" font-size="15" font-weight="700" font-family="Arial,sans-serif">Monthly order volume</text><text x="838" y="255" fill="#7b91ad" font-size="11" text-anchor="end" font-family="Arial,sans-serif">JAN — DEC</text>
+<path d="M315 344H850M315 314H850M315 284H850" stroke="#6f89a8" stroke-opacity=".17" stroke-dasharray="4 7"/>
+<g fill="url(#bar)"><rect x="342" y="315" width="24" height="29" rx="4"/><rect x="384" y="294" width="24" height="50" rx="4"/><rect x="426" y="304" width="24" height="40" rx="4"/><rect x="468" y="276" width="24" height="68" rx="4"/><rect x="510" y="288" width="24" height="56" rx="4"/><rect x="552" y="266" width="24" height="78" rx="4"/><rect x="594" y="275" width="24" height="69" rx="4"/><rect x="636" y="250" width="24" height="94" rx="4"/><rect x="678" y="261" width="24" height="83" rx="4"/><rect x="720" y="239" width="24" height="105" rx="4"/><rect x="762" y="248" width="24" height="96" rx="4"/><rect x="804" y="232" width="24" height="112" rx="4"/></g>
+<text x="927" y="152" fill="#7e94b1" font-size="12" letter-spacing="2" font-family="Arial,sans-serif">FULFILMENT</text>
+<path d="M938 204h170" stroke="#425b77" stroke-width="2"/><circle cx="952" cy="204" r="15" fill="#254258" stroke="#78ced1"/><path d="M945 204h14m-7-7v14" stroke="#9fe1df" stroke-width="2"/><circle cx="1023" cy="204" r="15" fill="#254258" stroke="#78ced1"/><path d="M1016 204h14m-7-7v14" stroke="#9fe1df" stroke-width="2"/><circle cx="1094" cy="204" r="15" fill="#254258" stroke="#78ced1"/><path d="M1087 204h14m-7-7v14" stroke="#9fe1df" stroke-width="2"/>
+<text x="952" y="242" fill="#b8c9df" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Order</text><text x="1023" y="242" fill="#b8c9df" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Ship</text><text x="1094" y="242" fill="#b8c9df" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">Deliver</text>
+<rect x="927" y="276" width="181" height="95" rx="10" fill="#172940" stroke="#354b66"/><text x="948" y="303" fill="#8298b5" font-size="12" font-family="Arial,sans-serif">CUSTOMER RATING</text><text x="948" y="345" fill="#e7eef9" font-size="29" font-weight="700" font-family="Arial,sans-serif">4.6/5</text><text x="1042" y="342" fill="#efcc83" font-size="20" font-family="Arial,sans-serif">★★★★★</text>
+</svg>
