@@ -561,6 +561,7 @@ function App() {
           <h2 id="modal-title">{selected.title}</h2>
           {selected.screenshotCredit && <a className="image-credit" href={selected.screenshotCreditUrl} target="_blank" rel="noreferrer">Image reference: {selected.screenshotCredit}<ArrowUpRight size={13}/></a>}
           {selected.screenshotNote && <p className="image-note">{selected.screenshotNote}</p>}
+          {!selected.details?.gallery?.length && selected.screenshot && <div className="modal-cover-preview"><img src={selected.screenshot} alt={`${selected.title} visual`} loading="lazy"/></div>}
           <div className="modal-label">{t.details}</div>
           <p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
           {selected.details && <>
