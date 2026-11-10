@@ -61,7 +61,7 @@ const copy = {
     educationLabel: 'Academic background',
     educationTitle: 'Education',
     certLabel: 'Continuous learning',
-    certTitle: 'Certifications',
+    certTitle: 'Certifications & badges',
     contactLabel: 'Let’s connect',
     contactTitle: 'Interested in building something meaningful?',
     contactText: 'I’m looking for a final-year internship (PFE) starting in February 2027, for up to six months, in applied AI, software testing automation or data engineering.',
@@ -101,7 +101,7 @@ const copy = {
     educationLabel: 'Parcours académique',
     educationTitle: 'Formation',
     certLabel: 'Apprentissage continu',
-    certTitle: 'Certifications',
+    certTitle: 'Certifications & badges',
     contactLabel: 'Entrons en contact',
     contactTitle: 'Envie de construire quelque chose d’utile ?',
     contactText: 'Je recherche un stage PFE à partir de février 2027, pour une durée maximale de six mois, en IA appliquée, automatisation des tests logiciels ou ingénierie des données.',
@@ -549,8 +549,65 @@ function App() {
             <div className="education-item"><div className="education-icon"><Award size={21}/></div><div><span className="education-date">2021 — 2022</span><h3>Lycée Ben Souda · Fès</h3><p>Baccalauréat in Mathematical Sciences B · Good Honours</p></div></div>
           </div>
           <div className="cert-column"><div className="section-kicker"><span>06</span>{t.certLabel}</div><h2 className="section-title">{t.certTitle}<span>.</span></h2>
-            <div className="cert-item"><span className="cert-icon"><Award size={19}/></span><div><h3>AWS Academy Graduate</h3><p>Cloud Foundations · Trained Badge</p><small>Amazon Web Services Academy</small></div><Check size={16} className="cert-check"/></div>
-            <div className="cert-item"><span className="cert-icon"><Workflow size={19}/></span><div><h3>Web Search API in n8n</h3><p>Integrated in automated workflows</p><small>Tavily</small></div><Check size={16} className="cert-check"/></div>
+            <div className="cert-group-label">CERTIFICATIONS</div>
+            <div className="cert-item">
+              <span className="cert-icon"><Database size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>NoSQL and DBaaS</h3><span className="cert-type">IBM</span></div>
+                <p>Issued February 2026 · IBM</p><small>Credential ID · fad6e6d397ba4ab7a69ec17322ae1007</small>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/details/certifications/" target="_blank" rel="noreferrer">View credential on LinkedIn <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-item">
+              <span className="cert-icon"><Database size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>Big Data</h3><span className="cert-type">IBM</span></div>
+                <p>Issued January 2026 · IBM</p><small>Credential ID · 10ceeb307045497cbdf8cd88d0699627</small>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/details/certifications/" target="_blank" rel="noreferrer">View credential on LinkedIn <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-item">
+              <span className="cert-icon"><Database size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>Database Design</h3><span className="cert-type">Oracle</span></div>
+                <p>Issued January 2026 · Oracle</p>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/details/certifications/" target="_blank" rel="noreferrer">View credential on LinkedIn <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-item">
+              <span className="cert-icon"><Database size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>Database Programming with SQL</h3><span className="cert-type">Oracle</span></div>
+                <p>Issued January 2026 · Oracle</p>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/details/certifications/" target="_blank" rel="noreferrer">View credential on LinkedIn <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-item">
+              <span className="cert-icon"><Code2 size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>Python 101 for Data Science</h3><span className="cert-type">IBM</span></div>
+                <p>Issued June 2025 · IBM</p><small>Credential ID · bf4e2d177ae849f8b33473d5f646bf4e</small>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/details/certifications/" target="_blank" rel="noreferrer">View credential on LinkedIn <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-item">
+              <span className="cert-icon"><Award size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>AWS Academy Graduate</h3><span className="cert-type cert-type--badge">TRAINED BADGE</span></div>
+                <p>Cloud Foundations · Amazon Web Services Academy</p>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/details/certifications/" target="_blank" rel="noreferrer">View credential on LinkedIn <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-group-label cert-group-label--secondary">LEARNING & APPLIED ACHIEVEMENTS</div>
+            <div className="cert-item cert-item--learning">
+              <span className="cert-icon"><BrainCircuit size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>Retrieval-Augmented Generation for Enhanced AI Output</h3><span className="cert-type cert-type--learning">LEARNING PLAN</span></div>
+                <p>IBM SkillsBuild · Completed November 2026</p>
+                <small>RAG concepts: connecting LLMs to external knowledge sources, relevance, accuracy and contextual grounding.</small>
+                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/" target="_blank" rel="noreferrer">View LinkedIn profile <ArrowUpRight size={12}/></a>
+              </div>
+            </div>
+            <div className="cert-item cert-item--learning">
+              <span className="cert-icon"><Workflow size={19}/></span>
+              <div className="cert-content"><div className="cert-title-row"><h3>Web Search API in n8n</h3><span className="cert-type cert-type--learning">APPLIED INTEGRATION</span></div>
+                <p>Tavily · Integrated into automated workflows</p>
+                <small>Shown as a practical implementation, not as a formal certification.</small>
+              </div>
+            </div>
           </div>
         </section>
 
