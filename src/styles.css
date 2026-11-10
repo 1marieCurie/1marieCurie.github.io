@@ -419,3 +419,21 @@
 @media(prefers-reduced-motion:reduce){
   .project-preview,.detail-gallery-frame img{animation:none!important}
 }
+
+.modal-cover-preview{
+  width:100%;
+  max-height:360px;
+  overflow:hidden;
+  border:1px solid rgba(143,174,220,.18);
+  border-radius:9px;
+  background:#0a1424;
+  margin:14px 0 20px;
+}
+.modal-cover-preview img{
+  display:block;
+  width:100%;
+  max-height:360px;
+  object-fit:contain;
+  animation:evidence-drift 24s ease-in-out infinite alternate;
+}
+@media(prefers-reduced-motion:reduce){.modal-cover-preview img{animation:none!important}}
