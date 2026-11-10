@@ -160,9 +160,14 @@ const projects: Project[] = [
       gallery: [
         { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/01_2_dashboard_after.png', title: 'Security dashboard', caption: 'Organisation-level overview of machines, components, exposure status and risk priorities.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/02_1_demo_machines.png', title: 'Machine inventory', caption: 'Inventoried Windows machines and their associated exposure counts.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/02_2_demo_machines_details.png', title: 'Machine exposure details', caption: 'Software inventory and correlated exposure details for an individual machine.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/04_vulnerabilities_after.png', title: 'Vulnerability prioritisation', caption: 'Aggregated vulnerability view with severity, priority, EPSS, applicability and KEV context.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/05_logiciels_after.png', title: 'Software inventory', caption: 'Installed software components collected from the machine inventory.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/06_1_alerte.png', title: 'Alert centre', caption: 'A critical-priority transition recorded by the application.' },
-        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/06_2_gmail_alert.png', title: 'Email notification', caption: 'Gmail notification sent to the security-responsible user.' }
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/06_2_gmail_alert.png', title: 'Email notification', caption: 'Gmail notification sent to the security-responsible user.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/07_confirmed_cisa.png', title: 'Confirmed CISA KEV exposure', caption: 'Evidence view for a confirmed exposure associated with the CISA KEV catalogue.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/08_confirmed_exposition_critical.png', title: 'Confirmed critical exposure', caption: 'A confirmed critical exposure and its remediation priority.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/09_potential_critical_no_alert.png', title: 'Potential exposure handling', caption: 'A potential critical match retained for review instead of triggering the confirmed-exposure alert.' }
       ]
     },
     accent: 'blue', icon: 'shield',
@@ -348,9 +353,11 @@ const projects: Project[] = [
       ],
       gallery: [
         { src: import.meta.env.BASE_URL + 'project-images/energy-distribution.svg', title: 'Energy consumption distribution', caption: 'Histogram supplied by the project owner; the screenshot is used as provided.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/mored_overview.png', title: 'MORED dataset overview', caption: 'The project’s illustration of whole-premises and individual-load electricity acquisition.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/models_performance.png', title: 'Model comparison', caption: 'Repository comparison table for stacking and LSTM experiments.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/best_model.png', title: 'Ridge + RFE metrics', caption: 'Committed performance summary for the selected Ridge + RFE configuration.' },
-        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/peak_detection.png', title: 'Predictions and peak detection', caption: 'Hourly predicted consumption compared with real data, including predicted and actual peak markers.' }
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/peak_detection.png', title: 'Predictions and peak detection', caption: 'Hourly predicted consumption compared with real data, including predicted and actual peak markers.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/streamlit_dashboard.png', title: 'Streamlit dashboard', caption: 'Application metrics and an overview of detected versus real energy peaks.' }
       ]
     },
     accent: 'amber', icon: 'database',
