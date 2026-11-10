@@ -204,7 +204,7 @@ const projects: Project[] = [
     accent: 'cyan', icon: 'chart',
   },
   {
-    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-curve-plot.webp', screenshotClass: 'math',
+    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-curve-plot.svg', screenshotClass: 'math',
     category: 'Research · ML', year: '2025',
     summary: 'Personal research exploring elliptic-curve cryptography and machine learning approaches to vulnerability analysis.',
     description: 'Studied the algebraic foundations of elliptic curves and experimented with machine learning methods to analyse their properties and potential vulnerabilities.',
@@ -347,7 +347,7 @@ const projects: Project[] = [
         ]}
       ],
       gallery: [
-        { src: import.meta.env.BASE_URL + 'project-images/energy-distribution.webp', title: 'Energy consumption distribution', caption: 'Histogram supplied by the project owner; the screenshot is used as provided.' },
+        { src: import.meta.env.BASE_URL + 'project-images/energy-distribution.svg', title: 'Energy consumption distribution', caption: 'Histogram supplied by the project owner; the screenshot is used as provided.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/models_performance.png', title: 'Model comparison', caption: 'Repository comparison table for stacking and LSTM experiments.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/best_model.png', title: 'Ridge + RFE metrics', caption: 'Committed performance summary for the selected Ridge + RFE configuration.' },
         { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/peak_detection.png', title: 'Predictions and peak detection', caption: 'Hourly predicted consumption compared with real data, including predicted and actual peak markers.' }
