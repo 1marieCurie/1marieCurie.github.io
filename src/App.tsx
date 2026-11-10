@@ -25,6 +25,13 @@ type Project = {
   screenshotNote?: string
   summaryFr?: string
   descriptionFr?: string
+  details?: {
+    intro: string
+    metrics?: { label: string; value: string; note?: string }[]
+    sections?: { title: string; body?: string; bullets?: string[] }[]
+    tables?: { title: string; columns: string[]; rows: string[][] }[]
+    gallery?: { src: string; title: string; caption: string; source?: string }[]
+  }
 }
 
 const copy = {
@@ -118,6 +125,46 @@ const projects: Project[] = [
     summary: 'An early-warning platform that helps Moroccan SMEs understand cyber risks through threat intelligence and AI.',
     description: 'Developed during my PFA internship: a solution combining suspicious-URL analysis with vulnerability management based on software inventory. The goal is to turn scattered security information into actionable risk priorities and alerts for security managers.',
     stack: ['Python', 'React', 'Node.js', 'PostgreSQL', 'Scikit-learn', 'Threat Intelligence'],
+    details: {
+      intro: 'An SME-oriented cyber-risk platform that combines suspicious-URL classification with vulnerability management based on the organisation’s actual Windows software inventory. It turns scattered security signals into a prioritised view and actionable alerts.',
+      metrics: [
+        { label: 'URL training records', value: '114,131', note: 'Three classes: benign, phishing and malware' },
+        { label: 'URL features', value: '13', note: 'Raw numerical features' },
+        { label: 'CV macro F1', value: '0.869', note: 'Mean across 5 group-aware folds' },
+        { label: 'OOF macro ROC-AUC', value: '0.971', note: 'Out-of-fold evaluation' },
+      ],
+      sections: [
+        { title: 'Two connected security workflows', body: 'The public and authenticated URL-analysis flow classifies a submitted address and returns the model verdict and confidence when available. The vulnerability workflow starts from a Windows machine inventory, imports installed software and versions, then correlates those components with vulnerability intelligence.' },
+        { title: 'URL threat classification', bullets: ['A HistGradientBoostingClassifier is used for the selected hardened URL model.', 'The 13 raw features describe URL structure, hostname/path lengths, punctuation and character ratios, path segments and hostname entropy.', 'The selected model uses a group-aware StratifiedGroupKFold protocol with five folds; the external test split is kept separate from fitting and selection.'] },
+        { title: 'Inventory-driven vulnerability management', bullets: ['Correlates inventoried software with CVE/CWE data, CVSS severity, EPSS probability, CISA Known Exploited Vulnerabilities and GitHub Advisory signals.', 'Distinguishes confirmed exposures from potential matches that need additional validation.', 'Separates technical severity from operational priority so security managers can decide what to remediate first.'] },
+        { title: 'Alert policy and delivery', bullets: ['Creates alerts for a newly confirmed CRITICAL exposure, a confirmed exposure newly listed in CISA KEV, or a confirmed exposure that transitions to CRITICAL.', 'Potential exposures do not trigger these critical alerts automatically.', 'Deduplication prevents repeated alerts and emails for the same event; the alert is persisted before external email delivery is attempted.', 'Gmail delivery uses OAuth 2.0 and targets active security-responsible accounts.'] },
+        { title: 'Architecture and access model', body: 'The backend separates domain and application rules from infrastructure adapters. FastAPI, PostgreSQL, SQLAlchemy and Alembic support the API and persistence; the React/TypeScript frontend provides the public landing page and role-specific workspaces. The two roles are staff and security_responsible.' },
+        { title: 'Evaluation context and limitations', body: 'The metadata reports cross-validation and out-of-fold metrics for the selected candidate. The repository also records that temporal robustness and independent-source validation are still required, source-label confounding remains a known dataset limitation, and the artifact is not marked production-validated.' }
+      ],
+      tables: [
+        { title: 'Selected URL model — reported validation', columns: ['Measure', 'Result', 'Evaluation context'], rows: [
+          ['Training rows', '114,131', 'URL multiclass pool, version 2026-08-12-v1'],
+          ['CV macro F1', '0.8686 ± 0.0539', '5-fold StratifiedGroupKFold'],
+          ['CV balanced accuracy', '0.8655', 'Mean across folds'],
+          ['Phishing F1 / recall', '0.8640 / 0.8287', 'Mean across folds'],
+          ['Malware F1 / recall', '0.8641 / 0.8076', 'Mean across folds'],
+          ['OOF macro ROC-AUC', '0.9710', 'Out-of-fold predictions']
+        ]},
+        { title: 'Critical alert triggers', columns: ['Event', 'Required condition'], rows: [
+          ['New critical exposure', 'A newly created exposure is confirmed and priority is CRITICAL'],
+          ['New KEV listing', 'An existing confirmed exposure enters the CISA KEV catalogue'],
+          ['Critical priority transition', 'A confirmed exposure moves from LOW, MEDIUM or HIGH to CRITICAL'],
+          ['Potential exposure', 'No automatic critical alert in policy V1']
+        ]}
+      ],
+      gallery: [
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/01_2_dashboard_after.png', title: 'Security dashboard', caption: 'Organisation-level overview of machines, components, exposure status and risk priorities.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/02_1_demo_machines.png', title: 'Machine inventory', caption: 'Inventoried Windows machines and their associated exposure counts.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/04_vulnerabilities_after.png', title: 'Vulnerability prioritisation', caption: 'Aggregated vulnerability view with severity, priority, EPSS, applicability and KEV context.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/06_1_alerte.png', title: 'Alert centre', caption: 'A critical-priority transition recorded by the application.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/threat-intelligence-platform/main/artifacts/demo-final/screenshots/06_2_gmail_alert.png', title: 'Email notification', caption: 'Gmail notification sent to the security-responsible user.' }
+      ]
+    },
     accent: 'blue', icon: 'shield',
   },
   {
@@ -127,6 +174,25 @@ const projects: Project[] = [
     summary: 'A sovereign AI development copilot designed to assist with code generation and automated test creation.',
     description: 'An ongoing project exploring how an intelligent assistant can support software development workflows, improve developer productivity and strengthen software reliability through generated tests.',
     stack: ['Python', 'LLMs', 'NLP', 'Software Testing', 'Git'],
+    details: {
+      intro: 'An ongoing exploration of a locally controlled coding-assistant foundation. The accessible repository documents tokenizer engineering and model-runtime experiments rather than a completed, benchmarked code-generation product.',
+      sections: [
+        { title: 'Byte-level BPE tokenization', body: 'The tokenizer implementation starts from the 256 possible byte values and uses a word-end marker. It learns frequent adjacent-symbol merges from a corpus, then replays those merges to encode text. Decoding reconstructs the original UTF-8 text.' },
+        { title: 'Code-aware pre-tokenisation', bullets: ['Recognises decimal numbers, compound operators, words, punctuation and whitespace.', 'Preserves whitespace to support reversible text processing.', 'Handles underscores and camelCase boundaries so code identifiers can be segmented into meaningful pieces.'] },
+        { title: 'Model loading and runtime inspection', body: 'The GenAI exercise code includes a Qwen2-compatible causal language model loading path, tokenizer loading, parameter counting, weight-memory measurement and next-token probability extraction. A model-choice worksheet compares candidate coding models, but its hardware measurements and final selection fields are still blank in the repository.' },
+        { title: 'Automated checks', body: 'The repository includes ten pytest cases around model/tokenizer loading, tokenizer round-trip behaviour, parameter and memory calculations, token-level probabilities and a perplexity sanity check. The test fixture creates a small randomly initialised Qwen2 model (two layers, hidden size 32 and vocabulary size 256); these checks validate the software path, not the performance of a trained assistant.' },
+        { title: 'Current scope', body: 'No verified code-generation benchmark, HumanEval score or end-to-end productivity result is published in the accessible repository. Those results are intentionally not presented here.' }
+      ],
+      tables: [
+        { title: 'Documented technical components', columns: ['Component', 'Repository evidence'], rows: [
+          ['Base vocabulary', '256 byte symbols plus a word-ending marker'],
+          ['Merge learning', 'Frequency-weighted adjacent-pair counting and merging'],
+          ['Encoding', 'Replays learned merges in rank order'],
+          ['Decoding', 'Reconstructs byte sequences and decodes UTF-8'],
+          ['Test coverage', '10 pytest cases for loading, tokenization, memory and probability utilities']
+        ]}
+      ]
+    },
     accent: 'violet', icon: 'code', status: 'ongoing',
   },
   {
@@ -138,7 +204,7 @@ const projects: Project[] = [
     accent: 'cyan', icon: 'chart',
   },
   {
-    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-crypto.svg', screenshotClass: 'math',
+    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-curve-plot.webp', screenshotClass: 'math',
     category: 'Research · ML', year: '2025',
     summary: 'Personal research exploring elliptic-curve cryptography and machine learning approaches to vulnerability analysis.',
     description: 'Studied the algebraic foundations of elliptic curves and experimented with machine learning methods to analyse their properties and potential vulnerabilities.',
@@ -160,6 +226,38 @@ const projects: Project[] = [
     summary: 'A game-playing agent that learns by interacting with a custom environment.',
     description: 'Implemented and explored reinforcement-learning approaches for an agent learning to play through environment interaction.',
     stack: ['PPO', 'DQN', 'LSTM', 'Reinforcement Learning'],
+    details: {
+      intro: 'A VizDoom deathmatch study comparing two deep reinforcement-learning agents: a spatially constrained PPO policy and Arnold, a Dueling Double Deep Recurrent Q-Network (Dueling DRQN) operating on full maps.',
+      metrics: [
+        { label: 'Arnold training', value: '3.27M', note: 'Environment steps' },
+        { label: 'Mean kills / episode', value: '16.83', note: 'Across 6,215 episodes' },
+        { label: 'Mean K/D ratio', value: '10.68', note: 'Arnold training statistics' },
+        { label: 'Episodes with K/D > 1', value: '86.8%', note: 'Reported training episodes' },
+      ],
+      sections: [
+        { title: 'PPO agent — constrained arena', body: 'The PPO agent uses a CNN policy and a custom 600 × 600-unit arena centred on its spawn point. The boundary discourages aimless wandering and increases encounters with two opponent bots. Its observation pipeline converts the VizDoom screen to an 84 × 84 RGB input and uses eight discrete macro-actions.' },
+        { title: 'Arnold — recurrent Dueling DRQN', bullets: ['A dueling architecture separates state value V(s) from action advantage A(s,a).', 'An LSTM carries temporal context across stacked visual frames, helping the agent track enemies in a partially observable environment.', 'An auxiliary game-feature head predicts enemy visibility and acts as a perceptual regulariser.', 'The agent operates on a full deathmatch map with four bots and five rotating maps.'] },
+        { title: 'Reward design', body: 'The PPO reward combines kill, survival, time, damage, ammunition, zone and death terms. Arnold uses kill and death rewards together with distance, stale-state and health-pickup signals. The README reports a reward–kill correlation of r = 0.984 for Arnold.' },
+        { title: 'Interpretation and limitations', body: 'The repository reports a 50% success rate for the final PPO test (both enemies eliminated). It also notes that PPO had not fully converged at the reported training budget, while Arnold showed a behavioural plateau. Both approaches were evaluated with a single random seed, so multi-seed validation remains necessary.' }
+      ],
+      tables: [
+        { title: 'Agent comparison', columns: ['Agent', 'Algorithm', 'Environment', 'Training steps', 'Reported result'], rows: [
+          ['PPO Agent', 'Proximal Policy Optimization', '600 × 600 arena, 2 bots', '301,056', '50% success rate in 10 test episodes'],
+          ['Arnold', 'Dueling Double DRQN + LSTM', 'Full map, 4 bots, 5 maps', '3,271,025', '16.83 mean kills/episode; K/D 10.68']
+        ]},
+        { title: 'Arnold — reported final metrics', columns: ['Metric', 'Value'], rows: [
+          ['Total episodes', '6,215'],
+          ['Peak kills in an episode', '43'],
+          ['Greedy evaluation kills', '5.4 per episode'],
+          ['Greedy evaluation K/D', '5.40'],
+          ['Mean TD loss / game-feature loss', '0.2384 / 0.1915'],
+          ['Reward–kill correlation', 'r = 0.984']
+        ]}
+      ],
+      gallery: [
+        { src: 'https://raw.githubusercontent.com/1marieCurie/FreeDoom_Reinforcement_Learning_Game/main/image.png', title: 'VizDoom deathmatch environment', caption: 'Gameplay screenshot from the repository demonstration.' }
+      ]
+    },
     accent: 'rose', icon: 'game',
   },
   {
@@ -168,7 +266,37 @@ const projects: Project[] = [
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning concept for real-time detection of unsanitary areas in the city of Fès.',
     description: 'Designed a computer-vision solution aimed at detecting urban cleanliness issues in real time, with the objective of supporting a cleaner city.',
-    stack: ['YOLO', 'Deep Learning', 'Computer Vision'],
+    stack: ['YOLOv11s', 'Roboflow', 'OpenCV', 'Streamlit'],
+    details: {
+      intro: 'A computer-vision system that detects larger dirty or disordered public-space regions as a single garbage_zone class. The model focuses on the surrounding zone rather than attempting to classify every individual item of litter.',
+      metrics: [
+        { label: 'Training images', value: '~6,186', note: 'Approximately 3,093 per class' },
+        { label: 'Training epochs', value: '150', note: 'YOLOv11 Small' },
+        { label: 'Image size', value: '640 × 640', note: 'Training resolution' },
+        { label: 'mAP@0.5', value: '0.889', note: 'Value shown in the repository PR curve' },
+      ],
+      sections: [
+        { title: 'Dataset preparation', body: 'Two Roboflow datasets are merged and balanced, with approximately 3,093 images for each class (garbage and clean). Images containing dirty regions are labelled with bounding boxes around the larger garbage zones; clean images use empty labels.' },
+        { title: 'Model training', bullets: ['YOLOv11s was selected to fit the available GPU constraints.', 'Training configuration: 150 epochs, 640 × 640 image size and batch size 16.', 'Augmentation includes mosaic (0.5), HSV transformations and flips.', 'Initial learning rate 0.0007, weight decay 0.0005 and patience 30.'] },
+        { title: 'Inference application', body: 'The Streamlit interface accepts images and videos, runs predictions and overlays bounding boxes with class labels and confidence scores. Users can adjust the confidence threshold and inspect a detection table containing box coordinates and predicted classes.' },
+        { title: 'Evaluation note', body: 'The repository PR curve displays garbage_zone AP = 0.889 and all-classes mAP@0.5 = 0.889. These are the values visible in the committed results graphic; the portfolio does not reinterpret them as mAP@0.5:0.95.' }
+      ],
+      tables: [
+        { title: 'Training configuration', columns: ['Setting', 'Value'], rows: [
+          ['Architecture', 'YOLOv11 Small (YOLOv11s)'],
+          ['Dataset balance', '~3,093 garbage + ~3,093 clean images'],
+          ['Epochs / image size / batch', '150 / 640 × 640 / 16'],
+          ['Augmentation', 'Mosaic 0.5, HSV, horizontal/vertical flips'],
+          ['Initial learning rate', '0.0007'],
+          ['Weight decay / patience', '0.0005 / 30']
+        ]}
+      ],
+      gallery: [
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/principe_image.png', title: 'Bounding-box predictions', caption: 'Repository comparison showing candidate boxes and retained garbage detections with confidence scores.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/metrics_image.png', title: 'Precision–recall curve', caption: 'Committed precision–recall curve showing garbage_zone AP and mAP@0.5 of 0.889.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/detection_image.png', title: 'Single-image inference', caption: 'Actual YOLOv11s prediction with a garbage_zone bounding box and 0.88 confidence.' }
+      ]
+    },
     accent: 'green', icon: 'leaf',
   },
   {
@@ -177,7 +305,54 @@ const projects: Project[] = [
     category: 'Machine Learning', year: '2025',
     summary: 'A machine learning project for predicting and optimising building energy consumption.',
     description: 'Explored regression and sequence-learning approaches to model energy consumption, with an interactive Streamlit interface.',
-    stack: ['Ridge', 'LightGBM', 'XGBoost', 'LSTM', 'Streamlit'],
+    stack: ['Ridge + RFE', 'Scikit-learn', 'MORED', 'Streamlit'],
+    details: {
+      intro: 'A regression and peak-detection workflow for residential electricity consumption in Morocco. It uses the MORED dataset and building metadata to estimate hourly energy use in kWh and identify high-consumption periods.',
+      metrics: [
+        { label: 'Buildings', value: '12', note: 'Residential MORED dataset' },
+        { label: 'Reported daily range', value: '28–295 kWh', note: 'As documented in the repository' },
+        { label: 'Selected model', value: 'Ridge + RFE', note: '20 selected features; alpha 0.01' },
+        { label: 'Reported test R²', value: '0.9999992', note: 'Repository result; see validation caveat below' },
+      ],
+      sections: [
+        { title: 'Dataset and preprocessing', body: 'The project uses the Moroccan Buildings’ Electricity Consumption Dataset (MORED), covering 12 residential buildings in Salé, Tétouan and Rabat. Collection periods range from 14 to 90 days per building. The source describes high-frequency raw measurements and an hourly aggregation target y_kWh, enriched with occupancy and building metadata.' },
+        { title: 'Feature engineering', bullets: ['Lagged consumption: previous hour, two hours, 24 hours, 48 hours and seven days.', 'Rolling statistics over 6 hours, 24 hours and 7 days, plus expanding mean and standard deviation.', 'Time features: hour, weekday, weekend, month and cyclic sine/cosine encodings.', 'Building context: number of occupants and interactions with temporal features.'] },
+        { title: 'Model selection', body: 'Several stacking configurations and an LSTM sequence model were evaluated. The repository reports that stacking did not improve the initial Ridge baseline and that the tested 168-hour LSTM performed poorly. The final documented approach is Ridge regression with Recursive Feature Elimination (RFE), selecting 20 features.' },
+        { title: 'Prediction and peak analysis', body: 'The Streamlit application supports daily, weekly and monthly views, actual-versus-predicted comparisons, peak-hour detection and CSV export. The committed peak-detection plot overlays predicted consumption and real measurements, along with predicted and actual peak markers.' },
+        { title: 'Metric interpretation', body: 'The values displayed for Ridge + RFE are transcribed from the repository’s committed performance graphic. The exceptionally high reported R² and very small errors should be rechecked on a separate, independently held-out building or time period before being interpreted as evidence of generalisation.' }
+      ],
+      tables: [
+        { title: 'Dataset profile', columns: ['Aspect', 'Documented value'], rows: [
+          ['Dataset', 'MORED — Moroccan Buildings’ Electricity Consumption Dataset'],
+          ['Residential buildings', '12'],
+          ['Cities', 'Salé, Tétouan and Rabat'],
+          ['Observation period', '14–90 days per building'],
+          ['Daily consumption range', '28–295 kWh'],
+          ['Context metadata', 'Occupants, dwelling type, area and ownership']
+        ]},
+        { title: 'Approaches compared in the repository', columns: ['Approach', 'Test R²', 'RMSE', 'Repository observation'], rows: [
+          ['Ridge + LightGBM stacking (KFold OOF)', '0.4078', '0.2196', 'Negligible gain over the baseline'],
+          ['Ridge + LightGBM + XGBoost (Ridge meta)', '0.3945', '0.2215', 'Performance decreased'],
+          ['Ridge + LightGBM + XGBoost (GradientBoosting meta)', '0.3645', '0.2275', 'More complex meta-model degraded results'],
+          ['LSTM(128, 64) on 168-hour sequences', '0.0450', '0.2798', 'Did not learn the patterns in this experiment']
+        ]},
+        { title: 'Selected Ridge + RFE result (as reported)', columns: ['Metric', 'Value'], rows: [
+          ['Selected features', '20'],
+          ['Best alpha', '0.01'],
+          ['Cross-validation R²', '0.999632'],
+          ['Test R²', '0.9999992'],
+          ['MAE', '0.000218'],
+          ['RMSE', '0.000249'],
+          ['MAPE', '0.1229%']
+        ]}
+      ],
+      gallery: [
+        { src: import.meta.env.BASE_URL + 'project-images/energy-distribution.webp', title: 'Energy consumption distribution', caption: 'Histogram supplied by the project owner; the screenshot is used as provided.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/models_performance.png', title: 'Model comparison', caption: 'Repository comparison table for stacking and LSTM experiments.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/best_model.png', title: 'Ridge + RFE metrics', caption: 'Committed performance summary for the selected Ridge + RFE configuration.' },
+        { src: 'https://raw.githubusercontent.com/1marieCurie/Energy_consumption_and_peaks_detection/main/screens/peak_detection.png', title: 'Predictions and peak detection', caption: 'Hourly predicted consumption compared with real data, including predicted and actual peak markers.' }
+      ]
+    },
     accent: 'amber', icon: 'database',
   },
   {
@@ -187,6 +362,38 @@ const projects: Project[] = [
     summary: 'A web application for managing training programmes and online courses.',
     description: 'Built during my introductory internship at EPG, focusing on the design and development of a web application for training and course management.',
     stack: ['React', 'Laravel', 'MySQL'],
+    details: {
+      intro: 'An e-learning management application built around training programmes (formations), the courses inside them, teachers and enrolled students. The repository code and supporting documentation describe course delivery, progress tracking, statistics, role permissions and certificates.',
+      metrics: [
+        { label: 'Courses in test guide', value: '11', note: 'Documented validation snapshot' },
+        { label: 'Test enrolments', value: '26', note: 'Documented validation snapshot' },
+        { label: 'Chapters in test data', value: '7', note: 'Across five courses' },
+        { label: 'User roles', value: '4', note: 'Super admin, admin, teacher and student' },
+      ],
+      sections: [
+        { title: 'Training and course structure', body: 'A Formation groups multiple courses and is associated with a teacher and category. Courses contain chapters, assignments, feedback and evaluations. The models also store learning objectives, prerequisites, duration, difficulty, active status and view counts.' },
+        { title: 'Student access and progress', bullets: ['Students enrol in a formation rather than being linked directly to each course.', 'The documented access rule checks the formation enrolment and paid payment status.', 'Formation progress can be read from the enrolment record; course and formation completion can lead to certificates.'] },
+        { title: 'Roles and permissions', body: 'The supporting permissions documentation describes four roles: super admin, admin, teacher (formateur) and student. Super admins have full administrative access; normal admins receive granular permissions; teachers manage their own learning content; students have learning access without administrative permissions.' },
+        { title: 'Certificates and verification', body: 'The repository documents both course certificates and formation certificates, with generation for completed learning paths, certificate numbers, verification codes, validity checks, download and verification URLs, expiry handling and verification logs.' },
+        { title: 'Testing snapshot', body: 'The course-statistics guide records an example validation dataset: 11 active courses, 26 enrolments and 7 chapters across five courses. These figures are documentation/test values, not a claim about current production usage.' }
+      ],
+      tables: [
+        { title: 'Documented course-statistics test snapshot', columns: ['Metric', 'Value'], rows: [
+          ['Total courses', '11'],
+          ['Active courses', '11'],
+          ['Total enrolments', '26'],
+          ['Courses with chapters', '5'],
+          ['Total chapters', '7'],
+          ['Main category', 'Web Development (7 courses)']
+        ]},
+        { title: 'Role model', columns: ['Role', 'Documented responsibility'], rows: [
+          ['Super admin', 'Full system administration and permission management'],
+          ['Admin', 'Specific permissions granted by the super admin'],
+          ['Teacher / Formateur', 'Create and manage own formations and courses'],
+          ['Student', 'Access enrolled learning content and track progress']
+        ]}
+      ]
+    },
     accent: 'cyan', icon: 'code',
   },
 ]
@@ -354,7 +561,41 @@ function App() {
           <h2 id="modal-title">{selected.title}</h2>
           {selected.screenshotCredit && <a className="image-credit" href={selected.screenshotCreditUrl} target="_blank" rel="noreferrer">Image reference: {selected.screenshotCredit}<ArrowUpRight size={13}/></a>}
           {selected.screenshotNote && <p className="image-note">{selected.screenshotNote}</p>}
-          <div className="modal-label">{t.details}</div><p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
+          <div className="modal-label">{t.details}</div>
+          <p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
+          {selected.details && <>
+            <p className="detail-intro">{selected.details.intro}</p>
+            {!!selected.details.metrics?.length && <div className="detail-metrics">
+              {selected.details.metrics.map(metric => <div className="detail-metric" key={metric.label}>
+                <span>{metric.label}</span><strong>{metric.value}</strong>{metric.note && <small>{metric.note}</small>}
+              </div>)}
+            </div>}
+            {!!selected.details.sections?.length && <div className="detail-sections">
+              {selected.details.sections.map(section => <section className="detail-section" key={section.title}>
+                <h3>{section.title}</h3>
+                {section.body && <p>{section.body}</p>}
+                {section.bullets && <ul>{section.bullets.map(item => <li key={item}>{item}</li>)}</ul>}
+              </section>)}
+            </div>}
+            {!!selected.details.tables?.length && <div className="detail-tables">
+              {selected.details.tables.map(table => <section className="detail-table-section" key={table.title}>
+                <h3>{table.title}</h3>
+                <div className="detail-table-scroll"><table>
+                  <thead><tr>{table.columns.map(column => <th key={column}>{column}</th>)}</tr></thead>
+                  <tbody>{table.rows.map((values, rowIndex) => <tr key={rowIndex}>{values.map((value, cellIndex) => <td key={cellIndex}>{value}</td>)}</tr>)}</tbody>
+                </table></div>
+              </section>)}
+            </div>}
+            {!!selected.details.gallery?.length && <section className="detail-gallery-section">
+              <div className="detail-gallery-heading"><div className="modal-label">PROJECT EVIDENCE</div><span>{selected.details.gallery.length} visuals</span></div>
+              <div className="detail-gallery">
+                {selected.details.gallery.map(visual => <figure className="detail-gallery-item" key={visual.title}>
+                  <div className="detail-gallery-frame"><img src={visual.src} alt={visual.title} loading="lazy"/></div>
+                  <figcaption><strong>{visual.title}</strong><span>{visual.caption}</span>{visual.source && <a href={visual.source} target="_blank" rel="noreferrer">Open source <ArrowUpRight size={12}/></a>}</figcaption>
+                </figure>)}
+              </div>
+            </section>}
+          </>}
           <div className="modal-label">{t.stack}</div><div className="modal-tags">{selected.stack.map(s => <span key={s}>{s}</span>)}</div>
           {selected.repo && <a className="project-repo-link" href={selected.repo} target="_blank" rel="noreferrer"><Github size={16}/>{lang === 'EN' ? 'View source on GitHub' : 'Voir le code sur GitHub'}<ArrowUpRight size={15}/></a>}<div className="modal-note">{lang === 'EN' ? 'Open the repository to explore the implementation and project files.' : 'Consultez le dépôt pour explorer l’implémentation et les fichiers du projet.'}</div>
           <button className="modal-done" onClick={() => setSelected(null)}>{t.close}<X size={15}/></button>
