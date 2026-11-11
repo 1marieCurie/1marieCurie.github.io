@@ -842,3 +842,37 @@
     aspect-ratio:1 / 1;
   }
 }
+
+
+/* First activity post: rebalance height into a centered 50/50 lower pair */
+.activity-gallery--first-post{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  justify-items:stretch;
+  justify-content:center;
+  align-items:center;
+  column-gap:11px;
+  row-gap:11px;
+}
+.activity-gallery--first-post .activity-photo:first-child{
+  grid-column:1 / -1;
+  width:100%;
+  aspect-ratio:16 / 5.8;
+}
+.activity-gallery--first-post .activity-photo:nth-child(2),
+.activity-gallery--first-post .activity-photo:nth-child(3){
+  grid-column:span 1;
+  width:100%;
+  aspect-ratio:1.2 / 1;
+  justify-self:center;
+}
+.activity-gallery--first-post .activity-photo:nth-child(2) img,
+.activity-gallery--first-post .activity-photo:nth-child(3) img{
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:650px){
+  .activity-gallery--first-post{column-gap:8px;row-gap:8px}
+  .activity-gallery--first-post .activity-photo:first-child{aspect-ratio:16 / 7.4}
+  .activity-gallery--first-post .activity-photo:nth-child(2),
+  .activity-gallery--first-post .activity-photo:nth-child(3){aspect-ratio:1 / 1}
+}
