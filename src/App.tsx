@@ -675,6 +675,7 @@ function App() {
                     </div>
                   </article>
                 ))}
+              </div>
               <button type="button" className="activity-arrow activity-arrow--overlay activity-arrow--prev" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={21}/></button>
               <button type="button" className="activity-arrow activity-arrow--overlay activity-arrow--next" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={21}/></button>
             </div>
