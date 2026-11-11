@@ -645,7 +645,8 @@ function App() {
               onTouchStart={event => setActivityTouchStart(event.touches[0]?.clientX ?? null)}
               onTouchEnd={event => {
                 if (activityTouchStart !== null) {
-                  const delta = event.changedTouches[0]?.clientX - activityTouchStart
+                  const endX = event.changedTouches[0]?.clientX ?? activityTouchStart
+                  const delta = endX - activityTouchStart
                   if (delta < -45) setActiveActivity(index => (index + 1) % personalActivities.length)
                   if (delta > 45) setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)
                 }
