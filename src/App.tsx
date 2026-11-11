@@ -217,11 +217,25 @@ const projects: Project[] = [
     accent: 'amber', icon: 'brain',
   },
   {
-    title: 'BeastNet', screenshot: 'https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c39d/8947003/37d007ed2818/entropy-24-00353-g004.jpg', screenshotClass: 'wildlife', screenshotCredit: 'Alekss Vecvanags et al. (2022), CC BY 4.0', screenshotCreditUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8947003/', screenshotNote: 'Real camera-trap detection example for visual reference; this image is not a prediction produced by BeastNet.',
+    title: 'Wildlife Monitoring',
+    screenshot: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-cover.jpg',
+    screenshotClass: 'wildlife',
     category: 'Computer Vision', year: '2025',
-    summary: 'A deep learning solution that identifies an animal class from an input image.',
-    description: 'Explored object detection and visual recognition approaches for animal identification, comparing several modern detection architectures.',
-    stack: ['Deep Learning', 'YOLO', 'DETR', 'Faster R-CNN', 'EfficientDet'],
+    summary: 'Camera trap-based monitoring.',
+    summaryFr: 'Suivi de la faune basé sur des pièges photographiques.',
+    description: 'A camera trap-based wildlife monitoring project.',
+    descriptionFr: 'Un projet de suivi de la faune basé sur des pièges photographiques.',
+    stack: ['Camera Traps', 'EfficientDet-D0', 'YOLO'],
+    details: {
+      intro: 'The article visual presents representative samples from the ENA24 dataset and a baseline model evaluation figure.',
+      sections: [
+        { title: 'Dataset examples', body: 'The figure caption identifies the samples as representative images from ENA24 and highlights day and night conditions, occlusion, scale variation and multi-species scenes.' },
+        { title: 'Baseline experiment', body: 'The supplied article excerpt includes an EfficientDet-D0 baseline description and a YOLO metrics plot. Further methodology and results will be added when the project details are provided.' }
+      ],
+      gallery: [
+        { src: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-article.jpg', title: 'Article figure — ENA24 samples and baseline metrics', caption: 'The article figure supplied for this project, showing representative ENA24 camera-trap samples and the baseline evaluation visual.' }
+      ]
+    },
     accent: 'green', icon: 'vision',
   },
   {
