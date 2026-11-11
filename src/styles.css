@@ -730,3 +730,62 @@
 @media(prefers-reduced-motion:reduce){
   .activities-track,.activity-arrow,.activity-photo img,.activities-pagination button{transition:none!important}
 }
+
+
+/* Personal activities — focused first-post composition and edge navigation */
+.activities-viewport{position:relative}
+.activity-arrow--overlay{
+  position:absolute;
+  z-index:5;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  color:#f2f6ff;
+  background:rgba(7,15,27,.78);
+  border-color:rgba(190,211,241,.34);
+  box-shadow:0 8px 24px rgba(0,0,0,.28);
+  backdrop-filter:blur(10px);
+}
+.activity-arrow--overlay:hover{transform:translateY(calc(-50% - 2px))}
+.activity-arrow--prev{left:13px}
+.activity-arrow--next{right:13px}
+.activity-gallery--first-post{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-rows:clamp(130px,15vw,190px) clamp(100px,11vw,140px);
+  grid-auto-rows:auto;
+  gap:10px;
+}
+.activity-gallery--first-post .activity-photo:first-child{
+  grid-column:1 / -1;
+  grid-row:auto;
+}
+.activity-gallery--first-post .activity-photo:nth-child(2),
+.activity-gallery--first-post .activity-photo:nth-child(3){
+  grid-column:auto;
+  grid-row:auto;
+}
+.activity-gallery--first-post .activity-photo:first-child img{object-position:center 44%}
+.activity-slide.is-active .activity-photo img{
+  animation:activity-photo-arrive .72s cubic-bezier(.2,.75,.25,1) both;
+}
+.activity-slide.is-active .activity-photo:nth-child(2) img{animation-delay:65ms}
+.activity-slide.is-active .activity-photo:nth-child(3) img{animation-delay:120ms}
+.activity-slide.is-active .activity-photo:nth-child(4) img{animation-delay:175ms}
+.activity-slide.is-active .activity-photo:nth-child(5) img{animation-delay:230ms}
+@keyframes activity-photo-arrive{
+  from{opacity:.58;transform:scale(1.045) translateX(9px);filter:blur(2px)}
+  to{opacity:.94;transform:scale(1) translateX(0);filter:blur(0)}
+}
+@media(max-width:650px){
+  .activity-gallery--first-post{
+    grid-template-rows:clamp(150px,48vw,220px) clamp(95px,29vw,135px);
+    gap:7px;
+  }
+  .activity-arrow--overlay{width:36px;height:36px;top:50%}
+  .activity-arrow--prev{left:8px}
+  .activity-arrow--next{right:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .activity-slide.is-active .activity-photo img{animation:none!important}
+}

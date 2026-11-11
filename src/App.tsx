@@ -636,8 +636,7 @@ function App() {
               </div>
               <div className="activities-controls" aria-label="Personal activities carousel controls">
                 <span className="activities-counter">{String(activeActivity + 1).padStart(2, '0')} <i>/</i> {String(personalActivities.length).padStart(2, '0')}</span>
-                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={19}/></button>
-                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={19}/></button>
+
               </div>
             </div>
             <div
@@ -655,7 +654,7 @@ function App() {
             >
               <div className="activities-track" style={{ transform: `translate3d(-${activeActivity * 100}%, 0, 0)` }} aria-live="polite">
                 {personalActivities.map((activity, index) => (
-                  <article className="activity-slide" key={activity.title} aria-label={`Activity ${index + 1} of ${personalActivities.length}`}>
+                  <article className={`activity-slide ${index === activeActivity ? 'is-active' : ''}`} key={activity.title} aria-label={`Activity ${index + 1} of ${personalActivities.length}`}>
                     <div className="activity-slide-grid">
                       <div className="activity-copy">
                         <div className="activity-overline"><span>0{index + 1}</span><i/> {activity.images.length} {lang === 'EN' ? 'photos' : 'photos'}</div>
@@ -665,7 +664,7 @@ function App() {
                           {t.activityViewPost}<ArrowUpRight size={14}/>
                         </a>
                       </div>
-                      <div className="activity-gallery" aria-label={lang === 'EN' ? 'Photos from this activity' : 'Photos de cette activité'}>
+                      <div className={`activity-gallery ${index === 0 ? 'activity-gallery--first-post' : ''}`} aria-label={lang === 'EN' ? 'Photos from this activity' : 'Photos de cette activité'}>
                         {activity.images.map((src, imageIndex) => (
                           <a className="activity-photo" key={src} href={activity.postUrl} target="_blank" rel="noreferrer" aria-label={`Open LinkedIn post image ${imageIndex + 1}`}>
                             <img src={src} alt={`${activity.title} — photo ${imageIndex + 1}`} loading={index === activeActivity ? 'eager' : 'lazy'} />
@@ -676,7 +675,8 @@ function App() {
                     </div>
                   </article>
                 ))}
-              </div>
+              <button type="button" className="activity-arrow activity-arrow--overlay activity-arrow--prev" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={21}/></button>
+              <button type="button" className="activity-arrow activity-arrow--overlay activity-arrow--next" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={21}/></button>
             </div>
             <div className="activities-pagination" role="tablist" aria-label="Choose an activity">
               {personalActivities.map((activity, index) => (
