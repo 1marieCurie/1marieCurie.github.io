@@ -442,8 +442,8 @@ type PersonalActivity = {
 const personalActivities: PersonalActivity[] = [
   {
     title: "Back to April 2026 — A brief introduction to modern cryptography",
-    description: "A short introduction to modern cryptography and the arithmetic and algebraic foundations behind secure communication. The post also thanks the professors who supported the lesson and helped revise its content.",
-    descriptionFr: "Une brève introduction à la cryptographie moderne et aux fondements arithmétiques et algébriques des échanges sécurisés. La publication remercie également les professeurs qui ont accompagné la leçon et contribué à sa révision.",
+    description: "I had the pleasure of exploring the foundations of modern cryptography, from the mathematical ideas behind it to the role it plays in securing digital communication. It was a great opportunity to revisit arithmetic and algebra through a practical and fascinating topic.",
+    descriptionFr: "J’ai eu le plaisir d’explorer les fondements de la cryptographie moderne, des notions mathématiques qui la soutiennent à son rôle dans la sécurisation des communications numériques. Une belle occasion de redécouvrir l’arithmétique et l’algèbre à travers un sujet aussi concret que passionnant.",
     postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_back-to-april-2026-a-brief-introduction-ugcPost-7522677299272556544-mO6o/",
     images: [
       "https://media.licdn.com/dms/image/v2/D4E22AQERTuvs_DM8qg/feedshare-shrink_1280/B4EaGXrI2KG0AM-/0/1793546030748?e=2147483647&v=beta&t=5pdC-D54LD7ar9efYukeZ54jCz3xBTN8DVR-nJ0iC5A",
@@ -453,8 +453,8 @@ const personalActivities: PersonalActivity[] = [
   },
   {
     title: "32nd Forum EMI–Entreprises — Rabat",
-    description: "The 32nd Forum EMI–Entreprises brought companies together with students and future engineers. It was an opportunity to meet inspiring professionals, learn about different career paths and share the event with fellow engineering student OUFQUIR Khadija.",
-    descriptionFr: "La 32e édition du Forum EMI–Entreprises a réuni des entreprises, des étudiants et de futurs ingénieurs. Cette rencontre a été l’occasion d’échanger avec des professionnels inspirants, de découvrir différents parcours et de partager l’événement avec OUFQUIR Khadija.",
+    description: "Attending the 32nd Forum EMI–Entreprises in Rabat was a valuable opportunity to connect with companies, meet professionals and discover different career paths. I especially enjoyed sharing the experience with fellow engineering student OUFQUIR Khadija and exchanging ideas about the world of work.",
+    descriptionFr: "Participer à la 32e édition du Forum EMI–Entreprises à Rabat a été une belle occasion de rencontrer des entreprises, d’échanger avec des professionnels et de découvrir différents parcours. J’ai particulièrement apprécié partager cette expérience avec OUFQUIR Khadija et discuter des réalités du monde professionnel.",
     postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_forumemi-emirabat-forumentreprises-ugcPost-7464669166147489792-P9Xn/",
     images: [
       "https://media.licdn.com/dms/image/v2/D4D22AQFv9q_aANtPCg/feedshare-image-high-res/B4DZ5fVCztJ8AU-/0/1779715812945?e=2147483647&v=beta&t=y_knZdBZvWhtat793qBbMRxT3sbfhanRMY_17EvXU30",
@@ -465,8 +465,8 @@ const personalActivities: PersonalActivity[] = [
   },
   {
     title: "Morocco Gaming Expo — Day 5 | ENSA Fès",
-    description: "Representing ENSA Fès and Université Sidi Mohamed Ben Abdellah at the Morocco Gaming Expo in Rabat. With CTGIN (Club Tech Gaming Intelligence Numérique), the team presented early-stage work around gaming, data and digital intelligence during the day dedicated to pitches from schools and organisations.",
-    descriptionFr: "Représentation de l’ENSA Fès et de l’Université Sidi Mohamed Ben Abdellah au Morocco Gaming Expo à Rabat. Avec le CTGIN (Club Tech Gaming Intelligence Numérique), l’équipe a présenté des projets en phase initiale autour du gaming, de la data et de l’intelligence numérique, lors de la journée consacrée aux pitchs des écoles et organisations.",
+    description: "A memorable day representing ENSA Fès and Université Sidi Mohamed Ben Abdellah at the Morocco Gaming Expo in Rabat. Alongside CTGIN (Club Tech Gaming Intelligence Numérique), I took part in presenting our early ideas around gaming, data and digital intelligence during the showcase dedicated to schools and organisations. An inspiring experience filled with exchanges and new perspectives.",
+    descriptionFr: "Une journée marquante au Morocco Gaming Expo à Rabat, où j’ai eu l’occasion de représenter l’ENSA Fès et l’Université Sidi Mohamed Ben Abdellah. Aux côtés du CTGIN (Club Tech Gaming Intelligence Numérique), j’ai participé à la présentation de nos premières idées autour du gaming, de la data et de l’intelligence numérique. Une expérience enrichissante, rythmée par les échanges et les nouvelles perspectives.",
     postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_mge2025-ensafes-usmba-ugcPost-7347548086413475840-IUeJ/",
     images: [
       "https://media.licdn.com/dms/image/v2/D4E22AQEZ5z0N3CBXUg/feedshare-shrink_1280/B4EZfe8CR4GcAo-/0/1751791972575?e=2147483647&v=beta&t=KRsdG0DP3YOn-R3m6DK_UUcnIqOwBc8eDzRPl8ottLY",
@@ -477,8 +477,8 @@ const personalActivities: PersonalActivity[] = [
   },
   {
     title: "ICAIM 2025 — First Edition at ENSA Fès",
-    description: "A three-day experience at the first edition of ICAIM hosted at ENSA Fès. The event offered new perspectives on learning mathematics and was an opportunity to learn from and thank the contributors, professors, friends and organisers.",
-    descriptionFr: "Trois journées d’expérience à l’occasion de la première édition d’ICAIM organisée à l’ENSA Fès. L’événement a ouvert de nouvelles perspectives pour apprendre les mathématiques et a permis de remercier les contributeurs, professeurs, amis et organisateurs.",
+    description: "Three inspiring days at the first edition of ICAIM, hosted at ENSA Fès. The event gave me a fresh perspective on how mathematics can be explored and taught, while bringing together people who share a genuine interest in learning, research and discovery. I left with new ideas and a deeper appreciation for the experience.",
+    descriptionFr: "Trois journées inspirantes à l’occasion de la première édition d’ICAIM, organisée à l’ENSA Fès. Cet événement m’a permis de découvrir de nouvelles façons d’aborder et d’enseigner les mathématiques, tout en rencontrant des personnes animées par le goût de l’apprentissage, de la recherche et de la découverte. J’en garde de nouvelles idées et une expérience particulièrement enrichissante.",
     postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_icaim2025-ensaf-ugcPost-7345393833939009536-zslQ/",
     images: [
       "https://media.licdn.com/dms/image/v2/D4E22AQGZ-slg3FlKkg/feedshare-shrink_800/B4EZfAUiILHwAs-/0/1751278308243?e=2147483647&v=beta&t=PWZ4oisT5UD3jW80Oyul04NolNGkBEyH7dN9OpEI19I",
@@ -490,8 +490,8 @@ const personalActivities: PersonalActivity[] = [
   },
   {
     title: "All Star Debate — Steering Committee",
-    description: "Served on the Steering Committee for the All Star Debate event organised by Team Great Debaters. The gathering brought debaters from across Morocco together for discussions, exchange and networking.",
-    descriptionFr: "Participation au comité de pilotage de l’événement All Star Debate, organisé par Team Great Debaters. Cette rencontre a réuni des débatteurs de différentes régions du Maroc autour de discussions, d’échanges et de rencontres.",
+    description: "Being part of the Steering Committee for All Star Debate, organised by Team Great Debaters, was an exciting opportunity to contribute behind the scenes to an event bringing debaters from across Morocco together. I enjoyed being part of an atmosphere built around thoughtful discussions, sharing perspectives and meeting people with different experiences.",
+    descriptionFr: "Faire partie du comité de pilotage d’All Star Debate, organisé par Team Great Debaters, a été une belle occasion de contribuer à l’organisation d’un événement réunissant des débatteurs venus de différentes régions du Maroc. J’ai apprécié cette ambiance d’échange, de réflexion et de rencontres autour d’idées et de points de vue variés.",
     postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_debate-asd-tgd-ugcPost-7289393977487708160-odnI/",
     images: [
       "https://media.licdn.com/dms/image/v2/D4E22AQGDyoGdn3mRWQ/feedshare-shrink_800/B4EZSkgFzQGwAg-/0/1737926691290?e=2147483647&v=beta&t=gHAtz52r1vuJCmKdXQrHUFTkm9cQPa4W5DzH5vmObGY",
@@ -503,8 +503,8 @@ const personalActivities: PersonalActivity[] = [
   },
   {
     title: "Project Presentation — Accessible Parking Protection System",
-    description: "Presented a semester project: an electronic monitoring and protection system for parking spaces reserved for people with disabilities. The post highlights the team effort and the project's economic, social and environmental sustainability perspective.",
-    descriptionFr: "Présentation d’un projet de fin de semestre : un système électronique de surveillance et de protection des places de stationnement réservées aux personnes en situation de handicap. La publication souligne le travail d’équipe et les dimensions économique, sociale et environnementale du projet.",
+    description: "One of the highlights of the semester was presenting an electronic system designed to monitor and protect parking spaces reserved for people with disabilities. The project challenged us to think beyond the technical solution and consider its practical impact, including its social, economic and environmental dimensions. A rewarding experience in turning an idea into something meaningful.",
+    descriptionFr: "L’un des moments marquants du semestre a été la présentation d’un système électronique destiné à surveiller et protéger les places de stationnement réservées aux personnes en situation de handicap. Ce projet nous a amenés à réfléchir au-delà de l’aspect technique, en prenant en compte son utilité concrète ainsi que ses dimensions sociales, économiques et environnementales. Une expérience enrichissante pour transformer une idée en solution porteuse de sens.",
     postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_27-juin-2024-c%C3%A9tait-le-jour-de-la-pr%C3%A9sentation-ugcPost-7232048031057985538-40WX/",
     images: [
       "https://media.licdn.com/dms/image/v2/D5622AQHQ4zTwTas1Hw/feedshare-image-high-res/feedshare-image-high-res/0/1724254613241?e=2147483647&v=beta&t=M7ntz7kam7Ae2eeswSG2L7NWM1MOKMheHyjVtyiwkAY",
