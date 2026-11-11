@@ -636,10 +636,10 @@ function App() {
               </div>
               <div className="activities-controls" aria-label="Personal activities carousel controls">
                 <span className="activities-counter">{String(activeActivity + 1).padStart(2, '0')} <i>/</i> {String(personalActivities.length).padStart(2, '0')}</span>
-                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={21}/></button>
-                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={21}/></button>
               </div>
             </div>
+            <div className="activities-carousel-shell">
+              <button type="button" className="activity-arrow activity-arrow--outside" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={21}/></button>
             <div
               className="activities-viewport"
               onTouchStart={event => setActivityTouchStart(event.touches[0]?.clientX ?? null)}
@@ -677,6 +677,8 @@ function App() {
                   </article>
                 ))}
               </div>
+            </div>
+              <button type="button" className="activity-arrow activity-arrow--outside" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={21}/></button>
             </div>
             <div className="activities-pagination" role="tablist" aria-label="Choose an activity">
               {personalActivities.map((activity, index) => (
