@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import {
   ArrowDown, ArrowUpRight, Award, BrainCircuit, Check,
   Code2, Database, Github, Globe2, GraduationCap,
-  Languages, Mail, MapPin, Menu, Network, ShieldCheck, Sparkles,
+  ChevronLeft, ChevronRight, Languages, Mail, MapPin, Menu, Network, ShieldCheck, Sparkles,
   Terminal, Workflow, X, Zap,
 } from 'lucide-react'
 
@@ -52,6 +52,10 @@ const copy = {
     focusItems: ['LLMs & Generative AI', 'Software testing automation', 'Data engineering'],
     expLabel: 'Where I’ve learned by building',
     expTitle: 'Experience',
+    activitiesLabel: 'Beyond the classroom',
+    activitiesTitle: 'Personal activities',
+    activitiesText: 'A few moments from academic initiatives, events and experiences that have shaped my journey.',
+    activityViewPost: 'View LinkedIn post',
     projectsLabel: 'Selected work',
     projectsTitle: 'Projects that turn ideas into systems.',
     projectsText: 'A selection of academic, personal and internship projects. Open a card to see the problem, approach and technologies.',
@@ -92,6 +96,10 @@ const copy = {
     focusItems: ['LLMs & IA générative', 'Automatisation des tests', 'Ingénierie des données'],
     expLabel: 'Apprendre en construisant',
     expTitle: 'Expérience',
+    activitiesLabel: 'Au-delà des cours',
+    activitiesTitle: 'Activités personnelles',
+    activitiesText: 'Quelques moments d’initiatives académiques, d’événements et d’expériences qui ont marqué mon parcours.',
+    activityViewPost: 'Voir la publication LinkedIn',
     projectsLabel: 'Réalisations',
     projectsTitle: 'Des idées transformées en systèmes.',
     projectsText: 'Une sélection de projets académiques, personnels et réalisés en stage. Ouvrez une carte pour découvrir le contexte, l’approche et les technologies.',
@@ -423,6 +431,90 @@ const projects: Project[] = [
   },
 ]
 
+type PersonalActivity = {
+  title: string
+  description: string
+  descriptionFr: string
+  postUrl: string
+  images: string[]
+}
+
+const personalActivities: PersonalActivity[] = [
+  {
+    title: "Back to April 2026 — A brief introduction to modern cryptography",
+    description: "A short introduction to modern cryptography and the arithmetic and algebraic foundations behind secure communication. The post also thanks the professors who supported the lesson and helped revise its content.",
+    descriptionFr: "Une brève introduction à la cryptographie moderne et aux fondements arithmétiques et algébriques des échanges sécurisés. La publication remercie également les professeurs qui ont accompagné la leçon et contribué à sa révision.",
+    postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_back-to-april-2026-a-brief-introduction-ugcPost-7522677299272556544-mO6o/",
+    images: [
+      "https://media.licdn.com/dms/image/v2/D4E22AQERTuvs_DM8qg/feedshare-shrink_1280/B4EaGXrI2KG0AM-/0/1793546030748?e=2147483647&v=beta&t=5pdC-D54LD7ar9efYukeZ54jCz3xBTN8DVR-nJ0iC5A",
+      "https://media.licdn.com/dms/image/v2/D4E22AQHRAGh-wqVu6w/feedshare-shrink_1280/B4EaGXqy6hJQAM-/0/1793545940938?e=2147483647&v=beta&t=1wGwaBtoPbKKtY1baIpiQoFsqRNzpKPVe1NNcmd5-cE",
+      "https://media.licdn.com/dms/image/v2/D4E22AQHKm7rJG-oixQ/feedshare-shrink_1280/B4EaGXqy9qHEAU-/0/1793545941098?e=2147483647&v=beta&t=jsLKEfik0aYLitbWBh2SxcxlWToyBZbwZdAvmeaN4GM"
+    ],
+  },
+  {
+    title: "32nd Forum EMI–Entreprises — Rabat",
+    description: "The 32nd Forum EMI–Entreprises brought companies together with students and future engineers. It was an opportunity to meet inspiring professionals, learn about different career paths and share the event with fellow engineering student OUFQUIR Khadija.",
+    descriptionFr: "La 32e édition du Forum EMI–Entreprises a réuni des entreprises, des étudiants et de futurs ingénieurs. Cette rencontre a été l’occasion d’échanger avec des professionnels inspirants, de découvrir différents parcours et de partager l’événement avec OUFQUIR Khadija.",
+    postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_forumemi-emirabat-forumentreprises-ugcPost-7464669166147489792-P9Xn/",
+    images: [
+      "https://media.licdn.com/dms/image/v2/D4D22AQFv9q_aANtPCg/feedshare-image-high-res/B4DZ5fVCztJ8AU-/0/1779715812945?e=2147483647&v=beta&t=y_knZdBZvWhtat793qBbMRxT3sbfhanRMY_17EvXU30",
+      "https://media.licdn.com/dms/image/v2/D4D22AQFTwTmUbqeXqQ/feedshare-image-high-res/B4DZ5fVDV9JcAU-/0/1779715815062?e=2147483647&v=beta&t=XyT_0abWPxlebIMV9ZdcLlBKxXVD__AsL3RVVh-0bGM",
+      "https://media.licdn.com/dms/image/v2/D4D22AQGFvBE6qhh7hw/feedshare-shrink_800/B4DZ5fVChTHAAc-/0/1779715811954?e=2147483647&v=beta&t=lwyDlNtdpm82Of7cpgYdIJj1UXVJGB5SqSKPi6LtRUI",
+      "https://media.licdn.com/dms/image/v2/D4D22AQEg0Cnt8-aU1w/feedshare-shrink_800/B4DZ5fVC4.JUAg-/0/1779715813182?e=2147483647&v=beta&t=qJ--fPycgvZjwT7wsGlvA6j-TZSvnwVVDNQj7P5-ldM"
+    ],
+  },
+  {
+    title: "Morocco Gaming Expo — Day 5 | ENSA Fès",
+    description: "Representing ENSA Fès and Université Sidi Mohamed Ben Abdellah at the Morocco Gaming Expo in Rabat. With CTGIN (Club Tech Gaming Intelligence Numérique), the team presented early-stage work around gaming, data and digital intelligence during the day dedicated to pitches from schools and organisations.",
+    descriptionFr: "Représentation de l’ENSA Fès et de l’Université Sidi Mohamed Ben Abdellah au Morocco Gaming Expo à Rabat. Avec le CTGIN (Club Tech Gaming Intelligence Numérique), l’équipe a présenté des projets en phase initiale autour du gaming, de la data et de l’intelligence numérique, lors de la journée consacrée aux pitchs des écoles et organisations.",
+    postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_mge2025-ensafes-usmba-ugcPost-7347548086413475840-IUeJ/",
+    images: [
+      "https://media.licdn.com/dms/image/v2/D4E22AQEZ5z0N3CBXUg/feedshare-shrink_1280/B4EZfe8CR4GcAo-/0/1751791972575?e=2147483647&v=beta&t=KRsdG0DP3YOn-R3m6DK_UUcnIqOwBc8eDzRPl8ottLY",
+      "https://media.licdn.com/dms/image/v2/D4E22AQFpjEPI5eq3Ew/feedshare-shrink_1280/B4EZfe8CRhG4Ak-/0/1751791972427?e=2147483647&v=beta&t=m2B5hYnGJE-E3qvCBut9y7EgXly-CNih-kFPJHU_vz4",
+      "https://media.licdn.com/dms/image/v2/D4E22AQEBqwV317kZYA/feedshare-shrink_800/B4EZfe8CRhHgAg-/0/1751791972300?e=2147483647&v=beta&t=wucpQQS9mSvWNUGnb3Ui5YzQfCCfPfKb2qzqBNfltGc",
+      "https://media.licdn.com/dms/image/v2/D4E22AQG6VJh5j2OFZg/feedshare-shrink_800/B4EZfe8CRIHsAg-/0/1751791972477?e=2147483647&v=beta&t=cJuUpUACH5DbxGQVyiqpdMdWaowbrxgaeK0eEyQwYyA"
+    ],
+  },
+  {
+    title: "ICAIM 2025 — First Edition at ENSA Fès",
+    description: "A three-day experience at the first edition of ICAIM hosted at ENSA Fès. The event offered new perspectives on learning mathematics and was an opportunity to learn from and thank the contributors, professors, friends and organisers.",
+    descriptionFr: "Trois journées d’expérience à l’occasion de la première édition d’ICAIM organisée à l’ENSA Fès. L’événement a ouvert de nouvelles perspectives pour apprendre les mathématiques et a permis de remercier les contributeurs, professeurs, amis et organisateurs.",
+    postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_icaim2025-ensaf-ugcPost-7345393833939009536-zslQ/",
+    images: [
+      "https://media.licdn.com/dms/image/v2/D4E22AQGZ-slg3FlKkg/feedshare-shrink_800/B4EZfAUiILHwAs-/0/1751278308243?e=2147483647&v=beta&t=PWZ4oisT5UD3jW80Oyul04NolNGkBEyH7dN9OpEI19I",
+      "https://media.licdn.com/dms/image/v2/D4E22AQGgL8oyQPO4Ng/feedshare-shrink_800/B4EZfAUiHlGwAg-/0/1751278308404?e=2147483647&v=beta&t=dnxDfaPjoLQHOCwmH0pJ10zbrjcxESJDihPamuXOZ1k",
+      "https://media.licdn.com/dms/image/v2/D4E22AQE3B4Yswp6vjw/feedshare-shrink_800/B4EZfAUiIgGwAs-/0/1751278314201?e=2147483647&v=beta&t=R40QziGmJplkqtM0IIZ7klptTOQFWmyFz5aPZKIphtI",
+      "https://media.licdn.com/dms/image/v2/D4E22AQHVjIwNu1VHbQ/feedshare-shrink_800/B4EZfAUiInHIAs-/0/1751278310477?e=2147483647&v=beta&t=u6bm5LZDuosoaud8Yqnp_vPFxtaVvG7mvMb0Q63CO1U",
+      "https://media.licdn.com/dms/image/v2/D4E22AQESa2QnfbZdYg/feedshare-shrink_800/B4EZfAUiJbHsAk-/0/1751278321975?e=2147483647&v=beta&t=U0HmHSaoFKSPkdfrtCcDpgeXb-bC5dlz3YqUeQaB56s"
+    ],
+  },
+  {
+    title: "All Star Debate — Steering Committee",
+    description: "Served on the Steering Committee for the All Star Debate event organised by Team Great Debaters. The gathering brought debaters from across Morocco together for discussions, exchange and networking.",
+    descriptionFr: "Participation au comité de pilotage de l’événement All Star Debate, organisé par Team Great Debaters. Cette rencontre a réuni des débatteurs de différentes régions du Maroc autour de discussions, d’échanges et de rencontres.",
+    postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_debate-asd-tgd-ugcPost-7289393977487708160-odnI/",
+    images: [
+      "https://media.licdn.com/dms/image/v2/D4E22AQGDyoGdn3mRWQ/feedshare-shrink_800/B4EZSkgFzQGwAg-/0/1737926691290?e=2147483647&v=beta&t=gHAtz52r1vuJCmKdXQrHUFTkm9cQPa4W5DzH5vmObGY",
+      "https://media.licdn.com/dms/image/v2/D4E22AQEPTOjzgOy-tQ/feedshare-shrink_800/B4EZSkgF0eGYAk-/0/1737926775943?e=2147483647&v=beta&t=7DOxSTBGqGkUAQPBIAcKv3ryu3bbu_42Zs42_L25OVQ",
+      "https://media.licdn.com/dms/image/v2/D4E22AQF7pQj5ag9niQ/feedshare-shrink_800/B4EZSkgF3.GYAk-/0/1737926883768?e=2147483647&v=beta&t=RMFWo7aaMhn6t_pymBBY0HEDnW8uYsqKK8mIhtEXecI",
+      "https://media.licdn.com/dms/image/v2/D4E22AQGQwEMwSz6IXQ/feedshare-shrink_800/B4EZSkgF4KHMAg-/0/1737926942836?e=2147483647&v=beta&t=SOV4nVVZkdhVauDVDjrw5PRkyoXsci9TPSwqG8VO9Fc",
+      "https://media.licdn.com/dms/image/v2/D4E22AQHPiAszVl6cbg/feedshare-shrink_800/B4EZSkgF4cHcAk-/0/1737926947168?e=2147483647&v=beta&t=l1G87M42REsSsjS3YLFDflyL1Qfuv7U1pKqtBu3lLHg"
+    ],
+  },
+  {
+    title: "Project Presentation — Accessible Parking Protection System",
+    description: "Presented a semester project: an electronic monitoring and protection system for parking spaces reserved for people with disabilities. The post highlights the team effort and the project's economic, social and environmental sustainability perspective.",
+    descriptionFr: "Présentation d’un projet de fin de semestre : un système électronique de surveillance et de protection des places de stationnement réservées aux personnes en situation de handicap. La publication souligne le travail d’équipe et les dimensions économique, sociale et environnementale du projet.",
+    postUrl: "https://www.linkedin.com/posts/khadija-mellak-090498287_27-juin-2024-c%C3%A9tait-le-jour-de-la-pr%C3%A9sentation-ugcPost-7232048031057985538-40WX/",
+    images: [
+      "https://media.licdn.com/dms/image/v2/D5622AQHQ4zTwTas1Hw/feedshare-image-high-res/feedshare-image-high-res/0/1724254613241?e=2147483647&v=beta&t=M7ntz7kam7Ae2eeswSG2L7NWM1MOKMheHyjVtyiwkAY",
+      "https://media.licdn.com/dms/image/v2/D5622AQEzjFG0ANYzIQ/feedshare-image-high-res/feedshare-image-high-res/0/1724254613429?e=2147483647&v=beta&t=xR4MzEu8OT7J2JVC9pMcM_5VtqsjogJ7ErRf-D1kLEg",
+      "https://media.licdn.com/dms/image/v2/D5622AQGane5xO6WtMw/feedshare-image-high-res/feedshare-image-high-res/0/1724254614299?e=2147483647&v=beta&t=G-XvCjf3XR4X2NeJzlfbXLM1ZqUWqpIkZwdSAW4otwo",
+      "https://media.licdn.com/dms/image/v2/D5622AQHQfeONKs0R3w/feedshare-image-high-res/feedshare-image-high-res/0/1724254611739?e=2147483647&v=beta&t=jwJPj8ELGOI_sviDqjDNq6CNrNmJJSDLCYvyqbrGNqI"
+    ],
+  }
+]
+
 const categories = ['All projects', 'AI & Cybersecurity', 'Generative AI', 'Data & BI', 'Computer Vision', 'Machine Learning', 'Reinforcement Learning', 'Web Development', 'Research · ML']
 const skillGroups = [
   { icon: BrainCircuit, title: 'Generative AI & Testing', skills: ['NLP', 'RAG', 'Generative AI', 'n8n', 'Pytest', 'JUnit', 'Git'] },
@@ -451,6 +543,8 @@ function App() {
   const [activeCategory, setActiveCategory] = useState('All projects')
   const [selected, setSelected] = useState<Project | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeActivity, setActiveActivity] = useState(0)
+  const [activityTouchStart, setActivityTouchStart] = useState<number | null>(null)
   const t = copy[lang]
   const filtered = useMemo(() => activeCategory === 'All projects' ? projects : projects.filter(p => p.category === activeCategory), [activeCategory])
   const ids = ['about', 'experience', 'projects', 'skills', 'contact']
@@ -532,9 +626,76 @@ function App() {
           </div>
         </section>
 
+        <section className="activities-section" id="activities">
+          <div className="section-wrap">
+            <div className="activities-heading">
+              <div>
+                <div className="section-kicker"><span>03</span>{t.activitiesLabel}</div>
+                <h2 className="section-title">{t.activitiesTitle}<span>.</span></h2>
+                <p className="activities-intro">{t.activitiesText}</p>
+              </div>
+              <div className="activities-controls" aria-label="Personal activities carousel controls">
+                <span className="activities-counter">{String(activeActivity + 1).padStart(2, '0')} <i>/</i> {String(personalActivities.length).padStart(2, '0')}</span>
+                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={19}/></button>
+                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={19}/></button>
+              </div>
+            </div>
+            <div
+              className="activities-viewport"
+              onTouchStart={event => setActivityTouchStart(event.touches[0]?.clientX ?? null)}
+              onTouchEnd={event => {
+                if (activityTouchStart !== null) {
+                  const delta = event.changedTouches[0]?.clientX - activityTouchStart
+                  if (delta < -45) setActiveActivity(index => (index + 1) % personalActivities.length)
+                  if (delta > 45) setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)
+                }
+                setActivityTouchStart(null)
+              }}
+            >
+              <div className="activities-track" style={{ transform: `translate3d(-${activeActivity * 100}%, 0, 0)` }} aria-live="polite">
+                {personalActivities.map((activity, index) => (
+                  <article className="activity-slide" key={activity.title} aria-label={`Activity ${index + 1} of ${personalActivities.length}`}>
+                    <div className="activity-slide-grid">
+                      <div className="activity-copy">
+                        <div className="activity-overline"><span>0{index + 1}</span><i/> {activity.images.length} {lang === 'EN' ? 'photos' : 'photos'}</div>
+                        <h3>{activity.title}</h3>
+                        <p>{lang === 'FR' ? activity.descriptionFr : activity.description}</p>
+                        <a className="activity-post-link" href={activity.postUrl} target="_blank" rel="noreferrer">
+                          {t.activityViewPost}<ArrowUpRight size={14}/>
+                        </a>
+                      </div>
+                      <div className="activity-gallery" aria-label={lang === 'EN' ? 'Photos from this activity' : 'Photos de cette activité'}>
+                        {activity.images.map((src, imageIndex) => (
+                          <a className="activity-photo" key={src} href={activity.postUrl} target="_blank" rel="noreferrer" aria-label={`Open LinkedIn post image ${imageIndex + 1}`}>
+                            <img src={src} alt={`${activity.title} — photo ${imageIndex + 1}`} loading={index === activeActivity ? 'eager' : 'lazy'} />
+                            <span>{String(imageIndex + 1).padStart(2, '0')}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="activities-pagination" role="tablist" aria-label="Choose an activity">
+              {personalActivities.map((activity, index) => (
+                <button
+                  key={activity.title}
+                  type="button"
+                  className={activeActivity === index ? 'active' : ''}
+                  onClick={() => setActiveActivity(index)}
+                  aria-label={`Show activity ${index + 1}: ${activity.title}`}
+                  aria-selected={activeActivity === index}
+                  role="tab"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="projects-section" id="projects">
           <div className="section-wrap">
-            <div className="section-kicker"><span>03</span>{t.projectsLabel}</div>
+            <div className="section-kicker"><span>04</span>{t.projectsLabel}</div>
             <div className="projects-heading"><div><h2 className="section-title">{t.projectsTitle}</h2><p>{t.projectsText}</p></div><span className="project-count">0{projects.length} <small>PROJECTS</small></span></div>
             <div className="filters" aria-label="Filter projects">
               {categoriesTranslated.map(c => <button key={c} className={currentFilter === c ? 'active' : ''} onClick={() => setActiveCategory(categoryMap[c])}>{c}</button>)}
@@ -553,7 +714,7 @@ function App() {
         </section>
 
         <section className="section-wrap skills-section" id="skills">
-          <div className="section-kicker"><span>04</span>{t.skillsLabel}</div>
+          <div className="section-kicker"><span>05</span>{t.skillsLabel}</div>
           <h2 className="section-title">{t.skillsTitle}</h2>
           <div className="skills-grid">
             {skillGroups.map((g, i) => { const Icon = g.icon; return <div className="skill-card" key={g.title}><div className="skill-card-head"><span className="skill-icon"><Icon size={19}/></span><span>0{i+1}</span></div><h3>{g.title}</h3><div className="skill-tags">{g.skills.map(s => <span key={s}>{s}</span>)}</div></div> })}
@@ -562,11 +723,11 @@ function App() {
         </section>
 
         <section className="section-wrap education-section">
-          <div className="education-column"><div className="section-kicker"><span>05</span>{t.educationLabel}</div><h2 className="section-title">{t.educationTitle}<span>.</span></h2>
+          <div className="education-column"><div className="section-kicker"><span>06</span>{t.educationLabel}</div><h2 className="section-title">{t.educationTitle}<span>.</span></h2>
             <div className="education-item"><div className="education-icon"><GraduationCap size={21}/></div><div><span className="education-date">SEP 2022 — PRESENT</span><h3>École Nationale des Sciences Appliquées · Fès</h3><p>Engineering Cycle — Software Engineering & Artificial Intelligence</p></div></div>
             <div className="education-item"><div className="education-icon"><Award size={21}/></div><div><span className="education-date">2021 — 2022</span><h3>Lycée Ben Souda · Fès</h3><p>Baccalauréat in Mathematical Sciences B · Good Honours</p></div></div>
           </div>
-          <div className="cert-column"><div className="section-kicker"><span>06</span>{t.certLabel}</div><h2 className="section-title">{t.certTitle}<span>.</span></h2>
+          <div className="cert-column"><div className="section-kicker"><span>07</span>{t.certLabel}</div><h2 className="section-title">{t.certTitle}<span>.</span></h2>
             <div className="cert-item">
               <span className="cert-icon"><Award size={19}/></span>
               <div className="cert-content"><div className="cert-title-row"><h3>Retrieval-Augmented Generation (RAG)</h3><span className="cert-type cert-type--badge">BADGE</span></div>
@@ -587,7 +748,7 @@ function App() {
         </section>
 
         <section className="contact-section" id="contact"><div className="section-wrap contact-inner">
-          <div className="section-kicker"><span>07</span>{t.contactLabel}</div><div className="contact-grid"><div><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div><div className="contact-actions"><a className="contact-link" href="mailto:mellak71khadija@gmail.com"><span><Mail size={18}/>{t.email}</span><ArrowUpRight size={19}/></a><a className="contact-link" href="https://github.com/1marieCurie" target="_blank" rel="noreferrer"><span><Github size={18}/>{t.github}</span><ArrowUpRight size={19}/></a><a className="contact-link" href="CV_Khadija_Mellak.pdf" target="_blank" rel="noreferrer"><span><ArrowDown size={18}/>Download CV</span><ArrowUpRight size={19}/></a></div></div>
+          <div className="section-kicker"><span>08</span>{t.contactLabel}</div><div className="contact-grid"><div><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div><div className="contact-actions"><a className="contact-link" href="mailto:mellak71khadija@gmail.com"><span><Mail size={18}/>{t.email}</span><ArrowUpRight size={19}/></a><a className="contact-link" href="https://github.com/1marieCurie" target="_blank" rel="noreferrer"><span><Github size={18}/>{t.github}</span><ArrowUpRight size={19}/></a><a className="contact-link" href="CV_Khadija_Mellak.pdf" target="_blank" rel="noreferrer"><span><ArrowDown size={18}/>Download CV</span><ArrowUpRight size={19}/></a></div></div>
           <div className="contact-bottom"><span>FÈS, MOROCCO</span><a href="mailto:mellak71khadija@gmail.com">MELLAK71KHADIJA@GMAIL.COM</a><span>AVAILABLE · FEB 2027</span></div>
         </div></section>
       </main>
