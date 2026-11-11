@@ -814,3 +814,31 @@
 @media(prefers-reduced-motion:reduce){
   .activity-slide.is-active .activity-photo img{animation:none!important}
 }
+
+
+/* First activity post: shorter full-width lead image, balanced lower pair */
+.activity-gallery--first-post{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:auto auto;
+  grid-auto-rows:auto;
+  align-items:stretch;
+}
+.activity-gallery--first-post .activity-photo:first-child{
+  grid-column:1 / -1;
+  aspect-ratio:16 / 7.2;
+}
+.activity-gallery--first-post .activity-photo:nth-child(2),
+.activity-gallery--first-post .activity-photo:nth-child(3){
+  grid-column:span 1;
+  width:100%;
+  aspect-ratio:4 / 3;
+}
+@media(max-width:650px){
+  .activity-gallery--first-post .activity-photo:first-child{
+    aspect-ratio:16 / 8;
+  }
+  .activity-gallery--first-post .activity-photo:nth-child(2),
+  .activity-gallery--first-post .activity-photo:nth-child(3){
+    aspect-ratio:1 / 1;
+  }
+}
