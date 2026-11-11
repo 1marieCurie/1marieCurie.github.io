@@ -636,7 +636,8 @@ function App() {
               </div>
               <div className="activities-controls" aria-label="Personal activities carousel controls">
                 <span className="activities-counter">{String(activeActivity + 1).padStart(2, '0')} <i>/</i> {String(personalActivities.length).padStart(2, '0')}</span>
-
+                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={21}/></button>
+                <button type="button" className="activity-arrow" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={21}/></button>
               </div>
             </div>
             <div
@@ -676,8 +677,6 @@ function App() {
                   </article>
                 ))}
               </div>
-              <button type="button" className="activity-arrow activity-arrow--overlay activity-arrow--prev" onClick={() => setActiveActivity(index => (index - 1 + personalActivities.length) % personalActivities.length)} aria-label="Previous activity"><ChevronLeft size={21}/></button>
-              <button type="button" className="activity-arrow activity-arrow--overlay activity-arrow--next" onClick={() => setActiveActivity(index => (index + 1) % personalActivities.length)} aria-label="Next activity"><ChevronRight size={21}/></button>
             </div>
             <div className="activities-pagination" role="tablist" aria-label="Choose an activity">
               {personalActivities.map((activity, index) => (

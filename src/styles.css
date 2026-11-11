@@ -876,3 +876,34 @@
   .activity-gallery--first-post .activity-photo:nth-child(2),
   .activity-gallery--first-post .activity-photo:nth-child(3){aspect-ratio:1 / 1}
 }
+
+
+/* Portfolio-wide readability pass: slightly larger supporting text */
+.desktop-nav button,.mobile-nav button,.nav-contact{font-size:12px}
+.hero-lead{font-size:15px}
+.about-copy>p{font-size:14px}
+.focus-list span,.other-skills{font-size:11px}
+.timeline-content>p{font-size:13px}
+.role{font-size:12px!important}
+.project-card p{font-size:11px}
+.projects-heading p,.contact-grid p{font-size:13px}
+.skill-tags span,.modal-tags span{font-size:10px}
+.education-item p,.cert-item p{font-size:11px}
+.modal-description{font-size:13px}
+.activities-intro{font-size:14px}
+.activity-copy p{font-size:14px;line-height:1.8}
+.activity-post-link{font-size:12px}
+.detail-section p,.detail-section ul{font-size:12px}
+.detail-gallery-item figcaption span{font-size:11px}
+@media(max-width:700px){
+  .hero-lead{font-size:14px}
+  .activity-copy p{font-size:13px;line-height:1.8}
+  .activities-intro{font-size:13px}
+}
+
+/* Keep carousel navigation in its header, clear of post descriptions */
+.activities-controls{gap:10px}
+.activity-arrow--overlay{display:none}
+@media(max-width:650px){
+  .activities-controls{align-self:flex-end;margin-top:-7px}
+}
