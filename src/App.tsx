@@ -218,22 +218,26 @@ const projects: Project[] = [
   },
   {
     title: 'Wildlife Monitoring',
-    screenshot: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-cover.webp',
-    screenshotClass: 'wildlife',
-    category: 'Computer Vision', year: '2025',
-    summary: 'Camera trap-based monitoring.',
-    summaryFr: 'Suivi de la faune basé sur des pièges photographiques.',
-    description: 'A camera trap-based wildlife monitoring project.',
-    descriptionFr: 'Un projet de suivi de la faune basé sur des pièges photographiques.',
-    stack: ['Camera Traps', 'EfficientDet-D0', 'YOLO'],
+    screenshot: 'https://media.licdn.com/dms/image/v2/D4D22AQH3Yq-PHjHJcw/feedshare-shrink_800/B4DZ5fbqlRKEAc-/0/1779717548747?e=2147483647&v=beta&t=BKv9QQaHfF4C8viMSsDZMQ3wpM2wBf47iVvsZHtiy98',
+    screenshotClass: 'contain',
+    category: 'Computer Vision', year: '2026',
+    summary: 'A computer vision pipeline for wildlife detection and species classification from camera-trap images.',
+    summaryFr: 'Un pipeline de vision par ordinateur pour détecter les animaux et classifier les espèces à partir d’images de pièges photographiques.',
+    description: 'The project compares YOLO, Faster R-CNN, EfficientDet and DETR for wildlife detection on camera-trap images. The LinkedIn project announcement reports that the ENA24 dataset contains 21 animal species and includes challenging conditions such as occlusion, scale variation and low illumination. YOLO achieved the best overall result, reaching nearly 99% mAP@0.50. A Streamlit application was also developed to make the system accessible.',
+    descriptionFr: 'Le projet compare YOLO, Faster R-CNN, EfficientDet et DETR pour la détection de la faune sur des images de pièges photographiques. L’annonce du projet précise que le jeu de données ENA24 contient 21 espèces animales et présente des conditions difficiles : occultation, variations d’échelle et faible luminosité. YOLO a obtenu le meilleur résultat global, avec près de 99 % de mAP@0.50. Une application Streamlit a également été développée pour rendre le système accessible.',
+    stack: ['YOLO', 'Faster R-CNN', 'EfficientDet', 'DETR', 'Streamlit'],
     details: {
-      intro: 'The article visual presents representative samples from the ENA24 dataset and a baseline model evaluation figure.',
+      intro: 'Wildlife Camera Trap — Detection and Classification of Species in Savanna and Forest Environments.',
       sections: [
-        { title: 'Dataset examples', body: 'The figure caption identifies the samples as representative images from ENA24 and highlights day and night conditions, occlusion, scale variation and multi-species scenes.' },
-        { title: 'Baseline experiment', body: 'The supplied article excerpt includes an EfficientDet-D0 baseline description and a YOLO metrics plot. Further methodology and results will be added when the project details are provided.' }
+        { title: 'Dataset', body: 'The project announcement identifies ENA24 as a dataset containing 21 animal species. It highlights occlusion, scale variation and low illumination as challenging image conditions.' },
+        { title: 'Model comparison', body: 'The project compares four object-detection approaches: YOLO, Faster R-CNN, EfficientDet and DETR. The LinkedIn announcement reports that YOLO achieved the strongest overall performance, with nearly 99% mAP@0.50.' },
+        { title: 'Application', body: 'A Streamlit application was developed to make the wildlife-monitoring system accessible.' }
       ],
       gallery: [
-        { src: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-article.webp', title: 'Article figure — ENA24 samples and baseline metrics', caption: 'The article figure supplied for this project, showing representative ENA24 camera-trap samples and the baseline evaluation visual.' }
+        { src: 'https://media.licdn.com/dms/image/v2/D4D22AQH3Yq-PHjHJcw/feedshare-shrink_800/B4DZ5fbqlRKEAc-/0/1779717548747?e=2147483647&v=beta&t=BKv9QQaHfF4C8viMSsDZMQ3wpM2wBf47iVvsZHtiy98', title: 'LinkedIn project image 1', caption: 'Original image shared in the LinkedIn project announcement.', source: 'https://www.linkedin.com/posts/khadija-mellak-090498287_artificialintelligence-ai-deeplearning-activity-7464676442954498048-b07N' },
+        { src: 'https://media.licdn.com/dms/image/v2/D4D22AQG8xeaH1n90CQ/feedshare-shrink_1280/B4DZ5fblySIMAM-/0/1779717529480?e=2147483647&v=beta&t=i05f0Qph1e_u966ZkJ3jDOce2TjXrNGQCX4BIy-STfY', title: 'LinkedIn project image 2', caption: 'Original image shared in the LinkedIn project announcement.', source: 'https://www.linkedin.com/posts/khadija-mellak-090498287_artificialintelligence-ai-deeplearning-activity-7464676442954498048-b07N' },
+        { src: 'https://media.licdn.com/dms/image/v2/D4D22AQGSWwepfP4etA/feedshare-shrink_1280/B4DZ5fbjvhJoAM-/0/1779717520575?e=2147483647&v=beta&t=87TQDOE3wNz42WOXxchHwaXR8XnLDIl8ZourGspWA8M', title: 'LinkedIn project image 3', caption: 'Original image shared in the LinkedIn project announcement.', source: 'https://www.linkedin.com/posts/khadija-mellak-090498287_artificialintelligence-ai-deeplearning-activity-7464676442954498048-b07N' },
+        { src: 'https://media.licdn.com/dms/image/v2/D4D22AQGsVwW7Zhg77g/feedshare-shrink_1280/B4DZ5fbj6eJ8AM-/0/1779717521281?e=2147483647&v=beta&t=4AWLb0D_4rVf_IuS2lThegdmQU7LrhjlURpNC-_v2KQ', title: 'LinkedIn project image 4', caption: 'Original image shared in the LinkedIn project announcement.', source: 'https://www.linkedin.com/posts/khadija-mellak-090498287_artificialintelligence-ai-deeplearning-activity-7464676442954498048-b07N' }
       ]
     },
     accent: 'green', icon: 'vision',
