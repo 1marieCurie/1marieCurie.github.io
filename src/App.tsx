@@ -218,7 +218,7 @@ const projects: Project[] = [
   },
   {
     title: 'Wildlife Monitoring',
-    screenshot: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-cover.jpg',
+    screenshot: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-cover.webp',
     screenshotClass: 'wildlife',
     category: 'Computer Vision', year: '2025',
     summary: 'Camera trap-based monitoring.',
@@ -233,7 +233,7 @@ const projects: Project[] = [
         { title: 'Baseline experiment', body: 'The supplied article excerpt includes an EfficientDet-D0 baseline description and a YOLO metrics plot. Further methodology and results will be added when the project details are provided.' }
       ],
       gallery: [
-        { src: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-article.jpg', title: 'Article figure — ENA24 samples and baseline metrics', caption: 'The article figure supplied for this project, showing representative ENA24 camera-trap samples and the baseline evaluation visual.' }
+        { src: import.meta.env.BASE_URL + 'project-images/wildlife-monitoring-article.webp', title: 'Article figure — ENA24 samples and baseline metrics', caption: 'The article figure supplied for this project, showing representative ENA24 camera-trap samples and the baseline evaluation visual.' }
       ]
     },
     accent: 'green', icon: 'vision',
