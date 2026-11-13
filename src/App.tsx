@@ -7,6 +7,14 @@ import {
 } from 'lucide-react'
 
 type Lang = 'EN' | 'FR'
+type ProjectDetails = {
+  intro: string
+  metrics?: { label: string; value: string; note?: string }[]
+  sections?: { title: string; body?: string; bullets?: string[] }[]
+  tables?: { title: string; columns: string[]; rows: string[][] }[]
+  gallery?: { src: string; title: string; caption: string; source?: string }[]
+}
+
 type Project = {
   title: string
   category: string
@@ -25,13 +33,8 @@ type Project = {
   screenshotNote?: string
   summaryFr?: string
   descriptionFr?: string
-  details?: {
-    intro: string
-    metrics?: { label: string; value: string; note?: string }[]
-    sections?: { title: string; body?: string; bullets?: string[] }[]
-    tables?: { title: string; columns: string[]; rows: string[][] }[]
-    gallery?: { src: string; title: string; caption: string; source?: string }[]
-  }
+  details?: ProjectDetails
+  detailsFr?: ProjectDetails
 }
 
 const copy = {
@@ -217,12 +220,246 @@ const projects: Project[] = [
     accent: 'cyan', icon: 'chart',
   },
   {
-    title: 'Cryptographic Elliptic Curves', screenshot: import.meta.env.BASE_URL + 'project-images/elliptic-curve-plot.svg', screenshotClass: 'math',
-    category: 'Research · ML', year: '2025',
-    summary: 'Personal research exploring elliptic-curve cryptography and machine learning approaches to vulnerability analysis.',
-    description: 'Studied the algebraic foundations of elliptic curves and experimented with machine learning methods to analyse their properties and potential vulnerabilities.',
-    stack: ['Applied Mathematics', 'Cryptography', 'Machine Learning'],
-    accent: 'amber', icon: 'brain',
+    "title": "Cryptographic Elliptic Curves",
+    "screenshot": import.meta.env.BASE_URL + 'project-images/ecc-mathematical-cover.png',
+    "category": "Mathematical Cryptography",
+    "year": "2025",
+    "summary": "Co-authored research on elliptic-curve algebra, modern cryptography, cryptanalysis and ML-assisted vulnerability analysis.",
+    "summaryFr": "Recherche menée en binôme sur l'algèbre des courbes elliptiques, la cryptographie, la cryptanalyse et l'analyse des vulnérabilités par ML.",
+    "description": "A 2024–2025 ENSA Fès mathematical research project investigating elliptic curves over finite fields, scalar multiplication, and the discrete logarithm problem. It examines ECDH, ECDSA, ECIES and elliptic ElGamal; studies Baby-Step Giant-Step and Pollard's rho; and explores encrypted-traffic analysis, side-channel vulnerabilities and AI-assisted parameter optimization. Simulation results are reported with their provenance and limitations.",
+    "descriptionFr": "Projet de recherche mathématique réalisé à l'ENSA Fès en 2024–2025 : arithmétique des corps finis, lois de groupe, multiplication scalaire et logarithme discret sur courbes elliptiques. Le rapport présente ECDH, ECDSA, ECIES et ElGamal elliptique, étudie Baby-Step Giant-Step et rho de Pollard, puis explore le trafic chiffré, les attaques par canaux auxiliaires et l'optimisation des paramètres ECC par IA. Les résultats sont contextualisés et accompagnés de leurs limites.",
+    "stack": [
+      "Algebra",
+      "ECC",
+      "Number Theory",
+      "Cryptanalysis",
+      "Machine Learning",
+      "Python"
+    ],
+    "details": {
+      "intro": "Co-authored by Khadija Mellak and Yassine Ouali (ENSA Fès, academic year 2024–2025), this mathematics-first study connects the algebraic structure of elliptic curves to public-key cryptography, attack complexity, and the realistic scope of ML-based security analysis. It is a research manuscript, not a claim to have broken standardized ECC.",
+      "sections": [
+        {
+          "title": "Mathematical foundations · Chapter 2",
+          "body": "The report develops modular arithmetic, finite fields, Abelian group operations and the elliptic-curve discrete logarithm problem (ECDLP).",
+          "bullets": [
+            "Weierstrass equation y² = x³ + ax + b; nonsingularity condition 4a³ + 27b² ≠ 0 over fields of characteristic other than 2 or 3.",
+            "Chord-and-tangent point addition, point doubling, the identity at infinity and scalar multiplication using double-and-add.",
+            "The distinction between a continuous real-curve drawing and the discrete group E(Fₚ) used in cryptography."
+          ]
+        },
+        {
+          "title": "Modern ECC protocols · Chapter 3",
+          "body": "The study connects point arithmetic to concrete cryptographic protocols.",
+          "bullets": [
+            "ECDH key agreement and deriving symmetric key material; manuscript Algorithm 2 illustrates the general exchange.",
+            "ECDSA signature generation/verification, elliptic ElGamal and hybrid encryption with ECIES.",
+            "Selection of standardized curve parameters, including secp256k1 and secp256r1, and security/performance trade-offs."
+          ]
+        },
+        {
+          "title": "Cryptanalysis and algorithmic complexity · Chapter 4",
+          "body": "The report compares attack models rather than asserting that modern deployed ECC was broken.",
+          "bullets": [
+            "Baby-Step Giant-Step: generic discrete-log search with approximately O(√n) time and memory.",
+            "Pollard's rho for ECDLP: expected O(√n) group work with comparatively low memory.",
+            "Fermat factorization and index calculus are discussed as classical comparison cases; their scope differs from generic elliptic-curve groups."
+          ]
+        },
+        {
+          "title": "Machine learning and encrypted traffic · Chapter 5",
+          "body": "A GPU-accelerated simulation is described for CIC-IDS2018-derived traffic features using Python, PyTorch and scikit-learn, feature selection and SMOTE. The reported model scores below come from manuscript Table 5.3, not an independently reproduced benchmark. Traffic-anomaly detection is not equivalent to solving ECDLP."
+        },
+        {
+          "title": "Side-channel vulnerabilities · Chapter 5",
+          "body": "The literature-based analysis covers timing, power-consumption and electromagnetic leakage from ECC implementations, with SVM/LSTM approaches to classifying operation traces and discussion of masking and constant-time countermeasures. Published third-party trace results are not presented as experiments independently repeated by the authors."
+        },
+        {
+          "title": "AI-guided parameter exploration · Chapter 6",
+          "body": "The manuscript describes genetic algorithms (GA, using DEAP) versus particle swarm optimization (PSO), with populations/swarms of 500 and a shared fitness function incorporating Hasse-related checks, singularity, security tests and computational cost.",
+          "bullets": [
+            "Report-stated comparison: GA fitness ≈ 3.018 × 10³ in ~2 min; PSO fitness ≈ 1.595 × 10³ in ~22 min in the described setup.",
+            "These values are not independent validation of cryptographic security. Candidate parameters would require rigorous public cryptanalysis and standardization before deployment."
+          ]
+        },
+        {
+          "title": "Research provenance and mathematical verification",
+          "body": "This is an academic manuscript, jointly authored, combining theoretical exposition, algorithms, literature review and reported simulations. Raw experiment scripts and complete data needed for independent reproduction were not included with the PDF. A toy E(F₂₃) example in the manuscript reports an incorrect group order and shared point; the portfolio instead shows an independently checked diagram with 28 points including infinity. The original full PDF is intentionally not published."
+        }
+      ],
+      "tables": [
+        {
+          "title": "GPU-accelerated traffic analysis — manuscript Table 5.3 (reported, not replicated)",
+          "columns": [
+            "Model",
+            "Accuracy reported",
+            "F1 reported"
+          ],
+          "rows": [
+            [
+              "KNN",
+              "99.69%",
+              "0.9785"
+            ],
+            [
+              "Deep neural network",
+              "99.26%",
+              "0.9926"
+            ],
+            [
+              "K-Means",
+              "57.44%",
+              "0.5414"
+            ],
+            [
+              "Random forest",
+              "99.53%",
+              "0.9953"
+            ]
+          ]
+        }
+      ],
+      "gallery": [
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-point-addition-p42.png',
+          "title": "Elliptic-curve point addition and doubling",
+          "caption": "Original manuscript Figure 2.4, printed p. 37 (PDF p. 42). Geometric group law over the reals."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-curve-regularity-p40.png',
+          "title": "Nonsingular and singular curves",
+          "caption": "Original manuscript Figure 2.3, printed p. 35 (PDF p. 40). Why the discriminant condition matters."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-ecdh-algorithm-p51.png',
+          "title": "Elliptic-curve Diffie–Hellman",
+          "caption": "Original manuscript Algorithm 2, printed p. 46 (PDF p. 51). General ECDH shared-secret construction, not the erroneous numerical example."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-bsgs-p72.png',
+          "title": "Baby-Step Giant-Step search grid",
+          "caption": "Original manuscript Figure 4.3, printed p. 67 (PDF p. 72). Generic discrete-logarithm attack structure."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-finite-field-verified.png',
+          "title": "Finite-field illustration — independently verified",
+          "caption": "Corrected educational plot for y² ≡ x³ + x + 1 (mod 23): 27 affine points plus the point at infinity. Separately recalculated, NOT a screenshot from the manuscript."
+        }
+      ]
+    },
+    "detailsFr": {
+      "intro": "Recherche mathématique menée en binôme par Khadija Mellak et Yassine Ouali à l'ENSA Fès (année universitaire 2024–2025). Le travail relie la structure algébrique des courbes elliptiques, les cryptosystèmes à clé publique, les coûts des attaques et la portée réelle du machine learning en cybersécurité. Il s'agit d'un manuscrit académique, non d'une démonstration de cassage des courbes ECC standardisées.",
+      "sections": [
+        {
+          "title": "Fondements mathématiques · Chapitre 2",
+          "body": "Arithmétique modulaire, corps finis, structures de groupes abéliens et problème du logarithme discret elliptique (ECDLP).",
+          "bullets": [
+            "Équation de Weierstrass y² = x³ + ax + b et condition de non-singularité 4a³ + 27b² ≠ 0 (caractéristique différente de 2 et 3).",
+            "Addition géométrique, doublement, point à l'infini et multiplication scalaire avec Double-and-Add.",
+            "Différence entre la courbe réelle continue et le groupe discret E(Fₚ) employé en cryptographie."
+          ]
+        },
+        {
+          "title": "Protocoles cryptographiques ECC · Chapitre 3",
+          "body": "Étude des applications de l'arithmétique des points aux protocoles modernes.",
+          "bullets": [
+            "ECDH : établissement d'un secret partagé et dérivation de clé symétrique ; algorithme général 2 du rapport.",
+            "ECDSA : signature et vérification ; ElGamal elliptique et chiffrement hybride ECIES.",
+            "Paramètres normalisés et compromis sécurité/performance : secp256k1 et secp256r1."
+          ]
+        },
+        {
+          "title": "Cryptanalyse et complexité · Chapitre 4",
+          "body": "Analyse des modèles d'attaque, sans prétendre casser les courbes modernes déployées.",
+          "bullets": [
+            "Baby-Step Giant-Step : recherche générique en environ O(√n) temps et mémoire.",
+            "Rho de Pollard pour l'ECDLP : travail moyen O(√n) et faible mémoire.",
+            "Factorisation de Fermat et Index Calculus comme éléments de comparaison pour d'autres familles de problèmes."
+          ]
+        },
+        {
+          "title": "Machine learning et trafic chiffré · Chapitre 5",
+          "body": "Le rapport décrit une simulation accélérée par GPU sur des caractéristiques de trafic dérivées de CIC-IDS2018, avec Python, PyTorch, scikit-learn, sélection de variables et SMOTE. Les performances figurant au tableau 5.3 sont rapportées par le manuscrit, sans reproduction indépendante. Détecter des anomalies de trafic ne signifie pas résoudre l'ECDLP."
+        },
+        {
+          "title": "Vulnérabilités par canaux auxiliaires · Chapitre 5",
+          "body": "Synthèse de travaux sur les fuites temporelles, énergétiques et électromagnétiques des implémentations ECC. Les approches SVM/LSTM classifient les traces d'opérations ; les contre-mesures portent notamment sur le masquage et l'exécution à temps constant. Les résultats d'études externes ne sont pas présentés comme des expériences reproduites par les auteurs."
+        },
+        {
+          "title": "Exploration des paramètres ECC par IA · Chapitre 6",
+          "body": "Comparaison décrite entre algorithme génétique (GA avec DEAP) et optimisation par essaim de particules (PSO), avec 500 individus ou particules et une fonction de fitness intégrant des contraintes de Hasse, des tests de singularité et des critères de robustesse.",
+          "bullets": [
+            "Valeurs rapportées : fitness GA ≈ 3,018 × 10³ en ~2 min contre PSO ≈ 1,595 × 10³ en ~22 min dans le contexte présenté.",
+            "Ces valeurs ne certifient pas la sécurité des paramètres ; l'usage réel exigerait une cryptanalyse publique et une standardisation rigoureuses."
+          ]
+        },
+        {
+          "title": "Traçabilité et vérification mathématique",
+          "body": "Le manuscrit académique combine démonstrations, descriptions algorithmiques, synthèse bibliographique et simulations déclarées. Le PDF ne fournit pas l'ensemble des scripts et données nécessaires à la reproduction. Un exemple pédagogique E(F₂₃) contient une erreur de cardinal et de clé partagée : la galerie fournit à la place une illustration recalculée de 28 points, point à l'infini compris. Le PDF complet n'est pas publié."
+        }
+      ],
+      "tables": [
+        {
+          "title": "Analyse du trafic accélérée par GPU — tableau 5.3 du rapport (résultats déclarés)",
+          "columns": [
+            "Modèle",
+            "Exactitude rapportée",
+            "F1 rapporté"
+          ],
+          "rows": [
+            [
+              "KNN",
+              "99,69 %",
+              "0,9785"
+            ],
+            [
+              "Réseau neuronal profond",
+              "99,26 %",
+              "0,9926"
+            ],
+            [
+              "K-Means",
+              "57,44 %",
+              "0,5414"
+            ],
+            [
+              "Forêt aléatoire",
+              "99,53 %",
+              "0,9953"
+            ]
+          ]
+        }
+      ],
+      "gallery": [
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-point-addition-p42.png',
+          "title": "Addition et doublement de points",
+          "caption": "Figure 2.4 du rapport, page imprimée 37 (PDF p. 42). Loi de groupe et construction géométrique sur les réels."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-curve-regularity-p40.png',
+          "title": "Courbes régulières et singulières",
+          "caption": "Figure 2.3 du rapport, page imprimée 35 (PDF p. 40). Importance de la condition de non-singularité."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-ecdh-algorithm-p51.png',
+          "title": "Échange de clés ECDH",
+          "caption": "Algorithme 2 du rapport, page imprimée 46 (PDF p. 51). Construction générale ECDH, distincte de l'exemple numérique erroné."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-bsgs-p72.png',
+          "title": "Grille Baby-Step Giant-Step",
+          "caption": "Figure 4.3 du rapport, page imprimée 67 (PDF p. 72). Structure de la recherche pour le logarithme discret."
+        },
+        {
+          "src": import.meta.env.BASE_URL + 'project-images/ecc-finite-field-verified.png',
+          "title": "Courbe sur corps fini — calcul vérifié",
+          "caption": "Illustration pédagogique corrigée de y² ≡ x³ + x + 1 (mod 23) : 27 points affines et le point à l'infini. Recalcul indépendant, PAS une capture du rapport."
+        }
+      ]
+    },
+    "accent": "amber",
+    "icon": "brain"
   },
   {
     title: 'Wildlife Monitoring',
@@ -515,7 +752,7 @@ const personalActivities: PersonalActivity[] = [
   }
 ]
 
-const categories = ['All projects', 'AI & Cybersecurity', 'Generative AI', 'Data & BI', 'Computer Vision', 'Machine Learning', 'Reinforcement Learning', 'Web Development', 'Research · ML']
+const categories = ['All projects', 'AI & Cybersecurity', 'Generative AI', 'Data & BI', 'Computer Vision', 'Machine Learning', 'Reinforcement Learning', 'Web Development', 'Mathematical Cryptography']
 const skillGroups = [
   { icon: BrainCircuit, title: 'Generative AI & Testing', skills: ['NLP', 'RAG', 'Generative AI', 'n8n', 'Pytest', 'JUnit', 'Git'] },
   { icon: Database, title: 'Data Engineering', skills: ['PySpark', 'Apache Airflow', 'ETL / ELT', 'Data Lake', 'Data Warehouse', 'PostgreSQL'] },
@@ -546,9 +783,10 @@ function App() {
   const [activeActivity, setActiveActivity] = useState(0)
   const [activityTouchStart, setActivityTouchStart] = useState<number | null>(null)
   const t = copy[lang]
+  const selectedDetails = lang === 'FR' ? (selected?.detailsFr ?? selected?.details) : selected?.details
   const filtered = useMemo(() => activeCategory === 'All projects' ? projects : projects.filter(p => p.category === activeCategory), [activeCategory])
   const ids = ['about', 'experience', 'projects', 'skills', 'contact']
-  const categoriesTranslated = lang === 'EN' ? categories : ['Tous les projets', 'IA & Cybersécurité', 'IA générative', 'Data & BI', 'Vision par ordinateur', 'Machine Learning', 'Apprentissage par renforcement', 'Développement web', 'Recherche · ML']
+  const categoriesTranslated = lang === 'EN' ? categories : ['Tous les projets', 'IA & Cybersécurité', 'IA générative', 'Data & BI', 'Vision par ordinateur', 'Machine Learning', 'Apprentissage par renforcement', 'Développement web', 'Cryptographie mathématique']
   const categoryMap: Record<string, string> = Object.fromEntries(categoriesTranslated.map((c, i) => [c, categories[i]]))
   const currentFilter = categoriesTranslated[categories.indexOf(activeCategory)] ?? categoriesTranslated[0]
 
@@ -764,25 +1002,25 @@ function App() {
           <h2 id="modal-title">{selected.title}</h2>
           {selected.screenshotCredit && <a className="image-credit" href={selected.screenshotCreditUrl} target="_blank" rel="noreferrer">Image reference: {selected.screenshotCredit}<ArrowUpRight size={13}/></a>}
           {selected.screenshotNote && <p className="image-note">{selected.screenshotNote}</p>}
-          {!selected.details?.gallery?.length && selected.screenshot && <div className={`modal-cover-preview ${selected.screenshotClass ? `modal-cover-preview--${selected.screenshotClass}` : ''}`}><img src={selected.screenshot} alt={`${selected.title} visual`} loading="lazy"/></div>}
+          {!selectedDetails?.gallery?.length && selected.screenshot && <div className={`modal-cover-preview ${selected.screenshotClass ? `modal-cover-preview--${selected.screenshotClass}` : ''}`}><img src={selected.screenshot} alt={`${selected.title} visual`} loading="lazy"/></div>}
           <div className="modal-label">{t.details}</div>
           <p className="modal-description">{lang === 'FR' ? (selected.descriptionFr ?? selected.description) : selected.description}</p>
-          {selected.details && <>
-            <p className="detail-intro">{selected.details.intro}</p>
-            {!!selected.details.metrics?.length && <div className="detail-metrics">
-              {selected.details.metrics.map(metric => <div className="detail-metric" key={metric.label}>
+          {selectedDetails && <>
+            <p className="detail-intro">{selectedDetails.intro}</p>
+            {!!selectedDetails.metrics?.length && <div className="detail-metrics">
+              {selectedDetails.metrics.map(metric => <div className="detail-metric" key={metric.label}>
                 <span>{metric.label}</span><strong>{metric.value}</strong>{metric.note && <small>{metric.note}</small>}
               </div>)}
             </div>}
-            {!!selected.details.sections?.length && <div className="detail-sections">
-              {selected.details.sections.map(section => <section className="detail-section" key={section.title}>
+            {!!selectedDetails.sections?.length && <div className="detail-sections">
+              {selectedDetails.sections.map(section => <section className="detail-section" key={section.title}>
                 <h3>{section.title}</h3>
                 {section.body && <p>{section.body}</p>}
                 {section.bullets && <ul>{section.bullets.map(item => <li key={item}>{item}</li>)}</ul>}
               </section>)}
             </div>}
-            {!!selected.details.tables?.length && <div className="detail-tables">
-              {selected.details.tables.map(table => <section className="detail-table-section" key={table.title}>
+            {!!selectedDetails.tables?.length && <div className="detail-tables">
+              {selectedDetails.tables.map(table => <section className="detail-table-section" key={table.title}>
                 <h3>{table.title}</h3>
                 <div className="detail-table-scroll"><table>
                   <thead><tr>{table.columns.map(column => <th key={column}>{column}</th>)}</tr></thead>
@@ -790,10 +1028,10 @@ function App() {
                 </table></div>
               </section>)}
             </div>}
-            {!!selected.details.gallery?.length && <section className="detail-gallery-section">
-              <div className="detail-gallery-heading"><div className="modal-label">PROJECT EVIDENCE</div><span>{selected.details.gallery.length} visuals</span></div>
+            {!!selectedDetails.gallery?.length && <section className="detail-gallery-section">
+              <div className="detail-gallery-heading"><div className="modal-label">{lang === 'EN' ? 'PROJECT EVIDENCE' : 'ILLUSTRATIONS DU RAPPORT'}</div><span>{selectedDetails.gallery.length} visuals</span></div>
               <div className="detail-gallery">
-                {selected.details.gallery.map(visual => <figure className="detail-gallery-item" key={visual.title}>
+                {selectedDetails.gallery.map(visual => <figure className="detail-gallery-item" key={visual.title}>
                   <div className="detail-gallery-frame"><img src={visual.src} alt={visual.title} loading="lazy"/></div>
                   <figcaption><strong>{visual.title}</strong><span>{visual.caption}</span>{visual.source && <a href={visual.source} target="_blank" rel="noreferrer">Open source <ArrowUpRight size={12}/></a>}</figcaption>
                 </figure>)}
