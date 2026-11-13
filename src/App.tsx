@@ -530,7 +530,7 @@ const projects: Project[] = [
   },
   {
     title: 'UrbainClean',
-    repo: 'https://github.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez', screenshot: 'https://raw.githubusercontent.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez/main/screenshots/detection_image.png', screenshotClass: 'contain', summaryFr: 'Solution de vision par ordinateur pour détecter les zones de déchets dans l’espace urbain de Fès.', descriptionFr: 'Développement d’un système de détection basé sur YOLOv11s, avec une interface Streamlit permettant l’inférence sur des images et des vidéos, le réglage du seuil de confiance et la visualisation des boîtes de détection.',
+    repo: 'https://github.com/1marieCurie/Garbage_Detection_In_Urbain_Zones_Fez', screenshot: import.meta.env.BASE_URL + 'project-images/urbainclean-cover.webp', screenshotClass: 'contain', summaryFr: 'Solution de vision par ordinateur pour détecter les zones de déchets dans l’espace urbain de Fès.', descriptionFr: 'Développement d’un système de détection basé sur YOLOv11s, avec une interface Streamlit permettant l’inférence sur des images et des vidéos, le réglage du seuil de confiance et la visualisation des boîtes de détection.',
     category: 'Computer Vision', year: '2025',
     summary: 'A deep learning concept for real-time detection of unsanitary areas in the city of Fès.',
     description: 'Designed a computer-vision solution aimed at detecting urban cleanliness issues in real time, with the objective of supporting a cleaner city.',
