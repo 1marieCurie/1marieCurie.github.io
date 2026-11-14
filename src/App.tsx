@@ -185,7 +185,7 @@ const projects: Project[] = [
   },
   {
     title: 'iliaCode',
-    repo: 'https://github.com/1marieCurie/iliacode', screenshot: import.meta.env.BASE_URL + 'project-images/iliacode.svg', summaryFr: 'Un copilote souverain de développement assisté par IA, conçu pour aider à générer du code et des tests automatisés.', descriptionFr: 'Projet en cours qui explore la manière dont un assistant intelligent peut accompagner le cycle de développement logiciel, faciliter le travail des développeurs et renforcer la fiabilité du code grâce à la génération de tests.',
+    repo: 'https://github.com/1marieCurie/iliacode', screenshot: import.meta.env.BASE_URL + 'project-images/iliacode-cover.avif', summaryFr: 'Un copilote souverain de développement assisté par IA, conçu pour aider à générer du code et des tests automatisés.', descriptionFr: 'Projet en cours qui explore la manière dont un assistant intelligent peut accompagner le cycle de développement logiciel, faciliter le travail des développeurs et renforcer la fiabilité du code grâce à la génération de tests.',
     category: 'Generative AI', year: 'In progress',
     summary: 'A sovereign AI development copilot designed to assist with code generation and automated test creation.',
     description: 'An ongoing project exploring how an intelligent assistant can support software development workflows, improve developer productivity and strengthen software reliability through generated tests.',
