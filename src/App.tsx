@@ -569,7 +569,7 @@ const projects: Project[] = [
   },
   {
     title: 'Building Energy Prediction',
-    repo: 'https://github.com/1marieCurie/Energy_consumption_and_peaks_detection', screenshot: import.meta.env.BASE_URL + 'project-images/energy-histogram.svg', screenshotClass: 'histogram', screenshotNote: 'Illustrative histogram layout for the requested kWh prediction view; bar heights are placeholders, not exported project metrics.', summaryFr: 'Projet de machine learning pour prévoir la consommation énergétique de bâtiments et repérer les périodes de pointe.', descriptionFr: 'Étude de modèles de régression et de séries temporelles sur des données de consommation de bâtiments. Le projet comprend une interface Streamlit pour explorer les prédictions horaires et les heures de pointe.',
+    repo: 'https://github.com/1marieCurie/Energy_consumption_and_peaks_detection', screenshot: import.meta.env.BASE_URL + 'project-images/energy-prediction-cover.svg', screenshotClass: 'histogram', screenshotNote: 'Illustrative histogram layout for the requested kWh prediction view; bar heights are placeholders, not exported project metrics.', summaryFr: 'Projet de machine learning pour prévoir la consommation énergétique de bâtiments et repérer les périodes de pointe.', descriptionFr: 'Étude de modèles de régression et de séries temporelles sur des données de consommation de bâtiments. Le projet comprend une interface Streamlit pour explorer les prédictions horaires et les heures de pointe.',
     category: 'Machine Learning', year: '2025',
     summary: 'A machine learning project for predicting and optimising building energy consumption.',
     description: 'Explored regression and sequence-learning approaches to model energy consumption, with an interactive Streamlit interface.',
