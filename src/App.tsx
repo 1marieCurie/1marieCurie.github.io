@@ -39,7 +39,7 @@ type Project = {
 
 const copy = {
   EN: {
-    nav: ['About', 'Experience', 'Projects', 'Skills', 'Contact'],
+    nav: ['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Contact'],
     availability: 'OPEN TO PFE INTERNSHIP · FEB 2027',
     eyebrow: 'SOFTWARE ENGINEERING · ARTIFICIAL INTELLIGENCE',
     intro: 'Building useful software with',
@@ -83,7 +83,7 @@ const copy = {
     initiation: 'Introductory internship · 1 month',
   },
   FR: {
-    nav: ['À propos', 'Expérience', 'Projets', 'Compétences', 'Contact'],
+    nav: ['À propos', 'Expérience', 'Projets', 'Compétences', 'Certifications', 'Contact'],
     availability: 'RECHERCHE PFE · FÉVRIER 2027',
     eyebrow: 'GÉNIE LOGICIEL · INTELLIGENCE ARTIFICIELLE',
     intro: 'Concevoir des logiciels utiles grâce à',
@@ -785,7 +785,7 @@ function App() {
   const t = copy[lang]
   const selectedDetails = lang === 'FR' ? (selected?.detailsFr ?? selected?.details) : selected?.details
   const filtered = useMemo(() => activeCategory === 'All projects' ? projects : projects.filter(p => p.category === activeCategory), [activeCategory])
-  const ids = ['about', 'experience', 'projects', 'skills', 'contact']
+  const ids = ['about', 'experience', 'projects', 'skills', 'certifications', 'contact']
   const categoriesTranslated = lang === 'EN' ? categories : ['Tous les projets', 'IA & Cybersécurité', 'IA générative', 'Data & BI', 'Vision par ordinateur', 'Machine Learning', 'Apprentissage par renforcement', 'Développement web', 'Cryptographie mathématique']
   const categoryMap: Record<string, string> = Object.fromEntries(categoriesTranslated.map((c, i) => [c, categories[i]]))
   const currentFilter = categoriesTranslated[categories.indexOf(activeCategory)] ?? categoriesTranslated[0]
@@ -963,28 +963,66 @@ function App() {
           <div className="other-skills"><span><Globe2 size={16}/>Cloud foundations</span><b>AWS</b><span className="other-divider"/><span><Languages size={16}/>Languages</span><b>Arabic · Native</b><b>French · C1</b><b>English · C1</b></div>
         </section>
 
-        <section className="section-wrap education-section">
+        <section className="section-wrap education-section education-section--standalone">
           <div className="education-column"><div className="section-kicker"><span>06</span>{t.educationLabel}</div><h2 className="section-title">{t.educationTitle}<span>.</span></h2>
             <div className="education-item"><div className="education-icon"><GraduationCap size={21}/></div><div><span className="education-date">SEP 2022 — PRESENT</span><h3>École Nationale des Sciences Appliquées · Fès</h3><p>Engineering Cycle — Software Engineering & Artificial Intelligence</p></div></div>
             <div className="education-item"><div className="education-icon"><Award size={21}/></div><div><span className="education-date">2021 — 2022</span><h3>Lycée Ben Souda · Fès</h3><p>Baccalauréat in Mathematical Sciences B · Good Honours</p></div></div>
           </div>
-          <div className="cert-column"><div className="section-kicker"><span>07</span>{t.certLabel}</div><h2 className="section-title">{t.certTitle}<span>.</span></h2>
-            <div className="cert-item">
-              <span className="cert-icon"><Award size={19}/></span>
-              <div className="cert-content"><div className="cert-title-row"><h3>Retrieval-Augmented Generation (RAG)</h3><span className="cert-type cert-type--badge">BADGE</span></div>
-                <p>IBM SkillsBuild · Completed November 2026</p>
-                <small>Retrieval-Augmented Generation for Enhanced AI Output</small>
-                <a className="cert-source-link" href="https://www.linkedin.com/in/khadija-mellak-090498287/" target="_blank" rel="noreferrer">View badge on LinkedIn <ArrowUpRight size={12}/></a>
+        </section>
+
+        <section className="credentials-section" id="certifications" aria-labelledby="credentials-title">
+          <div className="section-wrap">
+            <div className="section-kicker"><span>07</span>{t.certLabel}</div>
+            <h2 className="section-title" id="credentials-title">{t.certTitle}<span>.</span></h2>
+            <p className="credentials-intro">{lang === 'EN' ? 'Selected learning milestones in AI agents, retrieval-augmented generation, web search and cloud infrastructure.' : 'Formations et certifications en agents IA, génération augmentée par récupération, recherche web et infrastructure cloud.'}</p>
+            <div className="credentials-grid">
+            <article className="credential-card" key="0">
+              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/ibm-agent.svg'} alt="IBM SkillsBuild — Build an AI Agent badge illustration" loading="lazy" /></div>
+              <div className="credential-detail">
+                <div className="credential-issuer"><span className="credential-mark" aria-hidden="true">IBM</span><span>IBM SkillsBuild</span></div>
+                <h3>{lang === 'EN' ? 'Build an AI Agent' : 'Construire un agent IA'}</h3>
+                <p>{lang === 'EN' ? 'AI agent design, tools and evaluation.' : 'Conception d’agents IA, outils et évaluation.'}</p>
+                <div className="credential-bottom"><span>15 Nov 2026</span><a href="https://www.credly.com/go/kFti61w2" target="_blank" rel="noopener noreferrer">{lang === 'EN' ? 'View credential' : 'Voir le certificat'} <ArrowUpRight size={13}/></a></div>
               </div>
+            </article>
+            <article className="credential-card" key="1">
+              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/ibm-rag.svg'} alt="IBM SkillsBuild — Retrieval-Augmented Generation for Enhanced AI Outputs badge illustration" loading="lazy" /></div>
+              <div className="credential-detail">
+                <div className="credential-issuer"><span className="credential-mark" aria-hidden="true">IBM</span><span>IBM SkillsBuild</span></div>
+                <h3>{lang === 'EN' ? 'Retrieval-Augmented Generation for Enhanced AI Outputs' : 'Retrieval-Augmented Generation pour améliorer les réponses IA'}</h3>
+                <p>{lang === 'EN' ? 'Retrieval-augmented generation and grounded AI outputs.' : 'Génération augmentée par récupération et réponses IA contextualisées.'}</p>
+                <div className="credential-bottom"><span>02 Nov 2026</span><a href="https://www.credly.com/go/rMFOOE2b" target="_blank" rel="noopener noreferrer">{lang === 'EN' ? 'View credential' : 'Voir le certificat'} <ArrowUpRight size={13}/></a></div>
+              </div>
+            </article>
+            <article className="credential-card" key="2">
+              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/huggingface-agents.svg'} alt="Hugging Face — Fundamentals of Agents — Unit 1 badge illustration" loading="lazy" /></div>
+              <div className="credential-detail">
+                <div className="credential-issuer"><span className="credential-mark" aria-hidden="true">🤗</span><span>Hugging Face</span></div>
+                <h3>{lang === 'EN' ? 'Fundamentals of Agents — Unit 1' : 'Fondamentaux des agents — Unité 1'}</h3>
+                <p>{lang === 'EN' ? 'Agent fundamentals and the Thought–Action–Observation cycle.' : 'Principes des agents et cycle Pensée–Action–Observation.'}</p>
+                <div className="credential-bottom"><span>15 Nov 2026</span><a href="https://huggingface.co/learn/agents-course/unit1/final-quiz" target="_blank" rel="noopener noreferrer">{lang === 'EN' ? 'View credential' : 'Voir le certificat'} <ArrowUpRight size={13}/></a></div>
+              </div>
+            </article>
+            <article className="credential-card" key="3">
+              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/aws-cloud.svg'} alt="AWS Academy — Cloud Foundations — Training Badge badge illustration" loading="lazy" /></div>
+              <div className="credential-detail">
+                <div className="credential-issuer"><span className="credential-mark" aria-hidden="true">aws</span><span>AWS Academy</span></div>
+                <h3>{lang === 'EN' ? 'Cloud Foundations — Training Badge' : 'Cloud Foundations — Badge de formation'}</h3>
+                <p>{lang === 'EN' ? '20-hour training in fundamental cloud computing concepts.' : 'Formation de 20 heures aux concepts fondamentaux du cloud.'}</p>
+                <div className="credential-bottom"><span>18 Jul 2026</span><a href="https://www.credly.com/go/7cJkodQY" target="_blank" rel="noopener noreferrer">{lang === 'EN' ? 'View credential' : 'Voir le certificat'} <ArrowUpRight size={13}/></a></div>
+              </div>
+            </article>
+            <article className="credential-card" key="4">
+              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/tavily-web-search.svg'} alt="Tavily — Web Search API badge illustration" loading="lazy" /></div>
+              <div className="credential-detail">
+                <div className="credential-issuer"><span className="credential-mark" aria-hidden="true">T</span><span>Tavily</span></div>
+                <h3>{lang === 'EN' ? 'Web Search API' : 'API de recherche Web'}</h3>
+                <p>{lang === 'EN' ? 'Course certificate covering web search APIs.' : 'Certificat de formation portant sur les API de recherche web.'}</p>
+                <div className="credential-bottom"><span>{lang === 'EN' ? 'Course certificate' : 'Attestation de formation'}</span><span>{lang === 'EN' ? 'Certificate provided' : 'Certificat fourni'}</span></div>
+              </div>
+            </article>
             </div>
-            <div className="cert-item">
-              <span className="cert-icon"><Award size={19}/></span>
-              <div><h3>AWS Academy Graduate</h3><p>Cloud Foundations · Trained Badge</p><small>Amazon Web Services Academy</small></div><Check size={16} className="cert-check"/>
-            </div>
-            <div className="cert-item">
-              <span className="cert-icon"><Workflow size={19}/></span>
-              <div><h3>Web Search API in n8n</h3><p>Integrated in automated workflows</p><small>Tavily</small></div><Check size={16} className="cert-check"/>
-            </div>
+            <p className="credentials-note">{lang === 'EN' ? 'Illustrations are custom portfolio artwork. Credential links point to verification pages where available.' : 'Les illustrations sont des visuels créés pour le portfolio. Les liens mènent aux pages de vérification lorsqu’elles sont disponibles.'}</p>
           </div>
         </section>
 
