@@ -974,7 +974,12 @@ function App() {
           <div className="section-wrap">
             <div className="section-kicker"><span>07</span>{t.certLabel}</div>
             <h2 className="section-title" id="credentials-title">{t.certTitle}<span>.</span></h2>
-            <p className="credentials-intro">{lang === 'EN' ? 'Selected learning milestones in AI agents, retrieval-augmented generation, web search and cloud infrastructure.' : 'Formations et certifications en agents IA, génération augmentée par récupération, recherche web et infrastructure cloud.'}</p>
+            <p className="credentials-intro">{lang === 'EN' ? 'A growing collection of documented learning milestones in agentic AI, retrieval-augmented generation, web search and cloud infrastructure.' : 'Un ensemble de formations documentées en IA agentique, génération augmentée par récupération, recherche web et infrastructure cloud.'}</p>
+            <div className="credentials-overview" aria-label={lang === 'EN' ? 'Certification overview' : 'Aperçu des certifications'}>
+              <div><strong>05</strong><span>{lang === 'EN' ? 'Selected credentials' : 'Certificats sélectionnés'}</span></div>
+              <div><strong>04</strong><span>{lang === 'EN' ? 'Issuing organizations' : 'Organismes émetteurs'}</span></div>
+              <div><strong>03</strong><span>{lang === 'EN' ? 'Verifiable badges' : 'Badges vérifiables'}</span></div>
+            </div>
             <div className="credentials-grid">
             <article className="credential-card" key="0">
               <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/ibm-agent.svg'} alt="IBM SkillsBuild — Build an AI Agent badge illustration" loading="lazy" /></div>
@@ -995,12 +1000,12 @@ function App() {
               </div>
             </article>
             <article className="credential-card" key="2">
-              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/huggingface-agents.svg'} alt="Hugging Face — Fundamentals of Agents — Unit 1 badge illustration" loading="lazy" /></div>
+              <div className="credential-visual"><img src={import.meta.env.BASE_URL + 'certificates/huggingface-agents.svg'} alt="Illustrative artwork for Hugging Face Fundamentals of Agents course" loading="lazy" /></div>
               <div className="credential-detail">
                 <div className="credential-issuer"><span className="credential-mark" aria-hidden="true">🤗</span><span>Hugging Face</span></div>
                 <h3>{lang === 'EN' ? 'Fundamentals of Agents — Unit 1' : 'Fondamentaux des agents — Unité 1'}</h3>
                 <p>{lang === 'EN' ? 'Agent fundamentals and the Thought–Action–Observation cycle.' : 'Principes des agents et cycle Pensée–Action–Observation.'}</p>
-                <div className="credential-bottom"><span>15 Nov 2026</span><a href="https://huggingface.co/learn/agents-course/unit1/final-quiz" target="_blank" rel="noopener noreferrer">{lang === 'EN' ? 'View credential' : 'Voir le certificat'} <ArrowUpRight size={13}/></a></div>
+                <div className="credential-bottom"><span>15 Nov 2026</span><a href="https://huggingface.co/learn/agents-course/unit1/final-quiz" target="_blank" rel="noopener noreferrer">{lang === 'EN' ? 'View course' : 'Voir la formation'} <ArrowUpRight size={13}/></a></div>
               </div>
             </article>
             <article className="credential-card" key="3">
@@ -1022,7 +1027,7 @@ function App() {
               </div>
             </article>
             </div>
-            <p className="credentials-note">{lang === 'EN' ? 'Illustrations are custom portfolio artwork. Credential links point to verification pages where available.' : 'Les illustrations sont des visuels créés pour le portfolio. Les liens mènent aux pages de vérification lorsqu’elles sont disponibles.'}</p>
+            <p className="credentials-note">{lang === 'EN' ? 'The images above are stylized portfolio illustrations, not original issued badges. IBM and AWS cards link to Credly verification; Hugging Face links to the course, and the Tavily certificate has no public verification link supplied.' : 'Les images ci-dessus sont des illustrations du portfolio et non les badges officiels. Les badges IBM et AWS renvoient vers Credly ; Hugging Face vers le cours, et aucun lien public de vérification n’a été fourni pour Tavily.'}</p>
           </div>
         </section>
 
