@@ -955,7 +955,7 @@
 .credential-entry:first-child{padding-top:12px}
 .credential-entry:last-child{border-bottom:0}
 .credential-heading{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.credential-issuer-logo{height:29px;width:36px;object-fit:contain;flex-shrink:0}
+.credential-issuer-logo{height:36px;width:42px;object-fit:contain;flex-shrink:0;background:#f3f7fd;border-radius:5px;padding:6px}
 .credential-heading-copy{display:flex;flex-direction:column;gap:3px}
 .credential-issuer-name{color:#d3e0f4;font-weight:700;font-size:11px}
 .credential-issued{color:#8097b5;font:9px 'DM Mono',monospace}
@@ -963,7 +963,7 @@
 .credential-description{color:#90a4be;font-size:10px;line-height:1.65;margin:0 0 13px}
 .credential-evidence{display:flex;align-items:flex-end;flex-wrap:wrap;gap:11px}
 .credential-evidence-item{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:0}
-.credential-sprite{display:block;width:112px;height:70px;background-color:#fff;background-image:url('/certificates/issued-credentials-contact-sheet.webp');background-repeat:no-repeat;background-size:448px 140px;border:1px solid rgba(172,194,220,.24);border-radius:4px;box-shadow:0 3px 12px #0003}
+.credential-sprite{display:block;width:140px;height:87.5px;background-color:#fff;background-image:url('/certificates/issued-credentials-contact-sheet.webp');background-repeat:no-repeat;background-size:560px 175px;border:1px solid rgba(172,194,220,.24);border-radius:4px;box-shadow:0 3px 12px #0003}
 .credential-evidence-item figcaption{color:#8ca2bf;font:9px 'DM Mono',monospace}
 .credential-external{display:inline-flex;align-items:center;gap:4px;color:#a9c9ff;font-size:10px;font-weight:650;margin:0 0 18px 2px}
 .credential-external:hover{color:#fff;text-decoration:underline}
