@@ -988,8 +988,8 @@ function App() {
                 </div>
                 <h3>{lang === 'EN' ? item.title : item.titleFr}</h3><p className="credential-description">{lang === 'EN' ? item.detail : item.detailFr}</p>
                 <div className="credential-evidence">
-                  {'badgeTile' in item && typeof item.badgeTile === 'number' && <figure className="credential-evidence-item"><span className="credential-sprite" role="img" aria-label={item.issuer + ' awarded badge'} style={{backgroundPosition: `${-(item.badgeTile % 4) * 112}px ${-Math.floor(item.badgeTile / 4) * 70}px`}}/><figcaption>Badge</figcaption></figure>}
-                  <figure className="credential-evidence-item"><span className="credential-sprite" role="img" aria-label={item.issuer + ' issued certificate'} style={{backgroundPosition: `${-(item.certificateTile % 4) * 112}px ${-Math.floor(item.certificateTile / 4) * 70}px`}}/><figcaption>{lang === 'EN' ? 'Certificate' : 'Certificat'}</figcaption></figure>
+                  {'badgeTile' in item && typeof item.badgeTile === 'number' && <figure className="credential-evidence-item"><span className="credential-sprite" role="img" aria-label={item.issuer + ' awarded badge'} style={{backgroundPosition: `${-(item.badgeTile % 4) * 140}px ${-Math.floor(item.badgeTile / 4) * 87.5}px`}}/><figcaption>Badge</figcaption></figure>}
+                  <figure className="credential-evidence-item"><span className="credential-sprite" role="img" aria-label={item.issuer + ' issued certificate'} style={{backgroundPosition: `${-(item.certificateTile % 4) * 140}px ${-Math.floor(item.certificateTile / 4) * 87.5}px`}}/><figcaption>{lang === 'EN' ? 'Certificate' : 'Certificat'}</figcaption></figure>
                   {'link' in item && item.link && <a className="credential-external" href={item.link} target="_blank" rel="noopener noreferrer">{item.linkKind === 'verify' ? (lang === 'EN' ? 'Verify' : 'Vérifier') : (lang === 'EN' ? 'Course' : 'Cours')} <ArrowUpRight size={13}/></a>}
                 </div>
               </article>
