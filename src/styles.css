@@ -945,28 +945,33 @@
 }
 
 
-/* Education + certifications: concise editorial two-column design */
-.education-credentials{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(35px,5vw,76px);align-items:start;padding-top:38px;padding-bottom:105px}
-.education-credentials .education-column,.education-credentials .cert-column{min-width:0}
-.education-credentials .cert-column{border-left:1px solid rgba(155,179,215,.16);padding-left:clamp(20px,3vw,40px)}
-.education-credentials .section-title{margin-bottom:24px}
-.credentials-intro{color:#9cafc7;font-size:11px;line-height:1.75;margin:0 0 11px}
-.credential-entry{padding:22px 0 24px;border-bottom:1px solid rgba(143,174,220,.16)}
-.credential-entry:first-child{padding-top:12px}
-.credential-entry:last-child{border-bottom:0}
-.credential-heading{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.credential-issuer-logo{height:36px;width:42px;object-fit:contain;flex-shrink:0;background:#f3f7fd;border-radius:5px;padding:6px}
-.credential-heading-copy{display:flex;flex-direction:column;gap:3px}
-.credential-issuer-name{color:#d3e0f4;font-weight:700;font-size:11px}
-.credential-issued{color:#8097b5;font:9px 'DM Mono',monospace}
-.credential-entry h3{color:#edf4ff;font-size:13px;font-weight:700;line-height:1.5;margin:0 0 5px}
-.credential-description{color:#90a4be;font-size:10px;line-height:1.65;margin:0 0 13px}
-.credential-evidence{display:flex;align-items:flex-end;flex-wrap:wrap;gap:11px}
-.credential-evidence-item{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:0}
-.credential-sprite{display:block;width:140px;height:87.5px;background-color:#fff;background-image:url('/certificates/issued-credentials-contact-sheet.webp');background-repeat:no-repeat;background-size:560px 175px;border:1px solid rgba(172,194,220,.24);border-radius:4px;box-shadow:0 3px 12px #0003}
-.credential-evidence-item figcaption{color:#8ca2bf;font:9px 'DM Mono',monospace}
-.credential-external{display:inline-flex;align-items:center;gap:4px;color:#a9c9ff;font-size:10px;font-weight:650;margin:0 0 18px 2px}
-.credential-external:hover{color:#fff;text-decoration:underline}
-.credential-external:focus-visible{outline:2px solid #a9c9ff;outline-offset:3px}
-@media(max-width:900px){.education-credentials{gap:23px}.education-credentials .cert-column{padding-left:22px}}
-@media(max-width:700px){.education-credentials{display:grid;grid-template-columns:1fr;gap:50px;padding-bottom:80px}.education-credentials .cert-column{border-left:0;border-top:1px solid rgba(155,179,215,.18);padding:42px 0 0}}
+
+/* Education is an independent section; certifications sit below in two editorial columns. */
+.education-single{display:block;padding:54px 0 66px}
+.education-single .education-column{max-width:760px}
+.education-single .section-title{margin-bottom:28px}
+.credentials-section{padding:65px 0 100px;border-top:1px solid rgba(148,175,210,.15);background:linear-gradient(180deg,rgba(13,25,43,.35),rgba(8,17,29,.04))}
+.credentials-section .section-title{margin-bottom:18px}
+.credentials-intro{color:#a0b2ca;max-width:660px;font-size:12px;line-height:1.75;margin:0 0 26px}
+.credential-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(34px,5vw,90px);row-gap:0}
+.credential-entry{padding:26px 0 29px;border-top:1px solid rgba(156,184,220,.2);min-width:0}
+.credential-heading{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.credential-issuer-logo{width:48px;height:36px;object-fit:contain;flex-shrink:0;border-radius:4px;background:#edf3fa;padding:5px}
+.credential-heading-copy{display:flex;flex-direction:column;gap:4px}
+.credential-issuer-name{color:#dce8f9;font-size:12px;font-weight:700}
+.credential-issued{color:#8da4c2;font:9px 'DM Mono',monospace}
+.credential-entry h3{font-size:16px;line-height:1.4;font-weight:700;color:#f0f5ff;letter-spacing:-.02em;margin:0 0 8px}
+.credential-description{font-size:11px;color:#9aafc7;line-height:1.7;margin:0 0 17px}
+.credential-evidence{display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.credential-evidence-item{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:0;max-width:100%}
+.credential-image{display:block;object-fit:contain;object-position:left center;max-width:100%;height:auto;background:transparent;padding:0;border:0;border-radius:0;box-shadow:none}
+.credential-image--badge{width:110px;height:auto}
+.credential-image--aws{clip-path:polygon(12% 9%,88% 9%,88% 77%,50% 92%,12% 77%)}
+.credential-image--certificate{width:250px;height:auto;max-width:100%}
+.credential-evidence-item figcaption{font:9px 'DM Mono',monospace;color:#829ab8;letter-spacing:.02em}
+.credential-external{display:inline-flex;gap:6px;align-items:center;color:#a9cbff;font-size:11px;font-weight:650}
+.credential-external:hover{text-decoration:underline;color:#fff}
+.credential-external:focus-visible{outline:2px solid #a9cbff;outline-offset:3px}
+@media(max-width:900px){.credential-list{column-gap:32px}.credential-evidence{gap:13px}.credential-image--certificate{width:205px}}
+@media(max-width:700px){.education-single{padding:40px 0 55px}.credentials-section{padding:56px 0 80px}.credential-list{grid-template-columns:1fr}.credential-image--certificate{width:250px}}
+@media(prefers-reduced-motion:reduce){.credential-image{transition:none}}
