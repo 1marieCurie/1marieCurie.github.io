@@ -130,7 +130,7 @@ const copy = {
 
 const credentialEntries = [
  {id:"ibm-agent",issuer:"IBM SkillsBuild",issuerLogo:"ibm.svg",title:"Build an AI Agent",titleFr:"Build an AI Agent",date:"15 Nov 2026",dateFr:"15 nov. 2026",detail:"Agent design, tool calling and evaluation",detailFr:"Conception d’agents, outils et évaluation",link:"https://www.credly.com/go/kFti61w2",linkKind:"verify",certificateImage:"ibm-agent-certificate.webp",badgeUrl:"https://images.credly.com/images/d8f30e8e-4c24-42e8-bb15-b106bb082614/BadgeEmblem_BuildAnAIAgent.png"},
- {id:"hf-agents",issuer:"Hugging Face",issuerLogo:"huggingface.svg",title:"Fundamentals of Agents — Unit 1",titleFr:"Fondamentaux des agents — Unité 1",date:"15 Nov 2026",dateFr:"15 nov. 2026",detail:"Foundations of agentic systems",detailFr:"Fondamentaux des systèmes agentiques",link:"https://huggingface.co/learn/agents-course/unit1/final-quiz",linkKind:"course",certificateImage:"huggingface-certificate.svg"},
+ {id:"hf-agents",issuer:"Hugging Face",title:"Fundamentals of Agents — Unit 1",titleFr:"Fondamentaux des agents — Unité 1",date:"15 Nov 2026",dateFr:"15 nov. 2026",detail:"Foundations of agentic systems",detailFr:"Fondamentaux des systèmes agentiques",link:"https://huggingface.co/learn/agents-course/unit1/final-quiz",linkKind:"course",certificateImage:"huggingface-authentic-certificate.webp"},
  {id:"ibm-rag",issuer:"IBM SkillsBuild",issuerLogo:"ibm.svg",title:"Retrieval-Augmented Generation for Enhanced AI Outputs",titleFr:"Retrieval-Augmented Generation for Enhanced AI Outputs",date:"02 Nov 2026",dateFr:"02 nov. 2026",detail:"Retrieval and grounded generation",detailFr:"Recherche documentaire et génération contextualisée",link:"https://www.credly.com/go/rMFOOE2b",linkKind:"verify",certificateImage:"ibm-rag-certificate.webp",badgeUrl:"https://images.credly.com/images/2dbf6354-48b2-4fa6-b350-8944a15f82de/Retrieval-Augmented_20Generation_20for_20Enhanced_20AI_20Outputs.png"},
  {id:"aws-cloud",issuer:"AWS Academy",issuerLogo:"aws.svg",title:"Cloud Foundations",titleFr:"Cloud Foundations",date:"18 Jul 2026",dateFr:"18 juil. 2026",detail:"20-hour cloud foundations training",detailFr:"Formation de 20 heures aux fondamentaux du cloud",link:"https://www.credly.com/go/7cJkodQY",linkKind:"verify",certificateImage:"aws-certificate.svg",badgeUrl:"https://images.credly.com/images/e3541a0c-dd4a-4820-8052-5001006efc85/blob"},
  {id:"tavily-web",issuer:"Tavily",title:"Web Search API",titleFr:"Web Search API",date:"",dateFr:"",detail:"Web search APIs for AI applications",detailFr:"API de recherche web pour les applications IA",certificateImage:"tavily-certificate.svg"}
@@ -987,7 +987,11 @@ function App() {
               {credentialEntries.map(item => (
                 <article className="credential-entry" key={item.id}>
                   <div className="credential-heading">
-                    {'issuerLogo' in item && item.issuerLogo && <img className="credential-issuer-logo" src={import.meta.env.BASE_URL + 'issuer-logos/' + item.issuerLogo} alt={item.issuer + ' logo'} loading="lazy"/>}
+                    {item.id === 'hf-agents' ? (
+                      <span className="credential-hf-logo" role="img" aria-label="Hugging Face logo">🤗</span>
+                    ) : ('issuerLogo' in item && item.issuerLogo && (
+                      <img className="credential-issuer-logo" src={import.meta.env.BASE_URL + 'issuer-logos/' + item.issuerLogo} alt={item.issuer + ' logo'} loading="lazy" />
+                    ))}
                     <div className="credential-heading-copy">
                       <span className="credential-issuer-name">{item.issuer}</span>
                       {item.date && <span className="credential-issued">{lang === 'EN' ? item.date : item.dateFr}</span>}
@@ -1003,7 +1007,7 @@ function App() {
                       </figure>
                     )}
                     <figure className="credential-evidence-item credential-evidence-certificate">
-                      <img className="credential-image credential-image--certificate" src={import.meta.env.BASE_URL + 'certificates/' + item.certificateImage} alt={item.title + ' original IBM SkillsBuild certificate'} loading="lazy"/>
+                      <img className="credential-image credential-image--certificate" src={import.meta.env.BASE_URL + 'certificates/' + item.certificateImage} alt={item.title + ' certificate issued by ' + item.issuer} loading="lazy"/>
                       <figcaption>{lang === 'EN' ? 'Certificate preview' : 'Aperçu du certificat'}</figcaption>
                     </figure>
                   </div>
