@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import {
-  ArrowDown, ArrowUpRight, Award, BrainCircuit, Check,
+  ArrowDown, ArrowUpRight, Award, BrainCircuit,
   Code2, Database, Github, Globe2, GraduationCap,
   ChevronLeft, ChevronRight, Languages, Mail, MapPin, Menu, Network, ShieldCheck, Sparkles,
   Terminal, Workflow, X, Zap,
